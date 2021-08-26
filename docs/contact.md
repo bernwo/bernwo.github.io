@@ -1,6 +1,6 @@
 layout: page
 title: "Contact"
-permalink: https://bernie-wu.github.io/about/contact
+permalink: https://bernie-wu.github.io/about/contact/
 
 Testing, testing, testing.
 This is newline without space.
