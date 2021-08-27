@@ -1,0 +1,15 @@
+---
+---
+
+body {
+    font-family: "Poppins", sans-serif;
+    word-wrap: break-word;
+    -moz-hyphens:auto; 
+    -webkit-hyphens:auto; 
+    -o-hyphens:auto; 
+    hyphens:auto;
+    text-align: justify;
+    text-justify: inter-character; // 'inter-word' or 'inter-character'
+}
+
+@import "portfolYOU";
