@@ -15,5 +15,5 @@
   color: 
 
 - name: Adobe Lightroom
-percentage: 70
-color: light
+  percentage: 70
+  color: light
