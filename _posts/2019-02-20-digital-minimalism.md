@@ -14,6 +14,10 @@ A common trend I’ve been seeing is the urgency to delete all your social media
 
 Anyways, here are five things I’ve done which have allowed me to be a participant in the digital world, but not have my attention micromanaged:
 
+```math
+\sum_{i=0}^{\infty} x_i = \pi^\log{x}
+```
+
 ## 1. Unsubscribe from irrelevant emails
 
 Inbox-zero isn’t a new idea but it’s infinitely more difficult to achieve this if you’re bombarded with emails from random retailers offering coupons and one-in-a-lifetime deals you’re never going to use.
