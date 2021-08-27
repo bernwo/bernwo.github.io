@@ -1,9 +1,8 @@
 ### Site Settings ###
 title               : Bernard Wo
 description         : >-
-                      I turn coffee :coffee: into code,
-                      use tabs over spaces
-                      and never broke production.
+                      In my spare time, I love to expand my Hilbert space with some highly coherent coffee :coffee:.
+                      During other times, I am entangled with my research work on quantum communication.
 # url: "https://bernwo.github.io"
 # baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : bernwo/bernwo.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
