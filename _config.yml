@@ -1,5 +1,5 @@
 ### Site Settings ###
-title               : Bernard Wo Kah Jen
+title               : Bernard Wo
 description         : >-
                       I turn coffee :coffee: into code,
                       use tabs over spaces
@@ -24,18 +24,18 @@ nav_exclude:                                            # The following paths ar
 
 ### Author Info ###
 author:
-  name              : Kah Jen, Wo (Bernard)
+  name              : Kah Jen Wo (Bernard)
   image             : https://avatars.githubusercontent.com/u/53580103
   # behance           : your_username
 # dribbble          : your_username
-  email             : username@domain.com
+  email             : bernardwu@outlook.my
   # facebook          : your_username
   github            : bernwo
 # gitlab            : your_username
 # instagram         : your_username
 # kaggle            : your_username
   linkedin          : kah-jen-wo-762620175
-  medium            : bernwo
+  # medium            : bernwo
 # soundcloud        : your_username
 # spotify           : your_username
 # stackoverflow     : your_user_id

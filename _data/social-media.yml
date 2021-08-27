@@ -46,10 +46,10 @@ linkedin:
   icon  : fab fa-linkedin-in
   color : 007bb5
 
-medium:
-  url   : https://medium.com/@
-  icon  : fab fa-medium
-  color : 00ab6c
+# medium:
+#   url   : https://medium.com/@
+#   icon  : fab fa-medium
+#   color : 00ab6c
 
 # soundcloud:
 #   url   : https://www.soundcloud.com/
