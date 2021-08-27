@@ -1,17 +1,16 @@
-- title: Student, MSc Applied Physics @ TU Delft, NL
+- title: Student, MSc Applied Physics @ Delft University of Technology, NL
   from: 2020
   to: present
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  description: I am on a 2 year Master's programme at Delft University of Technology (TU Delft), fully funded under the *QuTech SCholarship*.
+               Recently, I joined a research group @ QuTech, namely the Borregaard Group, where I will be working on my Master's thesis, which 
+               is about quantum communication. In particular, I will be looking into how hybrid protocols involving quantum error correction code 
+               concatenation and entanglement purification can improve the performance of 3rd generation quantum repeaters.
 
 - title: Student, BSc Applied Physics @ City University of Hong Kong, HK
   from: 2017
   to: 2020
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  description: I spent 3 years in City University of Hong Kong (CityUHK) under the prestigious *HKSAR Top Scholarship*
+               studying both applied physics (major) and computer science (minor). In addition, I spent 3 months on an
+               internship in McGill University, CA as well as 6 months on an exchange to KTH Royal Institute of Technology, SE.
+               My final year project in CityUHK involves computational electromagnetism, and with my supervisor and co-workers' help
+               the associated work has been published on a reputable journal. Finally, I graduated with a first class honours.
