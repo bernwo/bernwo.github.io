@@ -4,7 +4,7 @@
 
 - name: Wolfram Mathematica
   percentage: 90
-  color: warning
+  color: danger
 
 - name: Inkscape
   percentage: 70
@@ -16,4 +16,4 @@
 
 - name: Adobe Lightroom
   percentage: 70
-  color: dark
+  color: warning
