@@ -1,7 +1,7 @@
-- name: Adobe Photoshop
-  percentage: 95
-  color: info
-
-- name: Adobe Illustrator
+- name: Wolfram Mathematica
   percentage: 90
+  color: Warning
+
+- name: Adobe Photoshop
+  percentage: 60
   color: success

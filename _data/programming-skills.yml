@@ -6,10 +6,14 @@
   percentage: 90
   color: warning
 
+- name: Powershell
+  percentage: 80
+  color: info
+
 - name: C++
-  percentage: 70
+  percentage: 75
   color: secondary
 
   name: Julia
-  percentage: 70
+  percentage: 75
   color: info
