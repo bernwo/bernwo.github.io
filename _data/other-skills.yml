@@ -1,7 +1,19 @@
+- name: Microsoft Office
+  percentage: 90
+  color: 
+
 - name: Wolfram Mathematica
   percentage: 90
   color: Warning
 
+- name: Inkscape
+  percentage: 70
+  color: info
+
 - name: Adobe Photoshop
-  percentage: 60
-  color: success
+  percentage: 70
+  color: 
+
+- name: Adobe Lightroom
+percentage: 70
+color: light
