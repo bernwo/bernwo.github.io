@@ -50,4 +50,4 @@ From Equation \[\ref{qubit}\], we see that the possible states that our single q
  - Give general expression in terms of psi and phi
  - Plot a Bloch sphere 
 
-<iframe src="../assets/media/animated/Qubit.mp4" frameborder="0" allowfullscreen></iframe>
+<video src="../assets/media/animated/Qubit.mp4" autoplay muted loop></video>
