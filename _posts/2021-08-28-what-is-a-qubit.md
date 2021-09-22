@@ -54,6 +54,6 @@ $$|-i\rangle=\frac{1}{\sqrt{2}}(|0\rangle-i|1\rangle)
 |+i\rangle=\frac{1}{\sqrt{2}}(|0\rangle+i|1\rangle)
 $$
 
-The computational basis, also known as the $Z$-basis, together with the $X$- and $Y$-basis can be plotted as along the $z$, $x$, and $y$ axis in the Bloch sphere representation, respectively. An animation showing how the qubit state can be represented as a Bloch vector along the Bloch sphere (which is a unit-sphere) in 3D space.
+The computational basis, also known as the $Z$-basis, together with the $X$- and $Y$-basis can be plotted as along the $z$, $x$, and $y$ axis in the Bloch sphere representation, respectively. An animation showing how the qubit state can be represented as a Bloch vector along the Bloch sphere (which is a unit-sphere) in 3D space can be seen below.
 
 <video src="../assets/media/animated/Qubit.mp4" autoplay muted loop></video>
