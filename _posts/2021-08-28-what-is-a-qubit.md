@@ -31,7 +31,7 @@ $$|0\rangle=\left(
 \right) \label{}
 $$
 
-Now, it may seem that we need 4 degrees of freedom (which are real numbers in this case) to describe the qubit state since each of the 2 complex constants are described using two real numbers. However, by using <a href="https://en.wikipedia.org/wiki/3-sphere#Hopf_coordinates" target="_blank" rel="noopener noreferrer">Hopf coordinates</a>, we can rewrite the expression in Equation \[\ref{qubit}\] like so
+It may seem that we need 4 degrees of freedom (which are real numbers in this case) to describe the qubit state since each of the 2 complex constants are described using two real numbers. However, by using <a href="https://en.wikipedia.org/wiki/3-sphere#Hopf_coordinates" target="_blank" rel="noopener noreferrer">Hopf coordinates</a>, we can rewrite the expression in Equation \[\ref{qubit}\] like so
 
 $$
 |\psi\rangle=
@@ -40,14 +40,20 @@ $$
 
 where we have omitted the global phase factor $e^{i\psi}$ because it is irrelevant in the sense that it has no physically observable meaning. As we can see from Equation \[\ref{hopf}\], the number of degrees of freedom needed to describe the qubit state has reduced from 4 to 2.
 
- - Talk about the other basis.
-   - Give python example.
+From Equation \[\ref{qubit}\], we see that the possible states that our single qubit can take on is a continuum, as opposed to a classical bit, which can take on only state $0$ or $1$. It is this property which gives qubits advantage over the classical bits.
 
+Besides the computational basis, there are also the $X$-basis ($\\{\| - \rangle,\| + \rangle\\}$) and the $Y$-basis ($\\{\| -i \rangle,\| +i \rangle\\}$), where each of these can be expressed in terms of $\|0\rangle$ and $\|1\rangle$ as shown below
 
-From Equation \[\ref{qubit}\], we see that the possible states that our single qubit can take on is a continuum, as opposed to a classical bit, which can take on only state $0$ or $1$.
+$$|-\rangle=\frac{1}{\sqrt{2}}(|0\rangle-|1\rangle)
+,\quad
+|+\rangle=\frac{1}{\sqrt{2}}(|0\rangle+|1\rangle)
+$$
 
- - Talk about how 4 real numbers are needed.
- - Give general expression in terms of psi and phi
- - Plot a Bloch sphere 
+$$|-i\rangle=\frac{1}{\sqrt{2}}(|0\rangle-i|1\rangle)
+,\quad
+|+i\rangle=\frac{1}{\sqrt{2}}(|0\rangle+i|1\rangle)
+$$
+
+The computational basis, also known as the $Z$-basis, together with the $X$- and $Y$-basis can be plotted as along the $z$, $x$, and $y$ axis in the Bloch sphere representation, respectively. An animation showing how the qubit state can be represented as a Bloch vector along the Bloch sphere (which is a unit-sphere) in 3D space.
 
 <video src="../assets/media/animated/Qubit.mp4" autoplay muted loop></video>
