@@ -115,3 +115,14 @@ Right aligned columns
 ## Quotes
 
 "Double quotes" and 'single quotes'
+
+## MathJax test
+
+The sum of all the frabulons is given by: $\sum_{i}^{\infty}\sum_{j}^{\infty}\rho_{ij}$, where $i$ and $j$ indexes the frabuscon, which contains frabulons.
+In display format as shown in $\ref{eqn:frabuscon}$:
+
+$$\sum_{i}^{\infty}\sum_{j}^{\infty}\rho_{ij}\label{eqn:frabuscon}$$
+
+## Test citation.
+
+The paper by [@PhysRevA.102.043526] is the best ever.

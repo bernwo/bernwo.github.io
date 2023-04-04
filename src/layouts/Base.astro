@@ -18,6 +18,133 @@ const {
 <html lang={siteConfig.lang}>
 	<head>
 		<BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
+		<!-- MathJAX support -->
+		<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+				displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+				processEscapes: true
+			}
+			});
+		</script>
+		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js" integrity="sha256-PRbDoi//4nBAaq7sIfxyRT3anw7tVuazUIAyHkk1Y5M=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/echarts-gl@2.0.9/dist/echarts-gl.min.js" integrity="sha256-v7obh7jDwG5cftd0EAJYbHR7AOTv2qkgd9FcLcchvaA=" crossorigin="anonymous"></script>
+		<script>
+			function generate_random_data(n) {
+				return Array.from({ length: n * n }, (_, i) => [~~(i / n), i % n, Math.random()]);
+			}
+			// echarts.use([
+			// 	TooltipComponent,
+			// 	VisualMapComponent,
+			// 	Grid3DComponent,
+			// 	Bar3DChart,
+			// 	CanvasRenderer,
+			// ]);
+			const size = 2 ** 5;
+			const chartDom = document.getElementById("chart");
+			let myChart = echarts.init(chartDom);
+			let option;
+			const colorLength = 32;
+			const colorScale = d3.scaleSequential(d3.interpolateRdPu).domain([0, 1]);
+			const colorData = Array.from({ length: colorLength }, (_, j) =>
+				colorScale(1 - j / colorLength)
+			);
+			option = {
+				animation: false,
+				tooltip: {
+					show: true,
+					confine: true,
+					trigger: "item",
+					axisPointer: { label: { show: true } },
+					backgroundColor: "#ffffffea",
+				},
+				visualMap: {
+					max: 1,
+					min: 0,
+					inRange: { color: colorData },
+				},
+				xAxis3D: {
+					minInterval: 1,
+					min: 0,
+					max: size - 1,
+					name: "i",
+					nameTextStyle: {
+						fontSize: 24,
+						fontStyle: "italic",
+						fontFamily: "serif",
+					},
+				},
+				yAxis3D: {
+					minInterval: 1,
+					min: 0,
+					max: size - 1,
+					name: "j",
+					nameTextStyle: {
+						fontSize: 24,
+						fontStyle: "italic",
+						fontFamily: "serif",
+					},
+				},
+				zAxis3D: {
+					type: "value",
+					minInterval: 1,
+					min: 0,
+					max: 1,
+					name: "|ρᵢⱼ|",
+					nameTextStyle: {
+						fontSize: 33,
+						fontStyle: "italic",
+						fontFamily: "serif",
+					},
+					interval: 1,
+				},
+				grid3D: {
+					show: true,
+					boxWidth: 120,
+					boxDepth: 120,
+					boxHeight: 35,
+					viewControl: {
+						projection: "orthographic",
+						panMouseButton: "right",
+						rotateMouseButton: "left",
+					},
+				},
+				series: [
+					{
+						name: "ρᵢⱼ",
+						type: "bar3D",
+						data: generate_random_data(size).map((item) => {
+							return {
+								value: [item[0], item[1], item[2]],
+							};
+						}),
+						shading: "lambert",
+						barSize: 120 / size,
+						label: {
+							show: false,
+							fontSize: 16,
+							borderWidth: 1,
+						},
+						itemStyle: {
+							opacity: 1,
+						},
+						emphasis: {
+							label: {
+								show: false,
+							},
+							itemStyle: {
+								color: "#900",
+							},
+						},
+					},
+				],
+			};
+			option && myChart.setOption(option);
+		</script>
+		<script src="https://d3js.org/d3.v7.js"></script>
 		<script define:vars={{ siteConfig }}>
 			const root = document.documentElement;
 			const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
