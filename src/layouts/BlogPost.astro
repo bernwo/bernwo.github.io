@@ -87,3 +87,9 @@ const { headings } = await post.render();
 		</svg>
 	</button>
 </BaseLayout>
+
+<script hoist>
+	// https://docs.astro.build/en/guides/upgrade-to/v1/#deprecated-astroresolve
+	import {createBar3D} from '../scripts/plot.js';
+	createBar3D("wochart", 32);
+</script>
