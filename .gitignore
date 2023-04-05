@@ -21,6 +21,7 @@ pnpm-debug.log*
 .DS_Store
 
 # misc
+*tmp*/
 .github
 .vscode
 *.pem
