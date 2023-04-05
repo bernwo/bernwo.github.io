@@ -37,6 +37,7 @@ pnpm-debug.log*
 *tmp*.md
 *tmp*.mdx
 *tmp*.csv
+*tmp*.json
 *temp*.txt
 *temp*.bin
 *temp*.dat
@@ -46,3 +47,4 @@ pnpm-debug.log*
 *temp*.md
 *temp*.mdx
 *temp*.csv
+*temp*.json
