@@ -127,8 +127,10 @@ $$\sum_{i}^{\infty}\sum_{j}^{\infty}\rho_{ij}\label{eqn:frabuscon}$$
 
 <div>There should be a graph below here.</div>
 
-<div class="echarts" id="chart"></div>
+<div class="echarts" id="wochart"></div>
 
 The paper by [@PhysRevA.102.043526] and [@kjwo2022] is bloody awesome. The equation $\ref{eqn:amogus}$ is awesome too.
 
-$$\sum_{n=0}^{\infty}\mathrm{amogi}_n=\mathrm{\alpha mogus}\label{eqn:amogus}$$
+$$
+\sum_{n=0}^{\infty}\mathrm{amogi}_n=\mathrm{\alpha mogus}\label{eqn:amogus}
+$$

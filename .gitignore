@@ -48,3 +48,5 @@ pnpm-debug.log*
 *temp*.mdx
 *temp*.csv
 *temp*.json
+*temp*.html
+*tmp*.html
