@@ -90,6 +90,15 @@ const { headings } = await post.render();
 
 <script hoist>		
 	// https://docs.astro.build/en/guides/upgrade-to/v1/#deprecated-astroresolve
-	import {createBar3D} from '../scripts/plot.js';
-	createBar3D("wochart", 32);
+	import {createBar3D,updateEChartColour} from '../scripts/plot.js';
+	// elements with class "echarts" exist
+	const tmp = document.getElementsByClassName("echarts");
+	const hasECharts = tmp.length > 0;
+	// elements with class "dark" exist
+	const isDark = document.documentElement.classList.contains("dark");
+	if (hasECharts) {
+		wochart = createBar3D("wochart", 32, isDark);
+	}
+	const themeToggler = document.getElementById("toggle-theme");
+	themeToggler.addEventListener("click", () => {updateEChartColour(wochart, "wochart", 32, !isDark);});
 </script> 
