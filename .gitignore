@@ -28,6 +28,7 @@ pnpm-debug.log*
 *.pem
 .cache
 .astro
+*.ai
 *tmp
 *tmp*.txt
 *tmp*.bin
