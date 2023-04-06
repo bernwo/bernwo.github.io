@@ -11,7 +11,7 @@ import remarkBibtex from "@supremum/remark-bibtex";
 
 // https://astro.build/config
 export default defineConfig({
-	outDir: "../production-site",
+	outDir: "./dist",
 	site: "https://bernwo.github.io/",
 	markdown: {
 		syntaxHighlight: "shiki",
