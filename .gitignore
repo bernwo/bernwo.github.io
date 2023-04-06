@@ -1,3 +1,12 @@
+# build output
+dist/
+production-site/
+.output/
+build/
+
+# dependencies
+node_modules/
+
 # Local Site Directories
 _site/
 .sass-cache/
@@ -10,6 +19,49 @@ Gemfile.lock
 
 # Log Files
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Git Files
 .git/
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# misc
+*tmp*/
+.github
+.vscode
+*.pem
+.cache
+.astro
+*.ai
+*tmp
+*tmp*.txt
+*tmp*.bin
+*tmp*.dat
+*tmp*.png
+*tmp*.jpg
+*tmp*.pdf
+*tmp*.md
+*tmp*.mdx
+*tmp*.csv
+*tmp*.json
+*temp*.txt
+*temp*.bin
+*temp*.dat
+*temp*.png
+*temp*.jpg
+*temp*.pdf
+*temp*.md
+*temp*.mdx
+*temp*.csv
+*temp*.json
+*temp*.html
+*tmp*.html
