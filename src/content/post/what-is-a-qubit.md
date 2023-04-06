@@ -1,7 +1,7 @@
 ---
 title: "What is a qubit?"
 description: "Quantum bit explained in a technical manner with animation"
-publishDate: "08 Aug 2021"
+publishDate: "08 August 2021"
 tags: ["math", "quantum computing"]
 ---
 
