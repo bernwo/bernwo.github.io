@@ -38,10 +38,10 @@ const { headings } = await post.render();
 </script>
 
 <BaseLayout meta={{ title, description, articleDate, ogImage: socialImage }}>
-	<div class="gap-x-10 lg:flex lg:items-start">
+	<div class="gap-x-24 lg:flex lg:items-start">
 		{
 			!!headings.length && (
-				<aside class="sticky top-20 order-2 -mr-32 hidden basis-64 lg:block">
+				<aside class="sticky top-20 order-2 -mr-0 hidden basis-72 lg:block">
 					<h2 class="font-semibold">Table of Contents</h2>
 					<ul class="mt-4 text-xs">
 						{headings.map(({ depth, slug, text }) => (
@@ -62,7 +62,7 @@ const { headings } = await post.render();
 		<article class="flex-grow break-words">
 			<div id="blog-hero"><BlogHero content={post} /></div>
 			<div
-				class="prose prose-sm prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ml-4 prose-headings:before:text-accent prose-headings:before:content-['#'] prose-th:before:content-none"
+				class="prose max-w-3xl prose-base prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ml-4 prose-headings:before:text-accent prose-headings:before:content-['#'] prose-th:before:content-none"
 			>
 				<slot />
 			</div>
@@ -90,15 +90,11 @@ const { headings } = await post.render();
 
 <script hoist>		
 	// https://docs.astro.build/en/guides/upgrade-to/v1/#deprecated-astroresolve
-	import {createBar3D,updateEChartColour} from '../scripts/plot.js';
+	import {createBar3D} from '../scripts/plot.js';
 	// elements with class "echarts" exist
 	const tmp = document.getElementsByClassName("echarts");
 	const hasECharts = tmp.length > 0;
-	// elements with class "dark" exist
-	const isDark = document.documentElement.classList.contains("dark");
 	if (hasECharts) {
-		wochart = createBar3D("wochart", 32, isDark);
+		wochart = createBar3D("wochart", 32);
 	}
-	const themeToggler = document.getElementById("toggle-theme");
-	themeToggler.addEventListener("click", () => {updateEChartColour(wochart, "wochart", 32, !isDark);});
 </script> 

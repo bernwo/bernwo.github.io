@@ -1,18 +1,12 @@
 // From global.css
-const lightTextColour = "#22272a";
 const darkTextColour = "#f8f8f2";
 
 function generate_random_data(n) {
 	return Array.from({ length: n * n }, (_, i) => [~~(i / n), i % n, Math.random()]);
 }
 
-export function getBar3Doption(isDark, size) {
-	let textColour;
-	if (isDark) {
-		textColour = darkTextColour;
-	} else {
-		textColour = lightTextColour;
-	}
+export function getBar3Doption(size) {
+	const textColour = darkTextColour;
 	const colorLength = 32;
 	// prettier-ignore
 	const colorScale = d3.scaleSequential(d3.interpolateRdPu).domain([0, 1]);
@@ -22,7 +16,7 @@ export function getBar3Doption(isDark, size) {
 		animation: false,
 		tooltip: {
 			show: true,
-			confine: true,
+			confine: false,
 			trigger: "item",
 			axisPointer: { label: { show: true } },
 			backgroundColor: "#ffffffea",
@@ -120,23 +114,14 @@ export function getBar3Ddata(size) {
 	return option;
 }
 
-export function createBar3D(inputID, size, isDark) {
+export function createBar3D(inputID, size) {
 	const chartDom = document.getElementById(inputID);
 	if (chartDom != null) {
 		let myChart = echarts.init(chartDom);
-		const option = getBar3Doption(isDark, size);
+		const option = getBar3Doption(size);
 		const optionData = getBar3Ddata(size);
 		myChart.setOption(option);
 		myChart.setOption(optionData);
 		return myChart;
 	}
-}
-
-export function updateEChartColour(myEChart, inputID, size, isDark) {
-	const option = getBar3Doption(isDark, size);
-	const optionData = getBar3DData(size);
-	echarts.dispose(myEChart);
-	myEChart = echarts.init(document.getElementById(inputID));
-	myEChart.setOption(option);
-	myEChart.setOption(optionData);
 }

@@ -32,7 +32,7 @@
 	}
 
 	html body {
-		@apply mx-auto flex h-full max-w-3xl flex-col bg-bgColor px-8 pt-16 font-mono text-base font-semibold text-textColor antialiased;
+		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-8 pt-16 font-mono text-base font-semibold text-textColor antialiased;
 	}
 }
 
@@ -43,11 +43,12 @@
 }
 
 .echarts {
+	padding: 0%;
+	margin: 0%;
+	background-color: #272822;
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	text-align: center;
-	/* border: 5px solid black; */
+	align-items: center;
 	border-radius: 5px;
 	width: 100%;
 	aspect-ratio: 1618/1000;
@@ -56,9 +57,14 @@
 }
 
 .publication {
+	padding: 9px 2.7%;
 	border-radius: 5px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
 		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.publication li {
+	margin: 27px 0;
 }
 
 @tailwind components;
