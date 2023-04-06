@@ -36,7 +36,6 @@ pnpm-debug.log*
 
 # misc
 *tmp*/
-.github
 .vscode
 *.pem
 .cache
