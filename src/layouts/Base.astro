@@ -1,0 +1,78 @@
+---
+import type { SiteMeta } from "@/data/siteMeta";
+import BaseHead from "@/components/BaseHead";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import SkipLink from "@/components/SkipLink";
+import { siteConfig } from "@/site-config";
+
+interface Props {
+	meta: SiteMeta;
+}
+
+const {
+	meta: { title, description = siteConfig.description, ogImage, articleDate },
+} = Astro.props;
+---
+
+<html lang={siteConfig.lang}>
+	<head>
+		<BaseHead title={title} description={description} ogImage={ogImage} articleDate={articleDate} />
+		<!-- MathJAX support -->
+		<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+				displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+				processEscapes: true
+			},
+			});
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script define:vars={{ siteConfig }}>
+			const root = document.documentElement;
+			const colorThemeMetaTag = document.querySelector("meta[name='theme-color']");
+
+			// get user preference of dark mode, 1st local storage, 2nd browser
+			function getThemePreference() {
+				if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+					return localStorage.getItem("theme");
+				}
+				return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+			}
+
+			const isDark = getThemePreference() === "dark";
+
+			// watch document element class attribute and update user preference when it changes.
+			const observer = new MutationObserver(() => {
+				const rootIsDark = root.classList.contains("dark");
+				// set the meta attribute
+				colorThemeMetaTag.setAttribute(
+					"content",
+					siteConfig[rootIsDark ? "themeColorDark" : "themeColorLight"]
+				);
+				// store user preference
+				if (typeof localStorage !== "undefined") {
+					localStorage.setItem("theme", rootIsDark ? "dark" : "light");
+				}
+			});
+			observer.observe(root, { attributeFilter: ["class"] });
+
+			// initailse root class attribute
+			root.classList.toggle("dark", isDark);
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js" integrity="sha256-PRbDoi//4nBAaq7sIfxyRT3anw7tVuazUIAyHkk1Y5M=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/echarts-gl@2.0.9/dist/echarts-gl.min.js" integrity="sha256-v7obh7jDwG5cftd0EAJYbHR7AOTv2qkgd9FcLcchvaA=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3@7.8.3/dist/d3.min.js" integrity="sha256-z9jvEmgHGEfWO4rPfEXUGKFd6UkxkavfJ0zf3qT31O4=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<SkipLink />
+		<Header />
+		<main id="main" class="flex-1">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

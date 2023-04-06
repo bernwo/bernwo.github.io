@@ -1,0 +1,71 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@tailwind base;
+
+@layer base {
+	/* Inspired by the "rose-pine-dawn" theme */
+	:root {
+		color-scheme: light;
+		--theme-bg: #faf4ed;
+		--theme-link: #567c77;
+		--theme-text: #22272a;
+		--theme-accent: #b4637a;
+		--theme-accent-2: #286983;
+		--theme-quote: #b4637a;
+		--theme-menu-bg: rgb(250 250 250 / 0.85);
+	}
+	/* Inspired by the "monokai" theme */
+	:root.dark {
+		color-scheme: dark;
+		--theme-bg: #2c3639;
+		--theme-link: #f92672;
+		--theme-text: #f8f8f2;
+		--theme-accent: #a6e22e;
+		--theme-accent-2: #fd971f;
+		--theme-quote: #ffe792;
+		--theme-menu-bg: #2e2e2e;
+	}
+
+	html {
+		@apply h-full scroll-smooth;
+	}
+
+	html body {
+		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-8 pt-16 font-mono text-base font-semibold text-textColor antialiased;
+	}
+}
+
+.astro-code {
+	border-radius: 5px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.echarts {
+	padding: 0%;
+	margin: 0%;
+	background-color: #272822;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	width: 100%;
+	aspect-ratio: 1618/1000;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.publication {
+	padding: 9px 2.7%;
+	border-radius: 5px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.publication li {
+	margin: 27px 0;
+}
+
+@tailwind components;
+@tailwind utilities;
