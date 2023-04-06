@@ -5,7 +5,7 @@ import PostPreview from "@/components/blog/PostPreview";
 import SocialList from "@/components/SocialList";
 import { sortMDByDate } from "@/utils";
 
-const MAX_POSTS = 10;
+const MAX_POSTS = 11;
 const allPosts = await getCollection("post");
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
@@ -14,9 +14,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	<section>
 		<h1 class="title mb-6">Hello World!</h1>
 		<p class="mb-4">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on one the github icon link below which will take you to my repo.
+			I'm Wo, and I'm a Quantum Computing PhD researcher at the 
+			<a href="https://nus.edu.sg/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+				National University of Singapore
+			</a>
+			. I intend to regularly update this website and I hope you enjoy browsing it :)
 		</p>
 		<SocialList />
 	</section>
@@ -33,72 +35,22 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 		</ul>
 	</section>
 	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Technologies</h2>
-		<ul class="space-y-4 sm:space-y-2">
-			<li>
-				<a
-					href="https://astro.build"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="cactus-link inline-block"
-					>Astro
-				</a>:
-				<p class="inline-block sm:mt-2">Build fast websites, faster.</p>
-			</li>
-			<li>
-				<a
-					href="https://docs.astro.build/en/guides/integrations-guide/image/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="cactus-link inline-block"
-					>@astro/image
-				</a>:
-				<p class="inline-block sm:mt-2">
-					An Astro integration for optimising images in Astro projects.
-				</p>
-			</li>
-			<li>
-				<a
-					href="https://tailwindcss.com"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="cactus-link inline-block"
-					>Tailwind CSS
-				</a>:
-				<p class="inline-block sm:mt-2">
-					Rapidly build modern websites without ever leaving your HTML.
-				</p>
-			</li>
-			<li>
-				<a
-					href="https://www.markdownguide.org/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="cactus-link inline-block"
-					>Markdown
-				</a>:
-				<p class="inline-block sm:mt-2">Simple and easy-to-use markup language.</p>
-			</li>
-			<li>
-				<a
-					href="https://mdxjs.com/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="cactus-link inline-block"
-					>MDX
-				</a>:
-				<p class="inline-block sm:mt-2">Markdown for the component era.</p>
-			</li>
-			<li>
-				<a
-					href="https://github.com/vercel/satori"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="cactus-link inline-block"
-					>Satori
-				</a>:
-				<p class="inline-block sm:mt-2">Generating png Open Graph images for blog posts</p>
-			</li>
-		</ul>
+		<h2 class="title mb-4 text-xl">How did I build this website?</h2>
+		<p class="mb-4">
+			The site is built using <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+				Astro.js
+			</a>
+			and hosted on <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+				GitHub
+			</a>. This website was built on top of <a href="https://github.com/chrismwilliams" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block"
+			>chrismwilliams</a>' <a href="https://github.com/chrismwilliams/astro-theme-cactus/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+				astro-theme-cactus
+			</a>
+			template. I use <a href="https://www.mathjax.org" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+				MathJax
+			</a> for mathematical expressions and <a href="echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+				ECharts
+			</a> for interactive plots throughout my blog posts. 
+		</p>
 	</section>
 </PageLayout>
