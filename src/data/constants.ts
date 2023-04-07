@@ -17,4 +17,5 @@ export const MENU_LINKS = [
 export const SOCIAL_LINKS = {
 	github: "https://github.com/bernwo",
 	email: "kjwo@outlook.sg",
+	linkedin: "https://www.linkedin.com/in/kah-jen-wo",
 };
