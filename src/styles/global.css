@@ -17,6 +17,7 @@
 		--theme-logo-front-face: #ef5455;
 		--theme-logo-left-face: #14406b;
 		--theme-logo-top-face: #fbb039;
+		--theme-slider-thumb: #b4637a;
 	}
 	/* Inspired by the "monokai" theme */
 	:root.dark {
@@ -31,6 +32,7 @@
 		--theme-logo-front-face: #ef5455;
 		--theme-logo-left-face: #14406b;
 		--theme-logo-top-face: #fbb039;
+		--theme-slider-thumb: #f92672;
 	}
 
 	html {
@@ -129,7 +131,7 @@
 	border-radius: 100%;
 	border-width: 3px;
 	border-color: var(--theme-bg);
-	background: var(--theme-quote); /* Green background */
+	background: var(--theme-slider-thumb); 
 	cursor: pointer; /* Cursor on hover */
 }
 
@@ -139,7 +141,7 @@
 	border-radius: 100%;
 	border-color: var(--theme-bg);
 	border-width: 3px;
-	background: var(--theme-quote); /* Green background */
+	background: var(--theme-slider-thumb); 
 	cursor: pointer; /* Cursor on hover */
 }
 
