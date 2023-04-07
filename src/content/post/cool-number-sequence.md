@@ -51,13 +51,13 @@ $$
 \boxed{a_{n,k}=2n - (n\\!\\!\\!\\!\mod{2^k}).}\label{eqn:congmod2k}
 $$
 
-You might be wondering,
+Thus, with eqn ($\ref{eqn:congmod2k}$), I have obtained my holy grail for _"Cool number sequence #0"_. Now, you might be wondering,
 
 > Hmm, is this useful in any practical applications?
 
 This is a question that I'd like you to ponder about. But if you're impatient, then here is my answer: _yes_. One application that I found with this, without going too much into details, is performing highly efficient symmetric matrix operations (_maybe I'll talk about this in a future blog in more detail_). Perhaps there are other applications that have yet to be discovered/documented. I'm also sure that this sequence is quite interesting in number theory, however, I am but a physicist and not a mathematician. I'll leave that up to you, the reader, to find out. 😊
 
-Thus, with eqn ($\ref{eqn:congmod2k}$), I have obtained my holy grail for _"Cool number sequence #0"_.
+
 
 ## Low-level implementation
 
