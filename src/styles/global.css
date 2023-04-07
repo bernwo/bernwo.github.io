@@ -42,6 +42,23 @@
 	}
 }
 
+/* Adds line numbers to add the shiki code blocks */
+.astro-code code {
+	font-size: 15px;
+	font-weight: 600;
+	counter-reset: step;
+	counter-increment: step 0;
+}
+.astro-code code .line::before {
+	content: counter(step);
+	counter-increment: step;
+	width: 1rem;
+	margin-right: 1.5rem;
+	display: inline-block;
+	text-align: right;
+	color: rgba(210, 224, 230, 0.4);
+}
+
 .astro-code {
 	border-radius: 5px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),

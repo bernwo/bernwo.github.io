@@ -17,6 +17,7 @@ export default defineConfig({
 		syntaxHighlight: "shiki",
 		shikiConfig: {
 			theme: "monokai",
+			wrap: true,
 		},
 		remarkPlugins: [[remarkBibtex, { bibtexFile: "./src/assets/bibfile.bib" }], footnotes],
 	},
