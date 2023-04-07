@@ -1,6 +1,6 @@
 ---
 title: "Cool number sequence #0"
-publishDate: "07 April 2023"
+publishDate: "08 April 2023"
 description: "This is a series where I talk about cool number sequences that I found and expound on them: Congruent numbers"
 tags: ["math"]
 ---
