@@ -14,6 +14,9 @@
 		--theme-accent-2: #286983;
 		--theme-quote: #b4637a;
 		--theme-menu-bg: rgb(250 250 250 / 0.85);
+		--theme-logo-front-face: #ef5455;
+		--theme-logo-left-face: #14406b;
+		--theme-logo-top-face: #fbb039;
 	}
 	/* Inspired by the "monokai" theme */
 	:root.dark {
@@ -25,6 +28,9 @@
 		--theme-accent-2: #fd971f;
 		--theme-quote: #ffe792;
 		--theme-menu-bg: #2e2e2e;
+		--theme-logo-front-face: #ef5455;
+		--theme-logo-left-face: #14406b;
+		--theme-logo-top-face: #fbb039;
 	}
 
 	html {
@@ -32,8 +38,25 @@
 	}
 
 	html body {
-		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-8 pt-16 font-mono text-base font-semibold text-textColor antialiased;
+		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-4 pt-10 font-mono text-base font-semibold text-textColor antialiased;
 	}
+}
+
+/* Adds line numbers to add the shiki code blocks */
+.astro-code code {
+	font-size: 15px;
+	font-weight: 600;
+	counter-reset: step;
+	counter-increment: step 0;
+}
+.astro-code code .line::before {
+	content: counter(step);
+	counter-increment: step;
+	width: 1rem;
+	margin-right: 1.5rem;
+	display: inline-block;
+	text-align: right;
+	color: rgba(210, 224, 230, 0.4);
 }
 
 .astro-code {
@@ -65,6 +88,55 @@
 
 .publication li {
 	margin: 27px 0;
+}
+
+.slider-container {
+	margin: 12px 0px;
+	display: flex;
+	justify-content: space-evenly;
+	gap: 20px;
+	width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+	margin: 30px 0px;
+	-webkit-appearance: none; 
+	appearance: none;
+	height: 3px; /* Specified height */
+	background: var(--theme-text); /* Grey background */
+	opacity: 0.88; /* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+	transition: opacity 0.2s;
+	flex: 1 1 0;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+	opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	border-width: 3px;
+	border-color: var(--theme-bg);
+	background: var(--theme-quote); /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	border-color: var(--theme-bg);
+	border-width: 3px;
+	background: var(--theme-quote); /* Green background */
+	cursor: pointer; /* Cursor on hover */
 }
 
 @tailwind components;

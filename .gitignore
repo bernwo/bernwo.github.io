@@ -64,3 +64,5 @@ pnpm-debug.log*
 *temp*.json
 *temp*.html
 *tmp*.html
+*tmp*.svg
+*temp*.svg
