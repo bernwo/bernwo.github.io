@@ -38,7 +38,7 @@
 	}
 
 	html body {
-		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-8 pt-16 font-mono text-base font-semibold text-textColor antialiased;
+		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-4 pt-10 font-mono text-base font-semibold text-textColor antialiased;
 	}
 }
 
