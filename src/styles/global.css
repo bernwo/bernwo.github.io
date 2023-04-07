@@ -42,6 +42,10 @@
 	}
 }
 
+.fixed-position {
+	overflow: hidden;
+}
+
 /* Adds line numbers to add the shiki code blocks */
 .astro-code code {
 	font-size: 15px;

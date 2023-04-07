@@ -239,11 +239,17 @@ export function createCongruentModScatter(inputID, size) {
 		myChart.setOption(option);
 		myChart.setOption(optionData);
 		display.innerHTML = slider.value;
+		slider.addEventListener("touchstart", () => {lockScroll();});
+		slider.addEventListener("touchend", () => {lockScroll();});
 		slider.oninput = function() {
 			display.innerHTML = this.value;
 			myChart.setOption(getScatterData(generate_congruent_modulo_data(size, this.value)));
 		}
 	}
+}
+
+function lockScroll() {
+	document.body.classList.toggle('fixed-position');
 }
 
 // https://echarts.apache.org/examples/en/editor.html?c=graph-force-dynamic
