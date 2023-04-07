@@ -1,7 +1,7 @@
 ---
-title: "Cool number sequence #0"
+title: "Cool number sequence #0: Congruent numbers"
 publishDate: "08 April 2023"
-description: "This is a series where I talk about cool number sequences that I found and expound on them: Congruent numbers"
+description: "This is a series where I talk about cool number sequences that I found and expound on them"
 tags: ["math"]
 ---
 
