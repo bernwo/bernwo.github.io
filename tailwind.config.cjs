@@ -28,8 +28,8 @@ module.exports = {
 			},
 			fontFamily: {
 				// Add any custom fonts here
-				sans: [...fontFamily.sans],
-				serif: ["EB Garamond"].concat([...fontFamily.serif]),
+				sans: "system-ui",
+				serif: ["IBM Plex Serif"].concat([...fontFamily.serif]),
 				mono: ["Source Code Pro"].concat([...fontFamily.mono]),
 			},
 			transitionProperty: {
@@ -80,6 +80,24 @@ module.exports = {
 						tfoot: {
 							borderTop: "1px dashed #666",
 						},
+						h1:{
+							fontFamily: "IBM Plex Serif",
+						},
+						h2:{
+							fontFamily: "IBM Plex Serif",
+						},
+						h3:{
+							fontFamily: "IBM Plex Serif",
+						},
+						h4:{
+							fontFamily: "IBM Plex Serif",
+						},
+						h5:{
+							fontFamily: "IBM Plex Serif",
+						},
+						h6:{
+							fontFamily: "IBM Plex Serif",
+						},
 					},
 				},
 				sm: {
@@ -112,7 +130,7 @@ module.exports = {
 					},
 				},
 				".title": {
-					"@apply text-2xl font-semibold text-accent-2": {},
+					"@apply text-2xl font-bold text-accent-2 font-serif": {},
 				},
 			});
 		}),
