@@ -7,7 +7,7 @@ tags: ["life"]
 
 ## I'm back
 
-It's been forever since I've updated my personal blog. Looking at my last `git` commit, I know it was since <i>22 December 2021</i> to be exact, so that's 1 year, 3 months, and 16 days ago. A lot has happened ever since.
+It's been forever since I've updated my personal blog. Looking at my last `git` commit, I know it was since _22 December 2021_ to be exact, so that's 1 year, 3 months, and 16 days ago. A lot has happened ever since.
 
 ## What happened?
 
@@ -33,6 +33,8 @@ Needless to say, I scrambled on my phone to quickly schedule for an interview an
 
 At the time of writing, it's been several months since I finished my internship and officially obtained my Master degree in quantum computing. Every now and then, I'd have a moment to reflect on how far I've come, and how I can view the hardships I had to go through as an opportunity to edify myself and ameliorate myself.
 
-My next chapter in life begins in May of 2023 where I would begin my PhD in quantum computing with focus on the experimental side with the National University of Singapore, and I'm super excited about it.
+My next chapter in life begins in May of 2023 where I would begin my PhD in quantum computing with focus on the experimental side with the <a href="https://nus.edu.sg/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+National University of Singapore
+</a>, and I'm super excited about it.
 
 Keep looking forward :)
