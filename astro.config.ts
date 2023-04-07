@@ -38,4 +38,6 @@ export default defineConfig({
 			exclude: ["@resvg/resvg-js"],
 		},
 	},
+	// Used only by `npm run dev` and `npm run preview`. Not used in production.
+	server: { port: 5500, host: true },
 });
