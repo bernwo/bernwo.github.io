@@ -25,7 +25,7 @@ $$
 a_n=(-3+(-1)^n+(1+i) (-i)^n+(1-i) i^n+4 n)/2,\label{eqn:congmod4-1}
 $$
 
-where $i=\sqrt{i}$. We can perform a sanity check of eqn ($\ref{eqn:congmod4-1}$) in Python like so
+where $i=\sqrt{-1}$. We can perform a sanity check of eqn ($\ref{eqn:congmod4-1}$) in `Python` with the following
 
 ```py
 f = lambda n: (-3+(-1)**n+1j*(-((-1+1j)*(-1j)**n)-1j**n*(1+1j))+4*n)/2
@@ -59,9 +59,9 @@ This is a question that I'd like you to ponder about. But if you're impatient, t
 
 Thus, with eqn ($\ref{eqn:congmod2k}$), I have obtained my holy grail for _"Cool number sequence #0"_.
 
-## `C/C++` implementation
+## Low-level implementation
 
-Below is a low-level `C/C++` implementation for the curious
+Below is a low-level implementation in `C/C++` for the curious. You can easily translate this to other languages such as Python and JavaScript since most languages use the same symbol for bit operators.
 
 ```c
 // In binary algebra, you can rewrite `n mod 2^k` as `n & ((1<<k)-1)`
@@ -71,6 +71,17 @@ int congMod(int n, int k) {
     return 2*n - (n & ((1 << k) - 1));
 }
 ```
+
+## Interactive plot
+
+The first 2001 values of the sequence in eqn ($\ref{eqn:congmod2k}$) is plotted below, where $y\equiv a_{n,k}$. You can use the slider below to adjust the value of $0\leq k\leq11$ to see how the sequence changes.
+
+<div class="echarts" id="congruent-numbers-scatter-chart"></div>
+
+<div class="slider-container">
+  <input type="range" min="0" max="11" value="0" class="slider" id="congruent-number-slider">
+  <p style="width: 60px;">$k=$ <span id="current-congruent-number"></span></p>
+</div>
 
 [^A047454]: https://oeis.org/A047454
 [^A042948]: https://oeis.org/A042948

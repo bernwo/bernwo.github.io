@@ -14,6 +14,79 @@ function generate_sine_wave_data(n, phase) {
 	]);
 }
 
+function generate_congruent_modulo_data(n, k) {
+	return Array.from({ length: n }, (_, i) => [i, 2 * i - (i & ((1 << k) - 1))]);
+}
+
+export function getScatterOption(size, x_label, y_label) {
+	const textColour = darkTextColour;
+	const option = {
+		animation: false,
+		tooltip: {
+			show: true,
+			confine: false,
+			trigger: "item",
+			axisPointer: { label: { show: true } },
+			backgroundColor: "#ffffffea",
+		},
+		xAxis: {
+			minInterval: 1,
+			min: 0,
+			max: size - 1,
+			name: x_label,
+			nameTextStyle: {
+				fontSize: 24,
+				fontStyle: "italic",
+				fontFamily: "serif",
+			},
+			axisLine: { lineStyle: { color: textColour } },
+		},
+		yAxis: {
+			minInterval: 1,
+			min: 0,
+			max: size - 1,
+			name: y_label,
+			nameTextStyle: {
+				fontSize: 24,
+				fontStyle: "italic",
+				fontFamily: "serif",
+			},
+			axisLine: { lineStyle: { color: textColour } },
+		},
+	};
+	return option;
+}
+
+export function getScatterData(dataArray) {
+	const option = {
+		series: [
+			{
+				type: "scatter",
+				data: dataArray,
+				symbolSize: 6,
+				label: {
+					show: false,
+					fontSize: 16,
+					borderWidth: 1,
+				},
+				itemStyle: {
+					opacity: 1,
+					color: "#ef5455",
+				},
+				emphasis: {
+					label: {
+						show: false,
+					},
+					itemStyle: {
+						color: "#900",
+					},
+				},
+			},
+		],
+	};
+	return option;
+}
+
 export function getBar3Doption(size, x_label, y_label, z_label) {
 	const textColour = darkTextColour;
 	const colorLength = 32;
@@ -127,7 +200,7 @@ export function createRandomisedBar3D(inputID, size) {
 	const chartDom = document.getElementById(inputID);
 	if (chartDom != null) {
 		let myChart = echarts.init(chartDom);
-		const option = getBar3Doption(size,"x","y","z");
+		const option = getBar3Doption(size, "x", "y", "z");
 		const optionData = getBar3Ddata(size, generate_random_data(size), "Random data");
 		myChart.setOption(option);
 		myChart.setOption(optionData);
@@ -138,7 +211,7 @@ export function createSineWaveBar3D(inputID, size) {
 	const chartDom = document.getElementById(inputID);
 	if (chartDom != null) {
 		let myChart = echarts.init(chartDom);
-		const option = getBar3Doption(size,"x","y","z");
+		const option = getBar3Doption(size, "x", "y", "z");
 		const optionData = getBar3Ddata(size, generate_sine_wave_data(size, 0), "Sine Wave");
 		myChart.setOption(option);
 		myChart.setOption(optionData);
@@ -154,3 +227,23 @@ export function createSineWaveBar3D(inputID, size) {
 		}, updateInterval);
 	}
 }
+
+export function createCongruentModScatter(inputID, size) {
+	const chartDom = document.getElementById(inputID);
+	const display = document.getElementById("current-congruent-number");
+	const slider = document.getElementById("congruent-number-slider");
+	if (chartDom != null && display != null && slider != null) {
+		let myChart = echarts.init(chartDom);
+		const option = getScatterOption(size, "n", "y");
+		const optionData = getScatterData(generate_congruent_modulo_data(size, slider.value));
+		myChart.setOption(option);
+		myChart.setOption(optionData);
+		display.innerHTML = slider.value;
+		slider.oninput = function() {
+			display.innerHTML = this.value;
+			myChart.setOption(getScatterData(generate_congruent_modulo_data(size, this.value)));
+		}
+	}
+}
+
+// https://echarts.apache.org/examples/en/editor.html?c=graph-force-dynamic

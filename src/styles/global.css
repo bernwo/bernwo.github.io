@@ -90,5 +90,54 @@
 	margin: 27px 0;
 }
 
+.slider-container {
+	margin: 12px 0px;
+	display: flex;
+	justify-content: space-evenly;
+	gap: 20px;
+	width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+	margin: 30px 0px;
+	-webkit-appearance: none; 
+	appearance: none;
+	height: 3px; /* Specified height */
+	background: var(--theme-text); /* Grey background */
+	opacity: 0.88; /* Set transparency (for mouse-over effects on hover) */
+	-webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+	transition: opacity 0.2s;
+	flex: 1 1 0;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+	opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	border-width: 3px;
+	border-color: var(--theme-bg);
+	background: var(--theme-quote); /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	border-color: var(--theme-bg);
+	border-width: 3px;
+	background: var(--theme-quote); /* Green background */
+	cursor: pointer; /* Cursor on hover */
+}
+
 @tailwind components;
 @tailwind utilities;
