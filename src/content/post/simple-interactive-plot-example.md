@@ -8,13 +8,13 @@ tags: ["plot", "math"]
 ## Randomised 3D bar chart
 
 Below is an interactive 3D bar chart that I plotted using
-<a href="https://www.echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+<a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
 ECharts.js
-</a>. This JavaScript library using <a target="_blank" rel="noopener noreferrer" class="cactus-link inline-block" href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> under the hood to render the chart that you're seeing, and thus has high performance.
+</a>. This JavaScript library uses <a target="_blank" rel="noopener noreferrer" class="cactus-link inline-block" href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> under the hood to render the chart that you're seeing, and thus has high performance.
 
 <div class="echarts" id="randomised-bar3d-chart"></div>
 
-The data used in the plot is generated via client-sided JavaScript (see code block below), and is uniformly random, which is sufficient for a simple toy model. Thus, every time you refresh this page, the chart would look a little bit different. Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://www.echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+The data used in the plot is generated via client-sided JavaScript (see code block below), and is uniformly random, which is sufficient for a simple toy model. Thus, every time you refresh this page, the chart would look a little bit different. Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
 ECharts.js
 </a>
 
@@ -37,7 +37,7 @@ where $\phi$ is the phase which I chose to update every 500 milliseconds, $\omeg
 
 <div class="echarts" id="sine-wave-bar3d-chart"></div>
 
-Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://www.echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
 ECharts.js
 </a>
 
@@ -53,14 +53,14 @@ function generate_sine_wave_data(n, phase) {
 }
 ```
 
-Of course, a 3D bar chart is not the only way one can visualise the data. <a href="https://www.echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+Of course, a 3D bar chart is not the only way one can visualise the data. <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
 ECharts.js
 </a> offers a lot of different plot types, and you can check them out <a href="https://echarts.apache.org/examples/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">here</a>.
 
 ## Why?
 
-I've always wanted to write a blog with pedagogical elements present, and what better way to achieve that than to include beautiful visualisations that are interactive and animated. To avoid re-inventing the wheel, I looked for available JavaScript libraries that allow me to plot. There were many promising candidates, but alas most of them are either missing a feature that I wanted or is too low-level. Except for <a href="https://www.echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+I've always wanted to write a blog with pedagogical elements present, and what better way to achieve that than to include beautiful visualisations that are interactive and animated. To avoid re-inventing the wheel, I looked for available JavaScript libraries that allow me to plot. There were many promising candidates, alas most of them are either missing a feature that I wanted or is too low-level. Except for <a href="https://echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
 ECharts.js
 </a>, which I found to be perfect for my use-case.
 
-Besides wanting to write a blog with pedagogical elements, I also wanted to learn how to write JavaScript and use external libraries, which is why I came up with the toy models that you're seeing on this page. Despite coming from a physics background and minimal frontend development experience, I was able to whip this page up in less than a week from zero. It was super fun! 🥳
+Besides wanting to write a blog with pedagogical elements, I also wanted to learn how to write JavaScript and use external libraries, which is why I came up with the toy models that you're seeing on this page. Despite coming from a physics background with minimal frontend development experience, I was able to whip this page up in less than a week from zero. It was super fun! 🥳
