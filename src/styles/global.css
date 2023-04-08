@@ -1,14 +1,15 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap"); */
-/* @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @tailwind base;
 
 @layer base {
 	/* Inspired by the "rose-pine-dawn" theme */
 	:root {
 		color-scheme: light;
+		--theme-header-bg: #faf4edaa;
 		--theme-bg: #faf4ed;
 		--theme-link: #567c77;
+		--theme-href: #b4637a;
 		--theme-text: #22272a;
 		--theme-accent: #b4637a;
 		--theme-accent-2: #286983;
@@ -17,12 +18,17 @@
 		--theme-logo-front-face: #ef5455;
 		--theme-logo-left-face: #14406b;
 		--theme-logo-top-face: #fbb039;
+		--theme-slider-thumb: #b4637a;
+		--theme-selection-textcolor: #f8f8f2;
+		--theme-selection-bg: #b4637a;
 	}
 	/* Inspired by the "monokai" theme */
 	:root.dark {
 		color-scheme: dark;
+		--theme-header-bg: #2c3639aa;
 		--theme-bg: #2c3639;
 		--theme-link: #f92672;
+		--theme-href: #a6e22e;
 		--theme-text: #f8f8f2;
 		--theme-accent: #a6e22e;
 		--theme-accent-2: #fd971f;
@@ -31,15 +37,36 @@
 		--theme-logo-front-face: #ef5455;
 		--theme-logo-left-face: #14406b;
 		--theme-logo-top-face: #fbb039;
+		--theme-slider-thumb: #f92672;
+		--theme-selection-textcolor: #22272a;
+		--theme-selection-bg: #f92672;
 	}
 
 	html {
-		@apply h-full scroll-smooth;
+		@apply h-full w-full scroll-smooth m-0 p-0;
 	}
 
 	html body {
-		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-4 pt-10 font-mono text-base font-semibold text-textColor antialiased;
+		@apply mx-0 flex h-full flex-col bg-bgColor px-0 pt-0 font-sans text-base font-semibold text-textColor antialiased;
 	}
+
+	header {
+		/* @apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo; */
+		@apply z-10 fixed top-0 left-0 right-0 py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo backdrop-blur-md hover:backdrop-blur-none bg-[var(--theme-header-bg)] hover:bg-[var(--theme-bg)] duration-200;
+	}
+
+	main {
+		@apply mt-[130px] px-4 lg:pl-[15.0rem] lg:pr-[8.0rem];
+	}
+}
+
+::selection {
+	color: var(--theme-selection-textcolor);
+	background: var(--theme-selection-bg);
+}
+
+.fixed-position {
+	overflow: hidden;
 }
 
 /* Adds line numbers to add the shiki code blocks */
@@ -60,7 +87,6 @@
 }
 
 .astro-code {
-	border-radius: 5px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
 		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
 }
@@ -125,7 +151,7 @@
 	border-radius: 100%;
 	border-width: 3px;
 	border-color: var(--theme-bg);
-	background: var(--theme-quote); /* Green background */
+	background: var(--theme-slider-thumb); 
 	cursor: pointer; /* Cursor on hover */
 }
 
@@ -135,7 +161,7 @@
 	border-radius: 100%;
 	border-color: var(--theme-bg);
 	border-width: 3px;
-	background: var(--theme-quote); /* Green background */
+	background: var(--theme-slider-thumb); 
 	cursor: pointer; /* Cursor on hover */
 }
 
