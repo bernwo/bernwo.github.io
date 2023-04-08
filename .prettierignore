@@ -1,5 +1,7 @@
-**/.git/**
-*.min.js
+**/.git
+**/.svn
+**/.hg
+**/node_modules
 **/node_modules/**
 flow-typed
 
