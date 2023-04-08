@@ -29,7 +29,7 @@ module.exports = {
 			},
 			fontFamily: {
 				// Add any custom fonts here
-				sans: "system-ui",
+				sans: ["system-ui","sans"],
 				serif: ["IBM Plex Serif"].concat([...fontFamily.serif]),
 				mono: ["Source Code Pro"].concat([...fontFamily.mono]),
 			},

@@ -18,6 +18,8 @@
 		--theme-logo-left-face: #14406b;
 		--theme-logo-top-face: #fbb039;
 		--theme-slider-thumb: #b4637a;
+		--theme-selection-textcolor: #f8f8f2;
+		--theme-selection-bg: #b4637a;
 	}
 	/* Inspired by the "monokai" theme */
 	:root.dark {
@@ -34,6 +36,8 @@
 		--theme-logo-left-face: #14406b;
 		--theme-logo-top-face: #fbb039;
 		--theme-slider-thumb: #f92672;
+		--theme-selection-textcolor: #22272a;
+		--theme-selection-bg: #f92672;
 	}
 
 	html {
@@ -43,6 +47,11 @@
 	html body {
 		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-4 pt-10 font-sans text-base font-semibold text-textColor antialiased;
 	}
+}
+
+::selection {
+	color: var(--theme-selection-textcolor);
+	background: var(--theme-selection-bg);
 }
 
 .fixed-position {
