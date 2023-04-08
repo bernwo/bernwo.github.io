@@ -6,6 +6,7 @@
 	/* Inspired by the "rose-pine-dawn" theme */
 	:root {
 		color-scheme: light;
+		--theme-header-bg: #faf4edaa;
 		--theme-bg: #faf4ed;
 		--theme-link: #567c77;
 		--theme-href: #b4637a;
@@ -24,6 +25,7 @@
 	/* Inspired by the "monokai" theme */
 	:root.dark {
 		color-scheme: dark;
+		--theme-header-bg: #2c3639aa;
 		--theme-bg: #2c3639;
 		--theme-link: #f92672;
 		--theme-href: #a6e22e;
@@ -49,11 +51,12 @@
 	}
 
 	header {
-		@apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo;
+		/* @apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo; */
+		@apply z-10 fixed top-0 left-0 right-0 py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo backdrop-blur-md hover:backdrop-blur-none bg-[var(--theme-header-bg)] hover:bg-[var(--theme-bg)];
 	}
 
 	main {
-		@apply px-4 lg:pl-[15.0rem] lg:pr-[8.0rem];
+		@apply mt-[130px] px-4 lg:pl-[15.0rem] lg:pr-[8.0rem];
 	}
 }
 
