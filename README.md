@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Astro Theme Cactus logo" src="./public/192x192.png" width="70" />
+  <img alt="Astro Theme Cactus logo" src="./public/192x192.png" width="90" />
 </div>
 <h1 align="center">
   Wo's personal website
