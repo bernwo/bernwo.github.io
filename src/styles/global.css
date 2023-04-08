@@ -8,6 +8,7 @@
 		color-scheme: light;
 		--theme-bg: #faf4ed;
 		--theme-link: #567c77;
+		--theme-href: #b4637a;
 		--theme-text: #22272a;
 		--theme-accent: #b4637a;
 		--theme-accent-2: #286983;
@@ -23,6 +24,7 @@
 		color-scheme: dark;
 		--theme-bg: #2c3639;
 		--theme-link: #f92672;
+		--theme-href: #a6e22e;
 		--theme-text: #f8f8f2;
 		--theme-accent: #a6e22e;
 		--theme-accent-2: #fd971f;

@@ -25,6 +25,7 @@ module.exports = {
 				link: "var(--theme-link)",
 				accent: "var(--theme-accent)",
 				"accent-2": "var(--theme-accent-2)",
+				"hrefcolor": "var(--theme-href)",
 			},
 			fontFamily: {
 				// Add any custom fonts here
@@ -121,7 +122,7 @@ module.exports = {
 		plugin(function ({ addComponents }) {
 			addComponents({
 				".cactus-link": {
-					"@apply bg-[size:100%_6px] bg-bottom bg-repeat-x": {},
+					"@apply text-hrefcolor bg-[size:100%_6px] bg-bottom bg-repeat-x": {},
 					backgroundImage:
 						"linear-gradient(transparent,transparent 5px,var(--theme-text) 5px,var(--theme-text))",
 					"&:hover": {
