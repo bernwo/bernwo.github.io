@@ -41,11 +41,19 @@
 	}
 
 	html {
-		@apply h-full scroll-smooth;
+		@apply h-full w-full scroll-smooth m-0 p-0;
 	}
 
 	html body {
-		@apply mx-auto flex h-full max-w-6xl flex-col bg-bgColor px-4 pt-10 font-sans text-base font-semibold text-textColor antialiased;
+		@apply mx-0 flex h-full flex-col bg-bgColor px-0 pt-0 font-sans text-base font-semibold text-textColor antialiased;
+	}
+
+	header {
+		@apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo;
+	}
+
+	main {
+		@apply px-4 lg:pl-[15.0rem] lg:pr-[8.0rem];
 	}
 }
 
