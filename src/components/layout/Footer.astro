@@ -1,17 +1,19 @@
 ---
+import * as child from 'child_process';
 import { MENU_LINKS } from "@/data/constants";
 
 const year = new Date().getFullYear();
+const currentCommitTime: String = child.execSync("git show -s --format=%ci").toString().trim();
+const currentCommit: String = child.execSync("git rev-parse --short HEAD").toString().trim();
 ---
 
-<footer
-	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pt-20 pb-4 text-center align-top text-gray-500 sm:flex-row sm:justify-between sm:text-xs"
->
+<footer>
 	<div class="mr-0 sm:mr-4">
-		Copyright &copy; {year}
-		<span aria-label="rocket emoji">🚀</span>
-		WO Kah Jen
+		<span aria-label="author-name">WO Kah Jen</span>
+		&copy; {year} | 
+		<span aria-label="version-info" style="font-style:italic;">Version: <code style="text-decoration: underline;">#{currentCommit}</code> @ {currentCommitTime}</span>
 	</div>
+	<div class="bruh"></div>
 	<nav
 		aria-label="More on this site"
 		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
