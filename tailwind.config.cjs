@@ -136,4 +136,8 @@ module.exports = {
 			});
 		}),
 	],
+	future: {
+		// see https://github.com/tailwindlabs/tailwindcss/discussions/1739
+		hoverOnlyWhenSupported: true,
+	},
 };
