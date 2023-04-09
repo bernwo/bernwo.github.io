@@ -95,14 +95,16 @@
 	/* Do not have minimum width at screen width sizes smaller than 640px */
 	pre.astro-code,
 	div.echarts,
-	div.math.math-display {
+	div.math.math-display,
+	div.slider-container {
 		width: 37rem;
 	}
 }
 
 pre.astro-code,
 div.echarts,
-div.math.math-display {
+div.math.math-display,
+div.slider-container {
 	align-self: center;
 	align-content: space-between; /* Especially for div.math.math-display */
 	max-width: 37rem;
