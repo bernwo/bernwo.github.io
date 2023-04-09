@@ -62,7 +62,7 @@ const { headings } = await post.render();
 		<article class="flex-grow break-words">
 			<div id="blog-hero"><BlogHero content={post} /></div>
 			<div
-				class="prose flex flex-col max-w-5xl prose-base prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ml-4 prose-headings:before:text-accent prose-headings:before:content-['§'] prose-th:before:content-none"
+				class="prose flex-none flex-col sm:flex max-w-5xl prose-base prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ml-4 prose-headings:before:text-accent prose-headings:before:content-['§'] prose-th:before:content-none"
 			>
 				<slot />
 			</div>

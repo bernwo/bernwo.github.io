@@ -86,12 +86,20 @@
 	color: rgba(210, 224, 230, 0.4);
 }
 
+@media (min-width: 640px) {
+	/* Do not have minimum width at screen width sizes smaller than 640px */
+	pre.astro-code,
+	div.echarts,
+	div.math.math-display {
+		width: 37rem;
+	}
+}
+
 pre.astro-code,
 div.echarts,
 div.math.math-display {
 	align-self: center;
 	align-content: space-between; /* Especially for div.math.math-display */
-	width: 37rem;
 	max-width: 37rem;
 }
 
