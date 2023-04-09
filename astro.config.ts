@@ -31,8 +31,7 @@ export default defineConfig({
 				rehypeMathJaxCHtml,
 				{
 					chtml: {
-						fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2/",
-						displayIndent: "0",
+						fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2",
 						displayAlign: "left",
 					},
 					tex: {
