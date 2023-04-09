@@ -58,6 +58,11 @@
 	main {
 		@apply mt-[130px] px-4 lg:pl-[15.0rem] lg:pr-[8.0rem];
 	}
+
+	footer {
+		/* @apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo; */
+		@apply mt-auto flex w-full flex-col items-center justify-center gap-y-2 px-4 pb-4 pt-20 text-center align-top text-gray-500 sm:flex-row sm:justify-between sm:text-xs lg:pl-[15.0rem] lg:pr-[8.0rem];
+	}
 }
 
 ::selection {

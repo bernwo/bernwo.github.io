@@ -63,6 +63,7 @@ module.exports = {
 							borderRadius: "2px",
 						},
 						blockquote: {
+							fontWeight: "700",
 							borderLeftWidth: "none",
 						},
 						hr: {
