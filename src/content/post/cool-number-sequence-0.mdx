@@ -23,16 +23,12 @@ The pattern of the sequence is that it is just the usual non-negative integer se
 
 Well, fret not, turns out this sequence is already on the Online Encyclopedia of Integer Sequences (OEIS) and it's sequence number A047454[^A047454], albeit offset by 1. One of the formulas given on the page is (adjusted to start from 0)
 
-<div>
-
 $$
 \begin{align}
 a_n&=\frac{1}{2}\Big(-3+(-1)^n+(1+i) (-i)^n\nonumber\\
 &\phantom{{}={}}+(1-i) i^n+4 n\Big),\label{eqn:congmod4-1}
 \end{align}
 $$
-
-</div>
 
 where $i=\sqrt{-1}$. We can perform a sanity check of eqn ($\ref{eqn:congmod4-1}$) in `Python` with the following
 
@@ -87,7 +83,7 @@ int congMod(int n, int k) {
 
 The first 2001 values of the sequence in eqn ($\ref{eqn:congmod2k}$) is plotted below, where $y\equiv a_{n,k}$. You can use the slider below to adjust the value of $0\leq k\leq11$ to see how the sequence changes.
 
-<div class="echarts" id="congruent-numbers-scatter-chart"></div>
+<div class="echarts" id="congruent-numbers-scatter-chart" decoding="async" loading="lazy"></div>
 
 <div class="slider-container">
 	<input type="range" min="0" max="11" value="0" class="slider" id="congruent-number-slider" />

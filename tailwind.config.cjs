@@ -25,11 +25,11 @@ module.exports = {
 				link: "var(--theme-link)",
 				accent: "var(--theme-accent)",
 				"accent-2": "var(--theme-accent-2)",
-				"hrefcolor": "var(--theme-href)",
+				hrefcolor: "var(--theme-href)",
 			},
 			fontFamily: {
 				// Add any custom fonts here
-				sans: ["system-ui","sans"],
+				sans: ["system-ui", "sans"],
 				serif: ["IBM Plex Serif"].concat([...fontFamily.serif]),
 				mono: ["Source Code Pro"].concat([...fontFamily.mono]),
 			},
@@ -81,22 +81,22 @@ module.exports = {
 						tfoot: {
 							borderTop: "1px dashed #666",
 						},
-						h1:{
+						h1: {
 							fontFamily: "IBM Plex Serif",
 						},
-						h2:{
+						h2: {
 							fontFamily: "IBM Plex Serif",
 						},
-						h3:{
+						h3: {
 							fontFamily: "IBM Plex Serif",
 						},
-						h4:{
+						h4: {
 							fontFamily: "IBM Plex Serif",
 						},
-						h5:{
+						h5: {
 							fontFamily: "IBM Plex Serif",
 						},
-						h6:{
+						h6: {
 							fontFamily: "IBM Plex Serif",
 						},
 					},

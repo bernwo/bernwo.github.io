@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @tailwind base;
 
 @layer base {
@@ -43,7 +43,7 @@
 	}
 
 	html {
-		@apply h-full w-full scroll-smooth m-0 p-0;
+		@apply m-0 h-full w-full scroll-smooth p-0;
 	}
 
 	html body {
@@ -52,7 +52,7 @@
 
 	header {
 		/* @apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo; */
-		@apply z-10 fixed top-0 left-0 right-0 py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo backdrop-blur-md hover:backdrop-blur-none bg-[var(--theme-header-bg)] hover:bg-[var(--theme-bg)] duration-200;
+		@apply fixed left-0 right-0 top-0 z-10 mb-14 flex items-center bg-[var(--theme-header-bg)] px-4 py-2 shadow-wo backdrop-blur-md duration-200 hover:bg-[var(--theme-bg)] hover:backdrop-blur-none sm:pl-[6.0rem];
 	}
 
 	main {
@@ -86,12 +86,21 @@
 	color: rgba(210, 224, 230, 0.4);
 }
 
+pre.astro-code,
+div.echarts,
+div.math.math-display {
+	align-self: center;
+	align-content: space-between; /* Especially for div.math.math-display */
+	width: 37rem;
+	max-width: 37rem;
+}
+
 .astro-code {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
 		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
 }
 
-.echarts {
+div.echarts {
 	padding: 0%;
 	margin: 0%;
 	background-color: #272822;
@@ -127,7 +136,7 @@
 /* The slider itself */
 .slider {
 	margin: 30px 0px;
-	-webkit-appearance: none; 
+	-webkit-appearance: none;
 	appearance: none;
 	height: 3px; /* Specified height */
 	background: var(--theme-text); /* Grey background */
@@ -151,7 +160,7 @@
 	border-radius: 100%;
 	border-width: 3px;
 	border-color: var(--theme-bg);
-	background: var(--theme-slider-thumb); 
+	background: var(--theme-slider-thumb);
 	cursor: pointer; /* Cursor on hover */
 }
 
@@ -161,7 +170,7 @@
 	border-radius: 100%;
 	border-color: var(--theme-bg);
 	border-width: 3px;
-	background: var(--theme-slider-thumb); 
+	background: var(--theme-slider-thumb);
 	cursor: pointer; /* Cursor on hover */
 }
 
