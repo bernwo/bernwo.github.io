@@ -4,6 +4,7 @@ publishDate: "08 April 2023"
 description: "This is a series where I talk about cool number sequences that I found and expound on them"
 tags: ["math", "plot"]
 ---
+import ScatterCongruentNumbers from "@/echarts/ScatterCongruentNumbers";
 
 ## Congruent numbers
 
@@ -83,7 +84,7 @@ int congMod(int n, int k) {
 
 The first 2001 values of the sequence in eqn ($\ref{eqn:congmod2k}$) is plotted below, where $y\equiv a_{n,k}$. You can use the slider below to adjust the value of $0\leq k\leq11$ to see how the sequence changes.
 
-<div class="echarts" id="congruent-numbers-scatter-chart" decoding="async" loading="lazy"></div>
+<ScatterCongruentNumbers />
 
 <div class="slider-container">
 	<input type="range" min="0" max="11" value="0" class="slider" id="congruent-number-slider" />

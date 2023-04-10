@@ -1,0 +1,7 @@
+<script hoist>
+    import("@/scripts.js/scatterPlot").then(scatterPlot => {
+        scatterPlot.createCongruentModScatter("congruent-numbers-scatter-chart", 2001);
+    }).catch(error => console.log('scatterPlot Error!'));
+</script>
+
+<div class="echarts" id="congruent-numbers-scatter-chart"></div>

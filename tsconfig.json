@@ -5,6 +5,8 @@
 		"skipLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
+			"@/scripts.js/*": ["src/scripts/*.js"],
+			"@/echarts/*": ["src/components/echarts/*.astro"],
 			"@/components/*": ["src/components/*.astro"],
 			"@/layouts/*": ["src/layouts/*.astro"],
 			"@/utils": ["src/utils/index.ts"],
