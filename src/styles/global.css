@@ -91,6 +91,30 @@
 	color: rgba(210, 224, 230, 0.4);
 }
 
+h1.hello-world {
+	stroke-dasharray: 500;
+	stroke-dashoffset: 500;
+	animation: dash 2s cubic-bezier(0.76, 0, 0.07, 1) 0.4s forwards, filling 2s ease-in forwards;
+}
+
+@keyframes dash {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes filling {
+	0%,
+	90% {
+		fill: var(--theme-accent-2);
+		fill-opacity: 0;
+	}
+	100% {
+		fill: var(--theme-accent-2);
+		fill-opacity: 1;
+	}
+}
+
 @media (min-width: 640px) {
 	/* Do not have minimum width at screen width sizes smaller than 640px */
 	pre.astro-code,
