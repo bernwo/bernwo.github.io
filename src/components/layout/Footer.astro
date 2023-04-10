@@ -13,7 +13,6 @@ const currentCommit: String = child.execSync("git rev-parse --short HEAD").toStr
 		&copy; {year} | 
 		<span aria-label="version-info" style="font-style:italic;">Version: <code style="text-decoration: underline;">#{currentCommit}</code> @ {currentCommitTime}</span>
 	</div>
-	<div class="bruh"></div>
 	<nav
 		aria-label="More on this site"
 		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
@@ -22,7 +21,7 @@ const currentCommit: String = child.execSync("git rev-parse --short HEAD").toStr
 			MENU_LINKS.map((link) => (
 				<a
 					href={link.path}
-					class="px-4 py-2 sm:py-0 sm:px-2 sm:hover:text-textColor sm:hover:underline"
+					class="nav-anchor px-4 py-2 sm:py-0 sm:px-2 sm:hover:text-textColor sm:hover:underline"
 				>
 					{link.title}
 				</a>

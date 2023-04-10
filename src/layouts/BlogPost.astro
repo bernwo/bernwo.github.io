@@ -36,7 +36,7 @@ const { headings } = await post.render();
 	const observer = new IntersectionObserver(callback);
 	observer.observe(targetHeader);
 
-	// Script for dynamic highlighting of table of contents
+	// Script for dynamic highlighting of table of contents. Modified from https://stackoverflow.com/a/75346369/15587966.
 	const anchors: NodeListOf<Element> = document.querySelectorAll("h2:not(.table-of-contents-blogpost)");
 	const links: NodeListOf<Element> = document.querySelectorAll('aside.table-of-contents-blogpost > ul > li > a');
 	window.addEventListener('DOMContentLoaded', () => {
@@ -61,13 +61,13 @@ const { headings } = await post.render();
 		})
 	});
 
-	// Anchor resolving function. MOdified from https://stackoverflow.com/a/75346369/15587966
+	// Anchor resolving function. 
 	(function(document, history, location) {
 		let HISTORY_SUPPORT = !!(history && history.pushState);
 
 		let anchorScrolls = {
-			// ANCHOR_REGEX: /^#[^ ]+$/,
-			ANCHOR_REGEX: /^#[^\s]+$/,
+			ANCHOR_REGEX: /^#[^ ]+$/,
+			// ANCHOR_REGEX: /^#[^\s]+$/,
 			// ANCHOR_REGEX: /^#[0-9%:a-z,A-Z-]+$/,
 			OFFSET_HEIGHT_PX: 95,
 
@@ -102,11 +102,6 @@ const { headings } = await post.render();
 				}
 
 				match = document.getElementById(href.slice(1));
-				console.log(match);
-				console.log(document.getElementById(href.slice(2)));
-				console.log(document.getElementById(href.slice(3)));
-				console.log(document.getElementById(href.slice(4)));
-				console.log(document.getElementById(href));
 
 				if(match) {
 					rect = match.getBoundingClientRect();
@@ -115,7 +110,7 @@ const { headings } = await post.render();
 
 					// Add the state to history as-per normal anchor links
 					if(HISTORY_SUPPORT && pushToHistory) {
-					history.pushState({}, document.title, location.pathname + href);
+						history.pushState({}, document.title, location.pathname + href);
 					}
 				}
 
@@ -134,7 +129,7 @@ const { headings } = await post.render();
 			 */
 			delegateAnchors: function(e: any) {
 				let elem = e.target;
-				if(elem.nodeName === 'A') {
+				if(elem.nodeName === 'A' && !elem.className.includes("nav-anchor")) {
 					this.scrollIfAnchor(elem.getAttribute('href'), true) // For normal anchors
 					e.preventDefault();
 				} else if (elem.nodeName === 'MJX-C') {
