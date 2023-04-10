@@ -128,8 +128,10 @@ const { headings } = await post.render();
 			 * If the click event's target was an anchor, fix the scroll position.
 			 */
 			delegateAnchors: function(e: any) {
+				const anchorsToExclude: string[] = ["blog-content-anchor", "nav-anchor", "tags-anchor"];
 				let elem = e.target;
-				if(elem.nodeName === 'A' && !(elem.className.includes("blog-content-anchor") || elem.className.includes("nav-anchor") || elem.className.includes("tags-anchor"))) {
+				const footerClassName: string = elem.parentNode.parentNode.parentNode.parentNode.className;
+				if(elem.nodeName === 'A' && !(anchorsToExclude.map((x)=>elem.className.includes(x)).some(Boolean) || footerClassName === 'footnotes')) {
 					this.scrollIfAnchor(elem.getAttribute('href'), true) // For normal anchors
 					e.preventDefault();
 				} else if (elem.nodeName === 'MJX-C') {
