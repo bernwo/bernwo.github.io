@@ -4,16 +4,18 @@ description: "Showcasing an example interactive plot on my website"
 publishDate: "07 April 2023"
 tags: ["plot", "math"]
 ---
+
+import BlogAnchor from "@/components/blog/Anchor";
 import RandomisedBarThreeD from "@/echarts/RandomisedBarThreeD";
 import SineWaveBarThreeD from "@/echarts/SineWaveBarThreeD";
 
 ## Randomised 3D bar chart
 
-Below is an interactive 3D bar chart that I plotted using <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block"> ECharts.js</a>. This JavaScript library uses <a target="_blank" rel="noopener noreferrer" class="cactus-link inline-block" href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> under the hood to render the chart that you're seeing, and thus has high performance.
+Below is an interactive 3D bar chart that I plotted using <BlogAnchor href="https://echarts.apache.org/" innerHTML="ECharts.js" />. This JavaScript library uses <BlogAnchor href="https://en.wikipedia.org/wiki/WebGL" innerHTML="WebGL" /> under the hood to render the chart that you're seeing, and thus has high performance.
 
 <RandomisedBarThreeD />
 
-The data used in the plot is generated via client-sided JavaScript (see code block below), and is uniformly random, which is sufficient for a simple toy model. Thus, every time you refresh this page, the chart would look a little bit different. Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">ECharts.js</a>
+The data used in the plot is generated via client-sided JavaScript (see code block below), and is uniformly random, which is sufficient for a simple toy model. Thus, every time you refresh this page, the chart would look a little bit different. Here is the corresponding JavaScript code to generate the data in the format need by <BlogAnchor href="https://echarts.apache.org/" innerHTML="ECharts.js" />
 
 ```js
 // You can see this in the source code of my page too.
@@ -38,7 +40,7 @@ where $\phi$ is the phase which I chose to update every 500 milliseconds, $\omeg
 
 <SineWaveBarThreeD />
 
-Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">ECharts.js</a>
+Here is the corresponding JavaScript code to generate the data in the format need by <BlogAnchor href="https://echarts.apache.org/" innerHTML="ECharts.js" />
 
 ```js
 // You can see this in the source code of my page too.
@@ -48,9 +50,8 @@ function generate_sine_wave_data(n, phase) {
 }
 ```
 
-Of course, a 3D bar chart is not the only way one can visualise the data. <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
-ECharts.js</a> offers a lot of different plot types, and you can check them out <a href="https://echarts.apache.org/examples/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">here</a>.
+Of course, a 3D bar chart is not the only way one can visualise the data. <BlogAnchor href="https://echarts.apache.org/" innerHTML="ECharts.js" /> offers a lot of different plot types, and you can check them out <BlogAnchor href="https://echarts.apache.org/examples/" innerHTML="here" />.
 
 ## Why?
 
-I've always wanted to write a blog with pedagogical elements present, and what better way to achieve that than to include beautiful visualisations that are interactive and animated. To avoid re-inventing the wheel, I looked for available JavaScript libraries that allow me to plot. There were many promising candidates, alas most of them are either missing a feature that I wanted or is too low-level. Except for <a href="https://echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">ECharts.js</a>, which I found to be perfect for my use-case. Using this library has been a blast so far! 🥳.
+I've always wanted to write a blog with pedagogical elements present, and what better way to achieve that than to include beautiful visualisations that are interactive and animated. To avoid re-inventing the wheel, I looked for available JavaScript libraries that allow me to plot. There were many promising candidates, alas most of them are either missing a feature that I wanted or is too low-level. Except for <BlogAnchor href="https://echarts.apache.org/" innerHTML="ECharts.js" />, which I found to be perfect for my use-case. Using this library has been a blast so far!

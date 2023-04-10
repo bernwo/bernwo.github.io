@@ -1,0 +1,10 @@
+---
+interface Props {
+	href: string;
+	innerHTML: string;
+}
+
+const {href, innerHTML} = Astro.props;
+---
+<a href={href} target="_blank" rel="noopener noreferrer" class="blog-content-anchor cactus-link inline-block">{innerHTML}</a>
+
