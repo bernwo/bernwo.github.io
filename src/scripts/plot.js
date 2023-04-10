@@ -1,6 +1,5 @@
 // import {scaleSequential, interpolateMagma} from 'd3';
 let {Bar3DChart, Grid3DComponent} = await import('./echartsImportHelper.js');
-// import {Bar3DChart, Grid3DComponent} from './echartsImportHelper.js';
 import * as echarts from 'echarts/core';
 import { TooltipComponent, VisualMapComponent } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
