@@ -88,15 +88,3 @@ const { headings } = await post.render();
 	</button>
 </BaseLayout>
 
-<script hoist>		
-	// https://docs.astro.build/en/guides/upgrade-to/v1/#deprecated-astroresolve
-	import {createRandomisedBar3D, createSineWaveBar3D, createCongruentModScatter} from '../scripts/plot.js';
-	// elements with class "echarts" exist
-	const tmp = document.getElementsByClassName("echarts");
-	const hasECharts = tmp.length > 0;
-	if (hasECharts) {
-		createRandomisedBar3D("randomised-bar3d-chart", 25);
-		createSineWaveBar3D("sine-wave-bar3d-chart", 25);
-		createCongruentModScatter("congruent-numbers-scatter-chart", 2001);
-	}
-</script> 

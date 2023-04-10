@@ -4,12 +4,14 @@ description: "Showcasing an example interactive plot on my website"
 publishDate: "07 April 2023"
 tags: ["plot", "math"]
 ---
+import RandomisedBarThreeD from "@/echarts/RandomisedBarThreeD";
+import SineWaveBarThreeD from "@/echarts/SineWaveBarThreeD";
 
 ## Randomised 3D bar chart
 
-Below is an interactive 3D bar chart that I plotted using<a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block"> ECharts.js</a>. This JavaScript library uses <a target="_blank" rel="noopener noreferrer" class="cactus-link inline-block" href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> under the hood to render the chart that you're seeing, and thus has high performance.
+Below is an interactive 3D bar chart that I plotted using <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block"> ECharts.js</a>. This JavaScript library uses <a target="_blank" rel="noopener noreferrer" class="cactus-link inline-block" href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> under the hood to render the chart that you're seeing, and thus has high performance.
 
-<div class="echarts" id="randomised-bar3d-chart" decoding="async" loading="lazy"></div>
+<RandomisedBarThreeD />
 
 The data used in the plot is generated via client-sided JavaScript (see code block below), and is uniformly random, which is sufficient for a simple toy model. Thus, every time you refresh this page, the chart would look a little bit different. Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">ECharts.js</a>
 
@@ -34,7 +36,7 @@ $$
 
 where $\phi$ is the phase which I chose to update every 500 milliseconds, $\omega=1/3$ is the frequency, and $n=25$ is the dimension of the plot.
 
-<div class="echarts" id="sine-wave-bar3d-chart" decoding="async" loading="lazy"></div>
+<SineWaveBarThreeD />
 
 Here is the corresponding JavaScript code to generate the data in the format need by <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">ECharts.js</a>
 

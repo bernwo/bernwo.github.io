@@ -1,3 +1,25 @@
+// import {scaleSequential, interpolateMagma} from 'd3';
+let {Bar3DChart, Grid3DComponent} = await import('./echartsImportHelper.js');
+// import {Bar3DChart, Grid3DComponent} from './echartsImportHelper.js';
+import * as echarts from 'echarts/core';
+import { TooltipComponent, VisualMapComponent } from 'echarts/components';
+import { CanvasRenderer } from 'echarts/renderers';
+
+
+echarts.use([
+  TooltipComponent,
+  VisualMapComponent,
+  Grid3DComponent,
+  Bar3DChart,
+  CanvasRenderer
+]);
+
+const nameTextStyleConfig =	{
+	fontSize: 24,
+	fontStyle: "italic",
+	fontFamily: "serif",
+};
+
 // From global.css
 const darkTextColour = "#f8f8f2";
 
@@ -14,80 +36,7 @@ function generate_sine_wave_data(n, phase) {
 	]);
 }
 
-function generate_congruent_modulo_data(n, k) {
-	return Array.from({ length: n }, (_, i) => [i, 2 * i - (i & ((1 << k) - 1))]);
-}
-
-export function getScatterOption(size, x_label, y_label) {
-	const textColour = darkTextColour;
-	const option = {
-		animation: false,
-		tooltip: {
-			show: true,
-			confine: false,
-			trigger: "item",
-			axisPointer: { label: { show: true } },
-			backgroundColor: "#ffffffea",
-		},
-		xAxis: {
-			minInterval: 1,
-			min: 0,
-			max: size - 1,
-			name: x_label,
-			nameTextStyle: {
-				fontSize: 24,
-				fontStyle: "italic",
-				fontFamily: "serif",
-			},
-			axisLine: { lineStyle: { color: textColour } },
-		},
-		yAxis: {
-			minInterval: 1,
-			min: 0,
-			max: size - 1,
-			name: y_label,
-			nameTextStyle: {
-				fontSize: 24,
-				fontStyle: "italic",
-				fontFamily: "serif",
-			},
-			axisLine: { lineStyle: { color: textColour } },
-		},
-	};
-	return option;
-}
-
-export function getScatterData(dataArray) {
-	const option = {
-		series: [
-			{
-				type: "scatter",
-				data: dataArray,
-				symbolSize: 6,
-				label: {
-					show: false,
-					fontSize: 16,
-					borderWidth: 1,
-				},
-				itemStyle: {
-					opacity: 1,
-					color: "#ef5455",
-				},
-				emphasis: {
-					label: {
-						show: false,
-					},
-					itemStyle: {
-						color: "#900",
-					},
-				},
-			},
-		],
-	};
-	return option;
-}
-
-export function getBar3Doption(size, x_label, y_label, z_label) {
+function getBar3Doption(size, x_label, y_label, z_label) {
 	const textColour = darkTextColour;
 	const colorLength = 32;
 	// prettier-ignore
@@ -113,11 +62,7 @@ export function getBar3Doption(size, x_label, y_label, z_label) {
 			min: 0,
 			max: size - 1,
 			name: x_label,
-			nameTextStyle: {
-				fontSize: 24,
-				fontStyle: "italic",
-				fontFamily: "serif",
-			},
+			nameTextStyle: nameTextStyleConfig,
 			axisLine: { lineStyle: { color: textColour } },
 		},
 		yAxis3D: {
@@ -125,11 +70,7 @@ export function getBar3Doption(size, x_label, y_label, z_label) {
 			min: 0,
 			max: size - 1,
 			name: y_label,
-			nameTextStyle: {
-				fontSize: 24,
-				fontStyle: "italic",
-				fontFamily: "serif",
-			},
+			nameTextStyle: nameTextStyleConfig,
 			axisLine: { lineStyle: { color: textColour } },
 		},
 		zAxis3D: {
@@ -161,7 +102,7 @@ export function getBar3Doption(size, x_label, y_label, z_label) {
 	return option;
 }
 
-export function getBar3Ddata(size, dataArray, name) {
+function getBar3Ddata(size, dataArray, name) {
 	const option = {
 		series: [
 			{
@@ -176,11 +117,6 @@ export function getBar3Ddata(size, dataArray, name) {
 				barSize: 120 / size,
 				label: {
 					show: false,
-					fontSize: 16,
-					borderWidth: 1,
-				},
-				itemStyle: {
-					opacity: 1,
 				},
 				emphasis: {
 					label: {
@@ -228,28 +164,6 @@ export function createSineWaveBar3D(inputID, size) {
 	}
 }
 
-export function createCongruentModScatter(inputID, size) {
-	const chartDom = document.getElementById(inputID);
-	const display = document.getElementById("current-congruent-number");
-	const slider = document.getElementById("congruent-number-slider");
-	if (chartDom != null && display != null && slider != null) {
-		let myChart = echarts.init(chartDom);
-		const option = getScatterOption(size, "n", "y");
-		const optionData = getScatterData(generate_congruent_modulo_data(size, slider.value));
-		myChart.setOption(option);
-		myChart.setOption(optionData);
-		display.innerHTML = slider.value;
-		slider.addEventListener("touchstart", () => {lockScroll();});
-		slider.addEventListener("touchend", () => {lockScroll();});
-		slider.oninput = function() {
-			display.innerHTML = this.value;
-			myChart.setOption(getScatterData(generate_congruent_modulo_data(size, this.value)));
-		}
-	}
-}
 
-function lockScroll() {
-	document.body.classList.toggle('fixed-position');
-}
 
 // https://echarts.apache.org/examples/en/editor.html?c=graph-force-dynamic
