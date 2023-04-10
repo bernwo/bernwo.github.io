@@ -47,14 +47,20 @@ const { headings } = await post.render();
 				links.forEach((link, _) => {
 					link.classList.remove("section-scroll-active");
 				});
-				
-				// then iterate backwards, on the first match highlight it and break
-				for (let i = anchors.length-1; i >= 0; i--) {
+
+				// Check if scrolled to the very bottom of page
+				if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
 					// @ts-ignore: Object is possibly 'null'.
-					if (scrollTop > anchors[i].offsetTop - 100) {
+					links[anchors.length-1].classList.add('section-scroll-active');
+				} else {
+					// then iterate backwards, on the first match highlight it and break
+					for (let i = anchors.length-1; i >= 0; i--) {
 						// @ts-ignore: Object is possibly 'null'.
-						links[i].classList.add('section-scroll-active');
-						break;
+						if (scrollTop > anchors[i].offsetTop - 100) {
+							// @ts-ignore: Object is possibly 'null'.
+							links[i].classList.add('section-scroll-active');
+							break;
+						}
 					}
 				}
 			}
