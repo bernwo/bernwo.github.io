@@ -1,11 +1,7 @@
-// const {echarts}=require("@/scripts/echartsImportHelper");
-// import {echarts} from "@/scripts/echartsImportHelper";
-import * as echarts from 'echarts/core';
-import {ScatterChart} from 'echarts/charts';
-import {CanvasRenderer} from 'echarts/renderers';
-// let { ScatterChart } = await import('echarts/charts');
-// let { CanvasRenderer } = await import('echarts/renderers');
-echarts.use([ScatterChart,CanvasRenderer]);
+// import * as echarts from 'echarts/core';
+// import {ScatterChart} from 'echarts/charts';
+// import {CanvasRenderer} from 'echarts/renderers';
+// echarts.use([ScatterChart,CanvasRenderer]);
 
 function generate_congruent_modulo_data(n, k) {
 	return Array.from({ length: n }, (_, i) => [i, 2 * i - (i & ((1 << k) - 1))]);
