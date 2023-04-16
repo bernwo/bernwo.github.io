@@ -1,0 +1,26 @@
+---
+title: "Dev log 0: Quantum spins and three.js"
+description: "This is a series where I jot down some notes on developing this site"
+publishDate: "17 April 2023"
+tags: ["coding", "frontend", "quantum computing"]
+---
+
+import BlogAnchor from "@/components/blog/Anchor";
+
+## Quantum spins and Three.js
+
+As detailed in my <BlogAnchor href="/posts/simple-interactive-plot-example" innerHTML="Interactive plot"/> blog post, it is my intention to populate the site with visualisations that aid in the explanation of usually abstract concepts. My plan is to create a 3D model illustration of a _quantum spin_, which in literature, is usually portrayed in a simplified manner as a circle, with an arrow lodged in the middle. Since this is vaguely related to quantum computing, I included its <BlogAnchor href="/tags/quantum computing" innerHTML="tag"/> in this post.
+
+Over the past few weeks, I have been fiddling with <BlogAnchor href="https://threejs.org/" innerHTML="three.js"/>, which is a top-tier JavaScript library for creating beautiful and interactive 3D models on websites. It is a fairly low-leveled library compared to libraries like <BlogAnchor href="https://echarts.apache.org/en/index.html" innerHTML="ECharts.js"/> in the sense that three.js allows you to virtually build anything you want, whereas ECharts.js is a lot easier to use, albeit limited in the things it can create.
+
+### Shading
+
+For aesthetics, I want the spin to have a _cel-shading_ effect which in my opinion is appropriate for scientific illustration.
+
+I came across this <BlogAnchor href="https://spite.github.io/sketch/post-hope/index.html" innerHTML="amazing shader"/> in done in three.js, among other equally amazing shaders[^offscreencanvas]. As amazing as it is however, it is too grandiose for a simple object like a quantum spin illustration. Hence, I continued my search until I found <BlogAnchor href="https://threejs.org/examples/#webgl_materials_variations_toon" innerHTML="official three.js example"/> where they showcased a _toon shading_ with _outline_ effects on a group of spheres, which is perfect for my use case aesthetically. Upon checking the source code, I realised it is relatively simple, which is a cherry on top.
+
+### Modifying the code
+
+The <BlogAnchor innerHTML="source code" href="https://github.com/mrdoob/three.js/blob/master/examples/webgl_materials_variations_toon.html"/> of the toon shading example on <BlogAnchor href="https://threejs.org/" innerHTML="threejs.org"/> uses <BlogAnchor href="https://threejs.org/docs/#api/en/geometries/SphereGeometry" innerHTML="SphereGeometry"/> to create a sphere within three.js. It is then obvious that I need an additional <BlogAnchor href="https://threejs.org/docs/#api/en/geometries/CylinderGeometry" innerHTML="CylinderGeometry"/> and a <BlogAnchor href="https://threejs.org/docs/#api/en/geometries/ConeGeometry" innerHTML="ConeGeometry"/> to create the _'arrow'_ through the sphere to form a quantum spin illustration.
+
+[^offscreencanvas]: Cel/toon shading https://offscreencanvas.com/issues/015/
