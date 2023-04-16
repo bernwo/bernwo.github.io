@@ -1,0 +1,132 @@
+<script hoist>
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { OutlineEffect } from "three/examples/jsm/effects/OutlineEffect.js";
+import { SpinGeometry } from "@/scripts.ts/spinGeometry";
+let camera, scene, renderer, effect;
+let particleLight;
+let spinMesh;
+
+document.addEventListener("DOMContentLoaded", () => {
+    init();
+    animate();
+});
+
+function init() {
+    camera = new THREE.OrthographicCamera(
+        250 / -2,
+        250 / 2,
+        250 / 2,
+        250 / -2,
+        1,
+        2500
+    );
+    camera.position.set(0.0, 400, 700);
+    camera.zoom=0.8;
+    camera.updateProjectionMatrix();
+    //
+
+    scene = new THREE.Scene();
+
+    //
+
+    renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        canvas: threejsspinexample,
+    });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(255, 255);
+    // renderer.setClearColor(0xfaf4ed, 0);
+    // container.appendChild(renderer.domElement);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    // Materials
+
+    const cubeWidth = 250;
+    const numberOfSphersPerSide = 2;
+    const sphereRadius = (cubeWidth / numberOfSphersPerSide) * 0.8 * 0.5;
+    const format = renderer.capabilities.isWebGL2
+        ? THREE.RedFormat
+        : THREE.LuminanceFormat;
+
+    const spinGeometry = SpinGeometry(
+        sphereRadius,
+        sphereRadius / 5,
+        sphereRadius * 3.6,
+        sphereRadius / 1.8,
+        sphereRadius * 1.15
+    );
+
+    //
+
+    const colorsLength = 3;
+    const colors = new Uint8Array(colorsLength);
+    for (let c = 0; c < colors.length; c++) {
+        colors[c] = ((c + 1) / colors.length) * 255;
+    }
+    const gradientMap = new THREE.DataTexture(colors, colors.length, 1, format);
+    gradientMap.needsUpdate = true;
+
+    const diffuseColor = new THREE.Color(0xb20600);
+    const material = new THREE.MeshToonMaterial({
+        color: diffuseColor,
+        gradientMap: gradientMap,
+        transparent: false,
+        opacity: 1,
+    });
+    spinMesh = new THREE.Mesh(spinGeometry, material);
+
+    spinMesh.position.x = 0;
+    spinMesh.position.y = 0;
+    spinMesh.position.z = 0;
+    scene.add(spinMesh);
+
+    particleLight = new THREE.Mesh();
+    scene.add(particleLight);
+
+    // Lights
+
+    // scene.add(new THREE.AmbientLight(0xcccccc));
+
+    const pointLight = new THREE.PointLight(0xffffff, 1.6, 4000);
+    particleLight.add(pointLight);
+
+    //
+
+    const outlineColour = new THREE.Color("#000000");
+    effect = new OutlineEffect(renderer, {
+        defaultThickness: 0.02,
+        defaultColor: [outlineColour.r, outlineColour.g, outlineColour.b],
+    });
+
+    //
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 200;
+    controls.maxDistance = 2000;
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    render();
+}
+
+function render() {
+    const timer = Date.now() * 0.00025;
+
+    particleLight.position.x = Math.sin(timer * 7) * 150;
+    // particleLight.position.y = Math.cos(timer * 5) * 100;
+    particleLight.position.z = Math.cos(timer * 7) * 150;
+    particleLight.position.y = 100;
+
+    spinMesh.rotateY(timer * 5e-11);
+
+    effect.render(scene, camera);
+}
+</script>
+
+<div class="spin-container">
+    <canvas id="threejsspinexample"></canvas>
+</div>

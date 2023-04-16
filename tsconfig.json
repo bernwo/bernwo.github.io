@@ -8,6 +8,7 @@
 			"@/scripts.ts/*": ["src/scripts/*.ts"],
 			"@/scripts.js/*": ["src/scripts/*.js"],
 			"@/echarts/*": ["src/components/echarts/*.astro"],
+			"@/three/*": ["src/components/three/*.astro"],
 			"@/components/*": ["src/components/*.astro"],
 			"@/layouts/*": ["src/layouts/*.astro"],
 			"@/utils": ["src/utils/index.ts"],
