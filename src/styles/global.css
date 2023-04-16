@@ -115,6 +115,15 @@ h1.hello-world {
 	}
 }
 
+pre.astro-code,
+div.echarts,
+div.math.math-display,
+div.slider-container {
+	align-self: center;
+	align-content: space-between; /* Especially for div.math.math-display */
+	max-width: 37rem;
+}
+
 @media (min-width: 640px) {
 	/* Do not have minimum width at screen width sizes smaller than 640px */
 	pre.astro-code,
@@ -123,15 +132,6 @@ h1.hello-world {
 	div.slider-container {
 		width: 37rem;
 	}
-}
-
-pre.astro-code,
-div.echarts,
-div.math.math-display,
-div.slider-container {
-	align-self: center;
-	align-content: space-between; /* Especially for div.math.math-display */
-	max-width: 37rem;
 }
 
 aside.table-of-contents-blogpost > ul > li > a.section-scroll-active {
@@ -216,6 +216,34 @@ div.echarts {
 	border-width: 3px;
 	background: var(--theme-slider-thumb);
 	cursor: pointer; /* Cursor on hover */
+}
+
+div.spin-container {
+	width: 100%;
+	aspect-ratio: auto;
+	width: auto;
+	height: auto;
+	background: var(--theme-bg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 640px) {
+	div.spin-container {
+		align-self: center;
+		max-width: 250px;
+		aspect-ratio: 1/1;
+		border-radius: 5px;
+		display: block;
+	}
+}
+
+canvas#threejsspinexample {
+	max-width: 100%;
+	max-height: 100%;
 }
 
 @tailwind components;
