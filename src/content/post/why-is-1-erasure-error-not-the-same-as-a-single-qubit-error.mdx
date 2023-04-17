@@ -1,6 +1,6 @@
 ---
 title: "Why is a quantum erasure error & a Pauli error not the same?"
-description: "Non-layman explanation of why a 1-erasure error and a 1-qubit Pauli error is not exactly the same thing in terms of a quantum error correcting code"
+description: "Non-layman explanation of why a 1-erasure error and a 1-qubit Pauli error is not exactly the same thing in terms of a quantum error correction"
 publishDate: "18 April 2023"
 tags: ["math", "quantum computing"]
 ---
@@ -15,11 +15,7 @@ The desire to write this post was spurred by the fruitful discussion I had yeste
 
 ## The \[\[5,1,3\]\] quantum error correcting code
 
-TODO: Show the stabiliser generators explicitly.
-
-TODO: Mention upcoming post.
-
-An arbitrary logical state in the \[\[5,1,3\]\] quantum error correcting code a.k.a the 5-qubit code, first shown by [@Laflamme1996], is given by the linear superposition of the logical states $|0_\mathrm{L}\rangle$ and $|1_\mathrm{L}\rangle$
+An arbitrary logical state in the \[\[5,1,3\]\] quantum error correcting code a.k.a the 5-qubit code, which is the smallest possible quantum error correcting code shown by [@Laflamme1996], is given by the linear superposition of the logical states $|0_\mathrm{L}\rangle$ and $|1_\mathrm{L}\rangle$
 
 $$
 \begin{equation}
@@ -51,7 +47,19 @@ $$
 \end{align}
 $$
 
-Whilst it is no surprise that eqns ($\ref{eqn:ket0L}$) and ($\ref{eqn:ket1L}$) are orthogonal to each other, i.e., $\langle0_\mathrm{L}|1_\mathrm{L}\rangle=0$, it is interesting to note that the state $|0_\mathrm{L}\rangle$ ($|1_\mathrm{L}\rangle$) is essentially the linear superposition of all 5-qubit states with even (odd) parity.
+While it is not surprising that eqns ($\ref{eqn:ket0L}$) and ($\ref{eqn:ket1L}$) are orthogonal to each other, i.e., $\langle0_\mathrm{L}|1_\mathrm{L}\rangle=0$, it is interesting to note that the state $|0_\mathrm{L}\rangle$ ($|1_\mathrm{L}\rangle$) is essentially the linear superposition of all 5-qubit states with even (odd) parity. The stabiliser group of the 5-qubit code is
+
+$$
+\begin{align}
+\mathcal{S}&=\{g_1,g_2,g_3,g_4\}\nonumber\\
+&=\{XZZXI,IXZZX,XIXZZ,ZXIXZ\}.
+\label{eqn:stabilisergroup}
+\end{align}
+$$
+
+For the uninitiated, each element in a stabiliser group is called a _stabiliser generator_, and they have the property that when applied on a logical state, it leaves it invariant, i.e., $|\psi_\mathrm{L}\rangle=g_k|\psi_\mathrm{L}\rangle,\,\forall k\in\{1,2,3,4\}$. It is common in literature to say that these stabiliser generators result in the $+1$ eigenstate with respect to the logical state $|\psi_\mathrm{L}\rangle$.
+
+### Pauli errors
 
 Its density matrix is given by
 
@@ -72,7 +80,7 @@ $$
 \end{align}
 $$
 
-If we have an arbitary Pauli error acting on the first qubit, then we simply write the resulting density matrix as the following
+If we have an arbitrary Pauli error acting on the first qubit, then we simply write the resulting density matrix as the following
 
 $$
 \begin{align}
@@ -83,9 +91,11 @@ $$
 \end{align}
 $$
 
-where $\mathcal{E}$ is a Hermitian unitary matrix which represents the rotation of the qubit's Bloch vector by some arbitrary amounts and around some arbitrary axis, i.e., an arbitrary single qubit Pauli error. Note that $\rho_{\mathrm{\mathcal{E}}}$ is still a pure state, i.e., $\mathrm{tr}(\rho_{\mathrm{\mathcal{E}}}^2)=1$.
+where $\mathcal{E}$ is a Hermitian unitary matrix which represents the rotation of the qubit's Bloch vector by some arbitrary amounts and around some arbitrary axis, i.e., an arbitrary single qubit Pauli error. Note that $\rho_{\mathrm{\mathcal{E}}}$ is still a pure state, i.e., $\mathrm{tr}(\rho_{\mathrm{\mathcal{E}}}^2)=1$ since Pauli operators are trace preserving.
 
-Now imagine we have an erasure error on the first qubit, and then we replace the lost qubit with a qubit in state $|0\rangle$, the resulting density matrix would become
+### Erasure errors
+
+Now imagine we have an erasure error on the first qubit (we effectively trace out the first qubit), and then we replace the lost qubit with a qubit in state $|0\rangle$, the resulting density matrix would become
 
 $$
 \begin{equation}\label{eqn:lost-density-matrix}
@@ -93,7 +103,7 @@ $$
 \end{equation}
 $$
 
-From eqns ($\ref{eqn:pure-density-matrix}$) and ($\ref{eqn:lost-density-matrix}$), we can see that there exist no combinations of single-qubit Paulis that can bring us from state $\rho_\mathrm{L}$ to $\rho_\mathrm{lost}$. In fact, there exists no unitaries that can do that, i.e.,
+From eqns ($\ref{eqn:pure-density-matrix}$) and ($\ref{eqn:lost-density-matrix}$), we can see that there exist no combinations of single-qubit Paulis that can bring us from state $\rho_\mathrm{L}$ to $\rho_\mathrm{lost}$ or vice versa. In fact, there exists no unitaries that can do that, i.e.,
 
 $$
 \begin{equation}\label{eqn:neq-unitary}
@@ -101,10 +111,10 @@ $$
 \end{equation}
 $$
 
-where $\mathrm{SU}(2)$ is the <BlogAnchor href="https://en.wikipedia.org/wiki/Lie_group" innerHTML="Lie group"/> of $2\times2$ unitary matrices with determinant 1. Furthermore, the state $\rho_\mathrm{lost}$ is no longer a pure state, but a mixed state, i.e., $\mathrm{tr}(\rho_\mathrm{lost}^2)<1$. This means that information about our original logical state, i.e., the $|\psi_0\rangle\!\langle\psi_1|$ and $|\psi_1\rangle\!\langle\psi_0|$ components, is irreversibly lost, at least without the help of a quantum erasure error correcting code.
+where $\mathrm{SU}(2)$ is the <BlogAnchor href="https://en.wikipedia.org/wiki/Lie_group" innerHTML="Lie group"/> of $2\times2$ unitary matrices with determinant 1. Furthermore, the state $\rho_\mathrm{lost}$ is no longer a pure state, but a mixed state, i.e., $\mathrm{tr}(\rho_\mathrm{lost}^2)<1$. This means that information about our original logical state, i.e., the $|\psi_0\rangle\!\langle\psi_1|$ and $|\psi_1\rangle\!\langle\psi_0|$ components, is irreversibly lost. This is the difference between an erasure error and a Pauli error.
 
-However, there exists a theorem[@Grassl1997], which states that it is possible to use any $t$-error correcting code to correct for up to $2t$-erasure errors. The idea of using the same 5-qubit code that corrects for arbitrary single qubit Pauli errors to correct for erasure errors have been explored in my thesis [@kjwo2022] and it will be explored in my upcoming paper that's currently in the drafting stage _(stay tuned!)_. In the example by [@Gingrich2003], they demonstrated a single qubit erasure error correction using the \[\[4,2,2\]\] code, which is actually not a quantum error correcting code, but a quantum error _detection_ code, so it's pretty interesting in its own right. This paper did a tremendous job of explaining quantum erasure error correction using an \[\[_n_,_k_,_d_\]\] code. The same steps apply if you want to use the \[\[5,1,3\]\] code for erasure error correction, though there are some nuances present _(might expound on this in another post)_.
+### Correcting erasure errors
 
-> Note that an _erasure error_ in the field of quantum error correction means that it is the loss of a physical qubit that was part of a group of physical qubits encoding a logical qubit, _but_ we know the location of the loss.
+However, there exists a theorem[@Grassl1997], which states that it is possible to use any $t$-error correcting code to correct for up to $2t$-erasure errors. The idea of using the same 5-qubit code that corrects for arbitrary single qubit Pauli errors to correct for erasure errors have been explored in my thesis [@kjwo2022] and it will also be explored in my upcoming paper that's currently in the drafting stage _(stay tuned!)_. In the example by [@Gingrich2003], they demonstrated a single qubit erasure error correction using the \[\[4,2,2\]\] code, which is actually not a quantum error correcting code, but a quantum error _detection_ code, so it's intriguing in its own right. This paper did a tremendous job of explaining quantum erasure error correction using an \[\[_n_,_k_,_d_\]\] code and I had much joy reading it. The same steps apply if you want to use the \[\[5,1,3\]\] code for erasure error correction, though there are some extra nuances present _(might expound on this in another post)_.
 
-The existence of this theorem means that one could use the 5-qubit code, which corrects for arbitrary 1 qubit errors, to correct for up to 2 lost qubits!
+> An _erasure error_ in the field of quantum error correction means that it is the loss of a physical qubit that was part of a group of physical qubits encoding a logical qubit, _but_ we know the location of the loss.
