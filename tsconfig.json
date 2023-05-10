@@ -5,6 +5,8 @@
 		"skipLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
+			"@/assets.jpg/*": ["src/assets/*.jpg"],
+			"@/assets.png/*": ["src/assets/*.png"],
 			"@/scripts.ts/*": ["src/scripts/*.ts"],
 			"@/scripts.js/*": ["src/scripts/*.js"],
 			"@/echarts/*": ["src/components/echarts/*.astro"],
