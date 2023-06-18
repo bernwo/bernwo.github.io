@@ -1,0 +1,30 @@
+---
+title: "New quantum repeater paper out on arxiv!"
+publishDate: "18 June 2023"
+description: "Announcement of a collaborative work on quantum repeaters with code concatenation going public on arXiv"
+tags: ["academics","quantum computing"]
+---
+
+import { Image } from "@astrojs/image/components";
+import BlogAnchor from "@/components/blog/Anchor";
+import repeaterNetworkImg from "@/assets.jpg/networkoverviewflagfinal";
+
+<div style="align-self: center;">
+	<Image
+		src={repeaterNetworkImg}
+		alt="A picture depicting a mound of dead and bleached corals washed up on a beach with sea water in the background"
+		style="margin-bottom:-10px; border-radius: 17px;"
+		class="shadow-wo"
+		height="300"
+		width="825"
+	></Image>
+	<span style="font-style: italic; font-weight: 400">
+		Figure from the paper [@Wo2023].
+	</span>
+</div>
+
+As mentioned in <BlogAnchor href="/posts/why-is-1-erasure-error-not-the-same-as-a-single-qubit-error" innerHTML="Why is a quantum erasure error and a Pauli error not the same?"/> blog post, I had something big that had been in the works for quite some time with great collaborators, and it is now finally out on <BlogAnchor href="https://arxiv.org/abs/2306.07224" innerHTML="arxiv" />![@Wo2023] I'm especially excited about this because this work combines two different quantum error correcting code to form a robust hybrid quantum repeater network architecture that bridges intercontinental distances for quantum communication.
+
+This was also my first time submitting my LaTeX source files to arxiv by myself, and needless to say it was an _edifying_ experience. This is because my LaTeX source files are configured in such a way that the main text and supplemental material are completely separate, and that the format is configured for publishing to a reputable journal. Arxiv, on the other hand, requires specify configuration of the source files and that the sources for both the main text and supplemental material must be packaged into one.
+
+To adhere to arxiv's LaTeX submission requirements would have been an easier task if I knew this beforehand. Unfortunately, I didn't and therefore I am required to manually configure my LaTeX source files according to the submission policy. However, instead of doing all those configuration painstakingly, I wrote a Powershell script to automatically pull and create a `.zip` archive from both my local main text and supplemental material source repositories and modify only certain configurations. With this method, even if I had to change my main text or supplemental material when publishing to a journal, I can easily use my Powershell script to update my corresponding arxiv submission. The Powershell script in its current state is hardcoded to function only with my source files. At the moment, I do not plan to make a generalised version as that would take up too much of my time.
