@@ -1,0 +1,62 @@
+---
+title: "Rotating frame and rabi oscillation"
+description: "Quantum bit explained in a technical manner with animation"
+publishDate: "22 August 2023"
+tags: ["math", "quantum computing", "plot"]
+---
+
+import { Image } from "@astrojs/image/components";
+import BlogAnchor from "@/components/blog/Anchor";
+
+<div style="align-self: center;">
+	<img
+		src="/assets/rabi_2blochs.gif"
+		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
+		style="margin-bottom:-10px; border-radius: 17px;"
+		class="shadow-wo"
+		height="600"
+		width="900"
+		loading="lazy"
+		decoding="async"
+	></img>
+	<span style="font-style: italic; font-weight: 400">
+		Rabi oscillation in the presence of a transverse magnetic field after a rotating frame
+		transformation for both "on resonance" and "off resonance" cases.
+	</span>
+</div>
+
+## Interaction of a qubit with an oscillating magnetic field in rotating frame
+
+### Hamiltonian for a general magnetic field
+
+Consider a qubit whose magnetic moment is interacting with an external magnetic field. We write the Hamiltonian of such system as such:
+
+$$
+\begin{equation}
+H=-\vec{\mu}\cdot\vec{B}=-\mu\vec{\sigma}\cdot\vec{B},
+\end{equation}
+$$
+
+where $\mu$ is the magnitude of the qubit's magnetic moment, and $\vec{\sigma}$ the vector of Pauli matrices.
+
+### Static magnetic field with weakly oscillating transverse component
+
+Now consider a static magnetic field along the $z$-axis with magnitude $B_0$ and a weakly oscillating magnetic field along the $xy$ plane with magnitude $B_1$. The Hamiltonian then becomes:
+
+$$
+\begin{equation}
+H=-\mu\vec{\sigma}\cdot
+\begin{pmatrix}
+B_1\cos{(\omega_\text{r}t)}\\
+B_1\sin{(\omega_\text{r}t)}\\
+B_0
+\end{pmatrix}
+=\frac{\hbar\Omega}{2}(\cos{(\omega_\text{r})}\sigma_X+\sin{(\omega_\text{r})}\sigma_Y)+\frac{\hbar\omega_0}{2}\sigma_Z,
+\end{equation}
+$$
+
+where I have used $\omega_0=-2\mu B_0/\hbar$ and $\Omega=-2\mu B_1/\hbar$. Note that $\Omega$ is the Rabi frequency.
+
+<div class="echarts" style="background-color: white;">
+	<img src="/assets/rabi_delta0.gif" loading="lazy" decoding="async" />
+</div>
