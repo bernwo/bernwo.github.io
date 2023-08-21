@@ -16,13 +16,34 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	<section>
 		<h1 class="hello-world title mb-6 mt-[-3.2rem] font-medium">
 			<!-- <svg style="display: inline;" height="50px" stroke="var(--theme-accent-2)" stroke-width="1" class="text-line" width="100%"><text x="10%" dominant-baseline="left" text-anchor="middle" y="80%">Hello World! I'm Wo</text></svg>  -->
-			<svg stroke="var(--theme-accent-2)" stroke-width="1" style="display: inline;" xmlns="http://www.w3.org/2000/svg" width="266" height="86" viewBox="0 0 266 86"><text x="43.5%" dominant-baseline="middle" text-anchor="middle" y="80%">Hello World! I'm Wo</text><path transform="translate(235,42)" fill="var(--theme-accent-2)" d="M12 3c5.514 0 10 3.592 10 8.007 0 4.917-5.144 7.961-9.91 7.961-1.937 0-3.384-.397-4.394-.644-1 .613-1.594 1.037-4.272 1.82.535-1.373.722-2.748.601-4.265-.837-1-2.025-2.4-2.025-4.872 0-4.415 4.486-8.007 10-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.739 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 1.417.345 2.774.503 4.059.503 7.084 0 11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006z"></path></svg>
+			<svg
+				stroke="var(--theme-accent-2)"
+				stroke-width="1"
+				style="display: inline;"
+				xmlns="http://www.w3.org/2000/svg"
+				width="266"
+				height="86"
+				viewBox="0 0 266 86"
+				><text x="43.5%" dominant-baseline="middle" text-anchor="middle" y="80%"
+					>Hello World! I'm Wo</text
+				><path
+					transform="translate(235,42)"
+					fill="var(--theme-accent-2)"
+					d="M12 3c5.514 0 10 3.592 10 8.007 0 4.917-5.144 7.961-9.91 7.961-1.937 0-3.384-.397-4.394-.644-1 .613-1.594 1.037-4.272 1.82.535-1.373.722-2.748.601-4.265-.837-1-2.025-2.4-2.025-4.872 0-4.415 4.486-8.007 10-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.739 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 1.417.345 2.774.503 4.059.503 7.084 0 11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006z"
+				></path></svg
+			>
 		</h1>
 		<p class="mb-4">
-			and I'm a Quantum Computing PhD researcher at the 
-			<a href="https://nus.edu.sg/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			and I'm a Quantum Computing PhD researcher at the
+			<a
+				href="https://nus.edu.sg/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				National University of Singapore
-			</a>, specialising in <a href="https://arxiv.org/pdf/1904.06560.pdf" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">superconducting qubits</a>. I intend to update this website regularly and I hope you enjoy browsing it. 😊
+			</a>, where I'm working together with a team of talented people on achieving optic-microwave
+			quantum entanglement.
 		</p>
 		<SocialList />
 	</section>
@@ -41,29 +62,78 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 	<section class="mt-16">
 		<h2 class="title mb-4 text-xl">How did I build this website?</h2>
 		<p class="mb-4">
-			The site was built using <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			The site was built using <a
+				href="https://astro.build"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				Astro.js
 			</a>
-			, hosted on <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			, hosted on <a
+				href="https://github.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				GitHub
-			</a>, and was built on top of chrismwilliams' <a href="https://github.com/chrismwilliams/astro-theme-cactus/" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			</a>, and was built on top of chrismwilliams' <a
+				href="https://github.com/chrismwilliams/astro-theme-cactus/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				astro-theme-cactus
 			</a>
-			template. Throughout my website, I use <a href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			template. Throughout my website, I use <a
+				href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				remark-math.js
-			</a> with <a href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861/packages/rehype-mathjax" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			</a> with <a
+				href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861/packages/rehype-mathjax"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				rehype-mathjax/chtml.js
-			</a> for rendering <a href="https://en.wikipedia.org/wiki/LaTeX" target="_blank" rel="noopener noreferrer"><LaTeXLogo /></a> math expressions at <i>compile time</i>, <a href="https://echarts.apache.org/"  target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			</a> for rendering <a
+				href="https://en.wikipedia.org/wiki/LaTeX"
+				target="_blank"
+				rel="noopener noreferrer"><LaTeXLogo /></a
+			> math expressions at <i>compile time</i>, <a
+				href="https://echarts.apache.org/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				ECharts.js
-			</a> for interactive plots, and <a href="https://www.npmjs.com/package/@supremum/remark-bibtex" target="_blank" rel="noopener noreferrer" class="cactus-link inline-block">
+			</a> for interactive plots, and <a
+				href="https://www.npmjs.com/package/@supremum/remark-bibtex"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cactus-link inline-block"
+			>
 				remark-bibtex.js
-			</a> to do <a href="https://en.wikipedia.org/wiki/BibTeX" target="_blank" rel="noopener noreferrer"><BibTeXLogo /></a> styled citation.
+			</a> to do <a
+				href="https://en.wikipedia.org/wiki/BibTeX"
+				target="_blank"
+				rel="noopener noreferrer"><BibTeXLogo /></a
+			> styled citation.
 		</p>
 	</section>
 	<section class="mt-16">
 		<h2 class="title mb-4 text-xl">Open source</h2>
 		<p class="mb-4">
-			This website is my project which I open sourced here at <a class="cactus-link inline-block" href="https://github.com/bernwo/bernwo.github.io" target="_blank" rel="noopener noreferrer">github.com/bernwo/bernwo.github.io</a>. Notice a typo? Have suggestion on how to improve the site? Feel free to open a Pull Request!
+			This website is my project which I open sourced here at <a
+				class="cactus-link inline-block"
+				href="https://github.com/bernwo/bernwo.github.io"
+				target="_blank"
+				rel="noopener noreferrer">github.com/bernwo/bernwo.github.io</a
+			>. Notice a typo? Have suggestion on how to improve the site? Feel free to open a Pull
+			Request!
 		</p>
 	</section>
 </PageLayout>
