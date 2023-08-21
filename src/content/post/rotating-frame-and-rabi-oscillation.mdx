@@ -25,7 +25,7 @@ import BlogAnchor from "@/components/blog/Anchor";
 	</span>
 </div>
 
-## Interaction of a qubit with an oscillating magnetic field in rotating frame
+## Interaction of a qubit with an oscillating magnetic field
 
 ### Hamiltonian for a general magnetic field
 
@@ -51,12 +51,29 @@ B_1\cos{(\omega_\text{r}t)}\\
 B_1\sin{(\omega_\text{r}t)}\\
 B_0
 \end{pmatrix}
-=\frac{\hbar\Omega}{2}(\cos{(\omega_\text{r})}\sigma_X+\sin{(\omega_\text{r})}\sigma_Y)+\frac{\hbar\omega_0}{2}\sigma_Z,
+=\frac{\hbar\Omega}{2}(\cos{(\omega_\text{r}t)}\sigma_X+\sin{(\omega_\text{r}t)}\sigma_Y)+\frac{\hbar\omega_0}{2}\sigma_Z,
+\label{eqn:hamiltonian-not-rotating-frame}
 \end{equation}
 $$
 
 where I have used $\omega_0=-2\mu B_0/\hbar$ and $\Omega=-2\mu B_1/\hbar$. Note that $\Omega$ is the Rabi frequency.
 
+## Going into the rotating frame
+
+### Rewriting the Hamiltonian
+
+Before going into the rotating frame, we can rewrite eqn $\ref{eqn:hamiltonian-not-rotating-frame}$ by noting that $\cos{(\omega_\text{r}t)}\equiv (e^{-i\omega_\text{r}t}+e^{i\omega_\text{r}t})/2$ and $\sin{(\omega_\text{r}t)}\equiv i(e^{-i\omega_\text{r}t}-e^{i\omega_\text{r}t})/2$:
+
+$$
+\begin{equation}
+H=\frac{\hbar\Omega}{2}(e^{-i\omega_\text{r}t}\sigma_++e^{i\omega_\text{r}t}\sigma_-)+\frac{\hbar\omega_0}{2}\sigma_Z,
+\end{equation}
+$$
+
+where we have also introduced $\sigma_\pm=(\sigma_X\pm\sigma_Y)/2$.
+
 <div class="echarts" style="background-color: white;">
 	<img src="/assets/rabi_delta0.gif" loading="lazy" decoding="async" />
 </div>
+
+## Appendix
