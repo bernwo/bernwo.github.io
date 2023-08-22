@@ -58,9 +58,11 @@ $$
 
 where I have used $\omega_0=-2\mu B_0/\hbar$ and $\Omega=-2\mu B_1/\hbar$. Note that $\Omega$ is the Rabi frequency.
 
+TODO: Write how this time-dependent hamiltonian doesn't result in a closed form solution to the schrodinger equation.
+
 ## Going into the rotating frame
 
-### Rewriting the Hamiltonian
+### Rewriting the Hamiltonian for convenience
 
 Before going into the rotating frame, we can rewrite eqn $\ref{eqn:hamiltonian-not-rotating-frame}$ by noting that $\cos{(\omega_\text{r}t)}\equiv (e^{-i\omega_\text{r}t}+e^{i\omega_\text{r}t})/2$ and $\sin{(\omega_\text{r}t)}\equiv i(e^{-i\omega_\text{r}t}-e^{i\omega_\text{r}t})/2$:
 
@@ -70,10 +72,26 @@ H=\frac{\hbar\Omega}{2}(e^{-i\omega_\text{r}t}\sigma_++e^{i\omega_\text{r}t}\sig
 \end{equation}
 $$
 
-where we have also introduced $\sigma_\pm=(\sigma_X\pm\sigma_Y)/2$.
+where we have also introduced $\sigma_\pm=(\sigma_X\pm i\sigma_Y)/2$ for convenience. As we move on from this, you will see that the rewritten Hamiltonian is much easier to work with when going into the rotating frame.
+
+TODO: Ref the section above where it is said that time-dependent schrodinger equation doesnt result in a closed form solution.
+
+### Hamiltonian in the rotating frame
+
+To obtain the Hamiltonian in the rotating frame about the $z$-axis at frequency $\omega_\text{r}$, we introduce the following evolution operator $U=e^{-i\frac{\omega_\text{r}t}{2}\sigma_Z}$ and the formula $H_\text{RF}=U^\dagger HU+i\hbar\frac{\partial U^\dagger}{\partial t}U$. After working this formula out, you should get:
+
+$$
+\begin{equation}
+H_\text{RF}=
+\end{equation}
+$$
+
+TODO: $H_\text{RF}$ formula.
 
 <div class="echarts" style="background-color: white;">
 	<img src="/assets/rabi_delta0.gif" loading="lazy" decoding="async" />
 </div>
 
 ## Appendix
+
+TODO: Derivation of the $H_\text{RF}$ formula.
