@@ -35,6 +35,7 @@ pnpm-debug.log*
 .DS_Store
 
 # misc
+package-lock.json.bak
 *tmp*/
 .vscode
 *.pem
