@@ -5,17 +5,17 @@ description: "What's it like losing your passport in a foreign country"
 tags: ["life"]
 ---
 
-import { Image } from "@astrojs/image/components";
+import { Image } from 'astro:assets';
 import passportImg from "src/assets/2024_希臘/20241128_passport.jpg";
 
 <div style="align-self: center;" id="passportImg">
     <Image
         src={passportImg}
         alt="A picture of a Malaysian Emergency Certificate being held up by hand, issued in the year 2024 by the Malaysian Embassy in Bucharest, Romania"
-        style="margin-bottom:-10px; border-radius: 17px;"
+        width="971px"
+        height="971px"
+        style="margin-bottom:-10px; border-radius: 17px; width: 971px; height: 700px; object-fit: cover;"
         class="shadow-wo"
-        height="900"
-        width="871"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
         My Malaysian Emergency Certificate (Perakuan Cemas), issued in the year 2024 by the Malaysian Embassy in Bucharest, Romania. Sensitive details censored for privacy.
