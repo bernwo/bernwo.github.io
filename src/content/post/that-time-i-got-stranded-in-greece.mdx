@@ -5,12 +5,13 @@ description: "What's it like losing your passport in a foreign country, and gett
 tags: ["life"]
 ---
 
-import { Image } from 'astro:assets';
-import passportImg from "src/assets/2024_希臘/20241128_passport.jpg"; // Imported
-import satClassicGyros from "src/assets/2024_希臘/20241123_classic_gyros.jpg"; // Imported
-import satFlisvos from "src/assets/2024_希臘/20241123_flisvos.jpg"; // Imported
-import monSkepasti from "src/assets/2024_希臘/20241126_skepasti.jpg"; // Imported
-import tueMarkopoulo from "src/assets/2024_希臘/20241127_markopoulo.jpg"; // Imported
+
+import { Image } from "@astrojs/image/components";
+import passportImg from "src/assets/2024_希臘/20241128_passport.jpg";
+import satClassicGyros from "src/assets/2024_希臘/20241123_classic_gyros.jpg";
+import satFlisvos from "src/assets/2024_希臘/20241123_flisvos.jpg";
+import monSkepasti from "src/assets/2024_希臘/20241126_skepasti.jpg";
+import tueMarkopoulo from "src/assets/2024_希臘/20241127_markopoulo.jpg";
 import tuePrison from "src/assets/2024_希臘/20241127_prison.jpg";
 import tueTriforce from "src/assets/2024_希臘/20241127_triforce.jpg";
 import wedDucks from "src/assets/2024_希臘/20241128_botanical_ducks.jpg";
@@ -26,9 +27,9 @@ import thuPassport from "src/assets/2024_希臘/20241204_passport_and_ticket.jpg
     <Image
         src={passportImg}
         alt="A picture of a Malaysian Emergency Certificate being held up by hand, issued in the year 2024 by the Malaysian Embassy in Bucharest, Romania"
-        width="971px"
-        height="971px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 971px; height: 700px; object-fit: cover;"
+        width="971"
+        height="900"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -60,9 +61,9 @@ During the 48 hours wait, I was initially grieving deeply, but eventually I had 
     <Image
         src={satFlisvos}
         alt="A scenic view at Flisvos Marina"
-        width="971px"
-        height="971px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 971px; height: 500px; object-fit: cover;"
+        width="971"
+        height="571"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -77,8 +78,8 @@ As I was still passport-less during the weekends, the plan was to limit the plac
     <Image
         src={tuePrison}
         alt="A picture of Socrates' prison"
-        width="571px"
-        height="571px"
+        width="571"
+        height="571"
         style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
@@ -89,8 +90,8 @@ As I was still passport-less during the weekends, the plan was to limit the plac
     <Image
         src={tueTriforce}
         alt="A picture of a triforce shaped rock formation on a pavement"
-        width="571px"
-        height="571px"
+        width="571"
+        height="571"
         style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
@@ -107,9 +108,9 @@ We hiked the Philopappos Hill (Λόφος Φιλοπάππου)[^Φιλοπάπ�
     <Image
         src={wedDucks}
         alt="Majestic ducks at the National Garden, Athens, Greece"
-        width="971px"
-        height="971px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 971px; height: 500px; object-fit: cover;"
+        width="971"
+        height="571"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -123,8 +124,8 @@ There were two botanical gardens which we visited, namely, the National Garden o
     <Image
         src={thuBotGards1}
         alt="A pathway in the woods"
-        width="571px"
-        height="571px"
+        width="571"
+        height="571"
         style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
@@ -135,8 +136,8 @@ There were two botanical gardens which we visited, namely, the National Garden o
     <Image
         src={thuBotGards2}
         alt="What looks like a bonfire in the botanical garden"
-        width="571px"
-        height="571px"
+        width="571"
+        height="571"
         style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
@@ -147,8 +148,8 @@ There were two botanical gardens which we visited, namely, the National Garden o
     <Image
         src={thuBotGards3}
         alt="An extremely old olive tree"
-        width="571px"
-        height="571px"
+        width="571"
+        height="571"
         style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
@@ -168,9 +169,9 @@ The latter is a botanical garden, which is a little bit harder to get to as it i
     <Image
         src={satCliff}
         alt="Pathway towards a cliff"
-        width="971px"
-        height="971px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 571px; height: 260px; object-fit: cover;"
+        width="971"
+        height="971"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -180,9 +181,9 @@ The latter is a botanical garden, which is a little bit harder to get to as it i
     <Image
         src={satPoseidon}
         alt="View of ocean"
-        width="971px"
-        height="971px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 571px; height: 260px; object-fit: cover;"
+        width="971"
+        height="971"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -192,9 +193,9 @@ The latter is a botanical garden, which is a little bit harder to get to as it i
     <Image
         src={satPoseidonDirty}
         alt="View of Posidonos Bay"
-        width="971px"
-        height="971px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 571px; height: 260px; object-fit: cover;"
+        width="971"
+        height="971"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -212,9 +213,9 @@ We decided to head down south of Athens to check out the surrounding attractions
     <Image
         src={satClassicGyros}
         alt="A picture of a chicken gyros (γύρος) platter"
-        width="571px"
-        height="571px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 571px; height: 260px; object-fit: cover;"
+        width="971"
+        height="571"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -224,9 +225,9 @@ We decided to head down south of Athens to check out the surrounding attractions
     <Image
         src={monSkepasti}
         alt="A picture of a chicken gyros (γύρος) skepasti"
-        width="571px"
-        height="571px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 571px; height: 260px; object-fit: cover;"
+        width="971"
+        height="571"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -242,9 +243,9 @@ What good is exploring if you're out of energy? This is why we've researched and
     <Image
         src={tueMarkopoulo}
         alt="A picture of traditional homemade Greek food"
-        width="971px"
-        height="971px"
-        style="margin-bottom:-10px; border-radius: 17px; width: 971px; height: 500px; object-fit: cover;"
+        width="971"
+        height="671"
+        style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
     <span style="font-style: italic; font-weight: 400">
@@ -260,8 +261,8 @@ While we're in Greece, we'd also like to try traditional Greek food. It is this 
     <Image
         src={thuPassport}
         alt="Emergency passport along with issued flight ticket"
-        width="971px"
-        height="971px"
+        width="971"
+        height="771"
         style="margin-bottom:-10px; border-radius: 17px;"
         class="shadow-wo"
     ></Image>
