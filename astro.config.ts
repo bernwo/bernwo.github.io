@@ -1,11 +1,10 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
-import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
-import prefetch from "@astrojs/prefetch";
+
 // @ts-ignore
-import footnotes from "remark-footnotes";
+import remarkGfm from 'remark-gfm'
 // @ts-ignore
 import remarkBibtex from "@supremum/remark-bibtex";
 import remarkMath from "remark-math";
@@ -23,7 +22,7 @@ export default defineConfig({
 		},
 		remarkPlugins: [
 			[remarkBibtex, { bibtexFile: "./src/assets/bibfile.bib" }],
-			footnotes,
+			remarkGfm,
 			remarkMath,
 		],
 		rehypePlugins: [
@@ -50,19 +49,19 @@ export default defineConfig({
 			],
 		],
 	},
+	prefetch: true,
 	integrations: [
 		mdx({}),
 		tailwind({
-			config: {
-				applyBaseStyles: false,
-			},
-		}),
-		image({
-			serviceEntryPoint: "@astrojs/image/sharp",
+			applyBaseStyles: false,
 		}),
 		sitemap(),
-		prefetch(),
 	],
+	image: {
+		service: {
+		   entrypoint: 'astro/assets/services/sharp',
+		 },
+	},
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],

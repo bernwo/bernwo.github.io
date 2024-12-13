@@ -1,11 +1,12 @@
-<script hoist>
+<script>
+import { SpinGeometry } from "@/scripts.ts/spinGeometry";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { OutlineEffect } from "three/examples/jsm/effects/OutlineEffect.js";
-import { SpinGeometry } from "@/scripts.ts/spinGeometry";
-let camera, scene, renderer, effect;
-let particleLight;
-let spinMesh;
+
+let camera: THREE.OrthographicCamera, scene: THREE.Scene, renderer, effect: OutlineEffect;
+let particleLight: THREE.Object3D<THREE.Object3DEventMap>;
+let spinMesh: THREE.Object3D<THREE.Object3DEventMap>;
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
@@ -39,8 +40,9 @@ function init() {
     renderer.setSize(255, 255);
     // renderer.setClearColor(0xfaf4ed, 0);
     // container.appendChild(renderer.domElement);
-    renderer.outputEncoding = THREE.sRGBEncoding;
-
+    // renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    
     // Materials
 
     const cubeWidth = 250;
@@ -81,7 +83,6 @@ function init() {
     spinMesh.position.y = 0;
     spinMesh.position.z = 0;
     scene.add(spinMesh);
-
     particleLight = new THREE.Mesh();
     scene.add(particleLight);
 
@@ -89,7 +90,7 @@ function init() {
 
     // scene.add(new THREE.AmbientLight(0xcccccc));
 
-    const pointLight = new THREE.PointLight(0xffffff, 1.6, 4000);
+    const pointLight = new THREE.PointLight(0xffffff, 6.28, 4000, 0);
     particleLight.add(pointLight);
 
     //
