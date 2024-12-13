@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils";
+import * as BufferGeometryUtils from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 // Reference: https://stackoverflow.com/questions/30245990/how-to-merge-two-geometries-or-meshes-using-three-js-r71
 export function SpinGeometry(
@@ -30,7 +30,7 @@ export function SpinGeometry(
 	coneGeometry.translate(0, cylinderHeight / 2 + coneHeight / 2, 0);
 	coneGeometry.rotateZ(-3.14 / 8);
 
-	const spinGeometry = BufferGeometryUtils.mergeBufferGeometries([
+	const spinGeometry = BufferGeometryUtils.mergeGeometries([
 		cylinderGeometry,
 		sphereGeometry,
 		coneGeometry,
