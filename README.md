@@ -7,13 +7,15 @@
 
 ## Building
 
+Note: It is highly recommended to use `pnpm` over `npm` for its speed advantage. Naturally, you still need to have `node` installed, of course.
+
 | Command        | Action                                                         |
 | :------------- | :------------------------------------------------------------- |
-| `npm install` | Installs dependencies                                          |
-| `npm run dev`     | Starts local dev server at `localhost:<port>` where `port` is specified in the `astro.config.ts` file                    |
-| `npm run build`   | Build your production site to `./dist/`                        |
-| `npm run preview` | Preview your build locally, before deploying                   |
-| `npm run sync`    | Generate types based on your config in `src/content/config.ts` |
+| `pnpm/npm install` | Installs dependencies                                          |
+| `pnpm/npm run dev`     | Starts local dev server at `localhost:<port>` where `port` is specified in the `astro.config.ts` file                    |
+| `pnpm/npm run build`   | Build your production site to `./dist/`                        |
+| `pnpm/npm run preview` | Preview your build locally, before deploying                   |
+| `pnpm/npm run sync`    | Generate types based on your config in `src/content/config.ts` |
 
 ## Deploy
 
