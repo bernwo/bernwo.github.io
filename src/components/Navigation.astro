@@ -7,29 +7,22 @@ import {
 } from "@/components/starwind/dropdown";
 import { Button } from "@/components/starwind/button";
 import WoLogo from "@/components/logo/WoLogo.astro";
+import Hamburger from "@/components/logo/Hamburger.astro";
+import ExplicitNav from "@/components/ExplicitNav.astro";
 const animationMilliseconds = 150;
-const buttonStrokeColour = "black";
+const buttonStrokeColour = "white";
+const classWo = "w-auto h-14 outline-none";
 ---
 
 <header>
-    <div class="flex flex-row gap-4 items-end">
+    <div class="flex flex-row gap-4 items-center">
         <span class="block">
-            <WoLogo />
+            <WoLogo classWo={classWo} />
         </span>
-        <nav class="divide-x flex flex-row">
-            <a href="/" class="hover:underline py-4 px-4" rel="prefetch">Home</a
-            >
-            <a
-                href="/publications"
-                class="hover:underline py-4 px-4"
-                rel="prefetch"
-            >
-                Publications</a
-            >
-            <a href="/posts" class="hover:underline py-4 px-4" rel="prefetch"
-                >Blog</a
-            >
-        </nav>
+        <div>
+            <span class="pl-4 text-2xl font-bold">Wo</span>
+            <ExplicitNav />
+        </div>
     </div>
     <Dropdown openOnHover closeDelay={animationMilliseconds}>
         <DropdownTrigger asChild>
@@ -37,7 +30,9 @@ const buttonStrokeColour = "black";
                 variant="ghost"
                 class="hover:bg-transparent focus:bg-transparent hover:shadow-lg focus:outline-none"
             >
-                <svg
+                <Hamburger strokeColour={buttonStrokeColour} strokeWidth="0" />
+                <!--
+                    <svg
                     aria-hidden="true"
                     focusable="false"
                     fill="none"
@@ -49,14 +44,14 @@ const buttonStrokeColour = "black";
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         d="M3.75 10h16.5m-16.5 10.75h16.5"></path>
-                </svg>
+                </Hamburger> -->
             </Button>
             <DropdownContent
                 side="bottom"
                 align="end"
                 sideOffset={8}
                 animationDuration={animationMilliseconds}
-                class="shadow-lg bg-background/20 outline-none border-none backdrop-blur-md"
+                class="shadow-md bg-background/0 outline-none border-none backdrop-blur-sm"
             >
                 <DropdownItem as="a" href="/">Home</DropdownItem>
                 <DropdownItem as="a" href="/publications"

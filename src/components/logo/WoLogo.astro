@@ -2,10 +2,11 @@
 const themeLogoLeftFace = "var(--theme-logo-left-face)";
 const themeLogoFrontFace = "var(--theme-logo-front-face)";
 const themeLogoTopFace = "var(--theme-logo-top-face)";
+const { classWo } = Astro.props;
 ---
 
 <svg
-    class="w-auto h-15 outline-1"
+    class={classWo}
     aria-hidden="true"
     focusable="false"
     fill="none"
