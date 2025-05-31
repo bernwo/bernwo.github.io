@@ -1,0 +1,69 @@
+---
+import {
+    Dropdown,
+    DropdownTrigger,
+    DropdownContent,
+    DropdownItem,
+} from "@/components/starwind/dropdown";
+import { Button } from "@/components/starwind/button";
+import WoLogo from "@/components/logo/WoLogo.astro";
+const animationMilliseconds = 150;
+const buttonStrokeColour = "black";
+---
+
+<header>
+    <div class="flex flex-row gap-4 items-end">
+        <span class="block">
+            <WoLogo />
+        </span>
+        <nav class="divide-x flex flex-row">
+            <a href="/" class="hover:underline py-4 px-4" rel="prefetch">Home</a
+            >
+            <a
+                href="/publications"
+                class="hover:underline py-4 px-4"
+                rel="prefetch"
+            >
+                Publications</a
+            >
+            <a href="/posts" class="hover:underline py-4 px-4" rel="prefetch"
+                >Blog</a
+            >
+        </nav>
+    </div>
+    <Dropdown openOnHover closeDelay={animationMilliseconds}>
+        <DropdownTrigger asChild>
+            <Button
+                variant="ghost"
+                class="hover:bg-transparent focus:bg-transparent hover:shadow-lg focus:outline-none"
+            >
+                <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="4"
+                    stroke={buttonStrokeColour}
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 10h16.5m-16.5 10.75h16.5"></path>
+                </svg>
+            </Button>
+            <DropdownContent
+                side="bottom"
+                align="end"
+                sideOffset={8}
+                animationDuration={animationMilliseconds}
+                class="shadow-lg bg-background/20 outline-none border-none backdrop-blur-md"
+            >
+                <DropdownItem as="a" href="/">Home</DropdownItem>
+                <DropdownItem as="a" href="/publications"
+                    >Publications</DropdownItem
+                >
+                <DropdownItem as="a" href="/posts">Blog</DropdownItem>
+            </DropdownContent>
+        </DropdownTrigger>
+    </Dropdown>
+</header>

@@ -1,0 +1,29 @@
+@import "./starwind.css";
+/* @import "tailwindcss"; */
+
+@layer base {
+    :root {
+        --theme-logo-front-face: #ef5455;
+        --theme-logo-left-face: #14406b;
+        --theme-logo-top-face: #fbb039;
+    }
+
+    html {
+        @apply m-0 h-full w-full scroll-smooth p-0;
+    }
+
+    html body {
+        @apply mx-0 flex h-full flex-col px-0 pt-0 antialiased;
+    }
+
+    header {
+        @apply fixed flex-row justify-between w-full mb-16 flex items-center px-4 py-4 lg:pl-[16.0rem] lg:pr-[16.0rem] duration-150 outline-1;
+    }
+
+    main {
+        @apply mt-[130px] px-4 lg:pl-[16.0rem] lg:pr-[16.0rem];
+    }
+    footer {
+        @apply mt-auto flex w-full flex-col items-center justify-center gap-y-2 px-4 pb-4 pt-20 text-center align-top text-gray-500;
+    }
+}
