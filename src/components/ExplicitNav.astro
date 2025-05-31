@@ -1,11 +1,18 @@
 ---
-
+import { MENU_LINKS } from "@/constants";
 ---
 
 <nav class="divide-x flex-row hidden sm:flex md:flex lg:flex">
-    <a href="/" class="hover:underline py-0 px-4" rel="prefetch">Home</a>
-    <a href="/publications" class="hover:underline py-0 px-4" rel="prefetch"
-        >Publications</a
-    >
-    <a href="/posts" class="hover:underline py-0 px-4" rel="prefetch">Blog</a>
+    {
+        MENU_LINKS.map((link) => (
+            <a
+                href={link.path}
+                class="hover:underline py-0 px-4"
+                rel="prefetch"
+                aria-current={Astro.url.pathname === link.path ? "page" : false}
+            >
+                {link.title}
+            </a>
+        ))
+    }
 </nav>

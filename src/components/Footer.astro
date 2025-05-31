@@ -1,0 +1,21 @@
+---
+import * as child from "child_process";
+const year = new Date().getFullYear();
+const currentCommitTime: String = child
+    .execSync("git show -s --format=%ci")
+    .toString()
+    .trim();
+const currentCommit: String = child
+    .execSync("git rev-parse --short HEAD")
+    .toString()
+    .trim();
+---
+
+<footer>
+    <span class="pr-2" aria-label="author-name">WO Kah Jen &copy; {year}</span>
+    <span class="pl-2" aria-label="version-info" style="font-style:italic;"
+        >Version: <code style="text-decoration: underline;"
+            >{currentCommit}</code
+        > @ {currentCommitTime}</span
+    >
+</footer>

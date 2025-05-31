@@ -24,6 +24,6 @@
         @apply mt-[130px] px-4 lg:pl-[16.0rem] lg:pr-[16.0rem];
     }
     footer {
-        @apply mt-auto flex w-full flex-col items-center justify-center gap-y-2 px-4 pb-4 pt-20 text-center align-top text-gray-500;
+        @apply mt-auto flex-row flex w-full items-end px-4 pb-4 pt-20 text-start align-top text-gray-500 lg:pl-[16.0rem] lg:pr-[16.0rem] divide-x;
     }
 }
