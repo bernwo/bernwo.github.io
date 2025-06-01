@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import remarkMath from "remark-math"; // pnpm install remark-math
-import rehypeKatex from "rehype-katex"; // pnpm install rehype-katex
+import rehypeMathJaxCHtml from "rehype-mathjax/chtml"; // pnpm install rehype-mathjax
 
 import mdx from "@astrojs/mdx";
 
@@ -19,6 +19,29 @@ export default defineConfig({
       wrap: true,
     },
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [
+      [
+        rehypeMathJaxCHtml,
+        {
+          chtml: {
+            fontURL:
+              "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2",
+            displayAlign: "left",
+          },
+          tex: {
+            tags: "ams",
+            inlineMath: [
+              ["$", "$"],
+              ["\\(", "\\)"],
+            ],
+            displayMath: [
+              ["$$", "$$"],
+              ["\\[", "\\]"],
+            ],
+            processEscapes: true,
+          },
+        },
+      ],
+    ],
   },
 });
