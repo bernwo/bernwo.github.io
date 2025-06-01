@@ -10,7 +10,7 @@ const { frontmatter } = Astro.props;
 const { headings } = await render(frontmatter);
 ---
 
-<script>
+<script is:inline>
     import "../scripts/blog.ts";
 </script>
 

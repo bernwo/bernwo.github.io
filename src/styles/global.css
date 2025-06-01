@@ -1,18 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 
 @import "./starwind.css";
+@plugin '@tailwindcss/typography'; /* pnpm add -D @tailwindcss/typography */
 
 /* Reference for Tailwind CSS v4: https://stackoverflow.com/a/79444043 */
-@theme {
-    --font-mono: "Cascadia Code", "monospace";
-    --selection-textcolor: #f8f8f2;
-    --selection-bg: #b4637a;
-    --theme-bg: #faf4ed;
-    /* --font-inter: "Source Sans 3", "sans-serif"; */
-}
+/* @theme {
+ --font-inter: "Source Sans 3", "sans-serif";
+} */
 
 @layer base {
     :root {
+        --selection-textcolor: #f8f8f2;
+        --selection-bg: #b4637a;
+        --theme-bg: #faf4ed;
+        --custom-font-mono: "Cascadia Code", "monospace";
         --theme-logo-front-face: #ef5455;
         --theme-logo-left-face: #14406b;
         --theme-logo-top-face: #fbb039;
@@ -25,7 +26,7 @@
 
     html {
         @apply m-0 h-full w-full scroll-smooth p-0;
-        font-family: var(--font-mono);
+        font-family: var(--custom-font-mono);
         background-color: var(--theme-bg);
     }
 
@@ -34,7 +35,7 @@
     }
 
     code {
-        font-famikly: var(--font-mono);
+        font-family: var(--custom-font-mono);
     }
 
     header {

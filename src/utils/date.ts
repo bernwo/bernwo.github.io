@@ -8,7 +8,7 @@ const dateConfig = {
 };
 const dateFormat = new Intl.DateTimeFormat(
   dateConfig.locale,
-  dateConfig.options,
+  dateConfig.options as Intl.DateTimeFormatOptions,
 );
 
 export function getFormattedDate(
