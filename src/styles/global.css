@@ -4,9 +4,6 @@
 @plugin '@tailwindcss/typography'; /* pnpm add -D @tailwindcss/typography */
 
 /* Reference for Tailwind CSS v4: https://stackoverflow.com/a/79444043 */
-/* @theme {
- --font-inter: "Source Sans 3", "sans-serif";
-} */
 
 @layer base {
     :root {
@@ -17,6 +14,7 @@
         --theme-logo-front-face: #ef5455;
         --theme-logo-left-face: #14406b;
         --theme-logo-top-face: #fbb039;
+        --theme-text: #22272a;
     }
 
     ::selection {
@@ -28,6 +26,7 @@
         @apply m-0 h-full w-full scroll-smooth p-0;
         font-family: var(--custom-font);
         background-color: var(--theme-bg);
+        color: var(--theme-text);
     }
 
     html body {
@@ -45,6 +44,7 @@
     main {
         @apply mt-[130px] px-4 lg:pl-[16.0rem] lg:pr-[16.0rem];
     }
+
     footer {
         @apply z-50 mt-auto flex-row flex w-full items-end px-4 pb-4 pt-20 text-start align-top text-gray-500 lg:pl-[16.0rem] lg:pr-[16.0rem] divide-x;
     }

@@ -1,7 +1,16 @@
 ---
+import { getCollection } from "astro:content";
+import { sortMDByDate } from "../utils/date";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
 import SocialList from "@/components/SocialList.astro";
+import LaTeXLogo from "@/components/logo/LaTeXLogo.astro";
+import BibTeXLogo from "@/components/logo/BibTeXLogo.astro";
 const title = "Home • Wo";
+
+const MAX_POSTS = 11;
+const allPosts = await getCollection("blog");
+const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 ---
 
 <BaseLayout title={title}>
@@ -37,4 +46,69 @@ const title = "Home • Wo";
         a team of talented people on achieving optic-microwave quantum entanglement.
     </p>
     <SocialList />
+    <section aria-label="Blog post list" class="mt-16">
+        <h2 class="title mb-4 text-xl">Posts</h2>
+        <ul class="space-y-4 sm:space-y-2">
+            {
+                allPostsByDate.map((p) => (
+                    <li class="flex flex-col gap-x-2 sm:flex-row">
+                        <PostPreview post={p} />
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+    <section class="mt-16">
+        <h2 class="title mb-4 text-xl">Website tech stack</h2>
+        <p class="mb-4">
+            I used <a
+                href="https://astro.build"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="coloured-link inline-block"
+            >
+                {Astro.generator}
+            </a>
+            hosted on
+            <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="coloured-link inline-block"
+            >
+                GitHub</a
+            >. Throughout my website, I use
+            <a
+                href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="coloured-link inline-block"
+            >
+                remark-math.js
+            </a> with <a
+                href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861/packages/rehype-mathjax"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="coloured-link inline-block"
+            >
+                rehype-mathjax/chtml.js
+            </a> for rendering <LaTeXLogo /> math expressions at <i
+                >compile time</i
+            >, <a
+                href="https://echarts.apache.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="coloured-link inline-block"
+            >
+                ECharts.js
+            </a> for interactive plots, and <a
+                href="https://www.npmjs.com/package/@supremum/remark-bibtex"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="coloured-link inline-block"
+            >
+                remark-bibtex.js
+            </a> to do <BibTeXLogo /> styled citation.
+        </p>
+    </section>
 </BaseLayout>

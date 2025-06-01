@@ -28,7 +28,7 @@ const classWo = "w-auto h-14 outline-none"; // For the Wo logo
         <DropdownTrigger asChild>
             <Button
                 variant="ghost"
-                class="hover:bg-transparent focus:bg-transparent hover:shadow-lg focus:outline-none"
+                class="border-none outline-none hover:bg-transparent bg-transparent"
             >
                 <Hamburger strokeColour={buttonStrokeColour} strokeWidth="0" />
             </Button>
@@ -37,7 +37,7 @@ const classWo = "w-auto h-14 outline-none"; // For the Wo logo
                 align="end"
                 sideOffset={8}
                 animationDuration={animationMilliseconds}
-                class="shadow-md bg-[var(--theme-bg)]/50 outline-none border-none backdrop-blur-sm"
+                class="shadow-md bg-[var(--theme-bg)]/50 outline-1 border-none backdrop-blur-sm"
             >
                 <DropdownItem as="a" href="/">Home</DropdownItem>
                 <DropdownItem as="a" href="/publications"
