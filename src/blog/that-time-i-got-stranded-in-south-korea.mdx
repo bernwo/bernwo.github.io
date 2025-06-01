@@ -5,17 +5,17 @@ description: "What's it like hitch-hiking at night in a foreign country"
 tags: ["life"]
 ---
 
-import { Image } from "@astrojs/image/components";
-import entranceImg from "@/assets.jpg/baekyaki_oreum_entrance";
-import endImg from "@/assets.jpg/ending_oreum_hike";
-import hitchhikeImg from "@/assets.jpg/hitch-hike";
+import { Image } from 'astro:assets';
+import entranceImg from "../assets/2023_韓國/baekyaki_oreum_entrance.jpg";
+import endImg from "../assets/2023_韓國/ending_oreum_hike.jpg";
+import hitchhikeImg from "../assets/2023_韓國/hitch-hike.jpg";
 
 <div style="align-self: center;" id="oreumEntranceImg">
 	<Image
 		src={entranceImg}
 		alt="A picture depicting a verdant pathway towards the top of Baekyaki Oreum"
 		style="margin-bottom:-10px; border-radius: 17px;"
-		class="shadow-wo"
+		class="shadow-md"
 		height="600"
 		width="971"
 	></Image>
@@ -33,7 +33,7 @@ On this very day, my partner and I, being travellers who prefer the lesser known
 		src={endImg}
 		alt="A picture depicting a verdant pathway from the top of Baekyaki Oreum, along with a man"
 		style="margin-bottom:-10px; border-radius: 17px;"
-		class="shadow-wo"
+		class="shadow-md"
 		height="971"
 		width="971"
 	></Image>
@@ -53,7 +53,7 @@ We waited at this bus-stop in hopes of boarding a bus, but no buses ever came. A
 		src={hitchhikeImg}
 		alt="Interior of a car, with a screen on GPS"
 		style="margin-bottom:-10px; border-radius: 17px;"
-		class="shadow-wo"
+		class="shadow-md"
 		height="600"
 		width="971"
 	></Image>

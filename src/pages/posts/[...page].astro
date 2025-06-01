@@ -4,7 +4,14 @@ import { Badge } from "@/components/starwind/badge";
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
-import Pagination from "@/components/Paginator.astro";
+import Paginator from "@/components/Paginator.astro";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationNext,
+} from "@/components/starwind/pagination";
+
 import { getUniqueTags, sortMDByDate } from "../../utils/date.ts";
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const allPosts = await getCollection("blog");
@@ -43,7 +50,7 @@ const paginationProps = {
                     ))
                 }
             </ul>
-            <Pagination {...paginationProps} />
+            <Paginator {...paginationProps} />
         </section>
         {
             uniqueTags.length && (
@@ -79,15 +86,18 @@ const paginationProps = {
                             </Badge>
                         ))}
                     </ul>
-                    <span class="mt-4 block sm:text-right">
-                        <a
-                            class="sm:hover:text-accent"
-                            href="/tags"
-                            aria-label="View all blog categories"
-                        >
-                            View all →
-                        </a>
-                    </span>
+                    <Pagination class="mt-4 block sm:text-right">
+                        <PaginationContent>
+                            <PaginationItem class="ml-auto">
+                                <PaginationNext
+                                    href="/tags"
+                                    aria-label="View all blog categories"
+                                >
+                                    View all
+                                </PaginationNext>
+                            </PaginationItem>
+                        </PaginationContent>
+                    </Pagination>
                 </aside>
             )
         }
