@@ -1,7 +1,6 @@
 ---
 import { getFormattedDate } from "../utils/date.ts";
 import type { CollectionEntry } from "astro:content";
-
 interface Props {
     content: CollectionEntry<"blog">;
 }
@@ -39,7 +38,7 @@ const postDate = getFormattedDate(content.data.publishDate, {
             {content.data.tags.map((tag, i) => (
                 <>
                     <a
-                        class="tags-anchor cactus-link inline-block before:content-['#']"
+                        class="tags-anchor coloured-link inline-block before:content-['#']"
                         aria-label={`View more blogs with the tag ${tag}`}
                         href={`/tags/${tag}`}
                     >

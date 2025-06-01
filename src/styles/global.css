@@ -13,7 +13,7 @@
         --selection-textcolor: #f8f8f2;
         --selection-bg: #b4637a;
         --theme-bg: #faf4ed;
-        --custom-font-mono: "Cascadia Code", "monospace";
+        --custom-font: "Source Sans 3", "sans-serif";
         --theme-logo-front-face: #ef5455;
         --theme-logo-left-face: #14406b;
         --theme-logo-top-face: #fbb039;
@@ -26,7 +26,7 @@
 
     html {
         @apply m-0 h-full w-full scroll-smooth p-0;
-        font-family: var(--custom-font-mono);
+        font-family: var(--custom-font);
         background-color: var(--theme-bg);
     }
 
@@ -35,7 +35,7 @@
     }
 
     code {
-        font-family: var(--custom-font-mono);
+        font-family: var(--custom-font);
     }
 
     header {
@@ -48,10 +48,16 @@
     footer {
         @apply z-50 mt-auto flex-row flex w-full items-end px-4 pb-4 pt-20 text-start align-top text-gray-500 lg:pl-[16.0rem] lg:pr-[16.0rem] divide-x;
     }
+
     a.coloured-link {
-        @apply italic text-[var(--theme-logo-front-face)] hover:font-bold;
+        @apply italic text-[var(--theme-logo-front-face)] hover:underline;
     }
     a.hover-coloured-link {
         @apply italic hover:text-[var(--theme-logo-front-face)];
     }
+}
+
+/* badgetag is used for StarwindUI badges acting as tags */
+.badgetag {
+    @apply flex rounded-lg items-center justify-center p-1;
 }

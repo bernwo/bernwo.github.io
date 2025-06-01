@@ -1,0 +1,45 @@
+---
+interface PageButtonElem {
+    url: string;
+    text?: string;
+    srLabel?: string;
+}
+
+interface Props {
+    prevUrl?: PageButtonElem;
+    nextUrl?: PageButtonElem;
+}
+
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/starwind/pagination";
+
+const { prevUrl, nextUrl } = Astro.props;
+---
+
+{
+    (prevUrl || nextUrl) && (
+        <Pagination class="flex items-center gap-x-4">
+            <PaginationContent>
+                {prevUrl && (
+                    <PaginationItem class="mr-auto">
+                        <PaginationPrevious href={prevUrl.url}>
+                            {prevUrl.text ? prevUrl.text : "Prev"}
+                        </PaginationPrevious>
+                    </PaginationItem>
+                )}
+                {nextUrl && (
+                    <PaginationItem class="ml-auto">
+                        <PaginationNext href={nextUrl.url}>
+                            {nextUrl.text ? nextUrl.text : "Next"}
+                        </PaginationNext>
+                    </PaginationItem>
+                )}
+            </PaginationContent>
+        </Pagination>
+    )
+}

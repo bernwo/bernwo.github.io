@@ -1,3 +1,6 @@
+import type { CollectionEntry } from "astro:content";
+
+// This configuration object defines the locale and options for formatting dates.
 const dateConfig = {
   locale: "en-GB",
   options: {
@@ -6,11 +9,14 @@ const dateConfig = {
     year: "numeric",
   },
 };
+
+// This creates a new Intl.DateTimeFormat object for formatting dates based on the specified locale and options.
 const dateFormat = new Intl.DateTimeFormat(
   dateConfig.locale,
   dateConfig.options as Intl.DateTimeFormatOptions,
 );
 
+// This function formats a date into a human-readable string based on the provided locale and options.
 export function getFormattedDate(
   date: string | number | Date,
   options?: Intl.DateTimeFormatOptions,
@@ -23,4 +29,35 @@ export function getFormattedDate(
   }
 
   return dateFormat.format(new Date(date));
+}
+
+// This function sorts an array of posts by their publish date in descending order.
+export function sortMDByDate(posts: CollectionEntry<"blog">[] = []) {
+  return posts.sort(
+    (a, b) =>
+      new Date(b.data.publishDate).valueOf() -
+      new Date(a.data.publishDate).valueOf(),
+  );
+}
+
+// This function extracts unique tags from an array of posts and returns them as an array.
+export function getUniqueTags(posts: CollectionEntry<"blog">[] = []) {
+  const uniqueTags = new Set<string>();
+  posts.forEach((post) => {
+    post.data.tags.map((tag) => uniqueTags.add(tag));
+  });
+  return Array.from(uniqueTags);
+}
+
+// This function returns an object where each key is a unique tag and its value is the count of how many times that tag appears across all posts.
+export function getUniqueTagsWithCount(posts: CollectionEntry<"blog">[] = []): {
+  [key: string]: number;
+} {
+  return posts.reduce((prev, post) => {
+    const runningTags: { [key: string]: number } = { ...prev };
+    post.data.tags.forEach((tag) => {
+      runningTags[tag] = (runningTags[tag] || 0) + 1;
+    });
+    return runningTags;
+  }, {});
 }
