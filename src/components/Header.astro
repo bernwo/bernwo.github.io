@@ -11,7 +11,7 @@ import Hamburger from "@/components/logo/Hamburger.astro";
 import ExplicitNav from "@/components/ExplicitNav.astro";
 const animationMilliseconds = 150;
 const buttonStrokeColour = "white";
-const classWo = "w-auto h-14 outline-none";
+const classWo = "w-auto h-14 outline-none"; // For the Wo logo
 ---
 
 <header>
@@ -31,27 +31,13 @@ const classWo = "w-auto h-14 outline-none";
                 class="hover:bg-transparent focus:bg-transparent hover:shadow-lg focus:outline-none"
             >
                 <Hamburger strokeColour={buttonStrokeColour} strokeWidth="0" />
-                <!--
-                    <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="4"
-                    stroke={buttonStrokeColour}
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3.75 10h16.5m-16.5 10.75h16.5"></path>
-                </Hamburger> -->
             </Button>
             <DropdownContent
                 side="bottom"
                 align="end"
                 sideOffset={8}
                 animationDuration={animationMilliseconds}
-                class="shadow-md bg-background/0 outline-none border-none backdrop-blur-sm"
+                class="shadow-md bg-[var(--theme-bg)]/50 outline-none border-none backdrop-blur-sm"
             >
                 <DropdownItem as="a" href="/">Home</DropdownItem>
                 <DropdownItem as="a" href="/publications"

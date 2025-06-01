@@ -1,0 +1,158 @@
+---
+title: "Rabi oscillation and rotating frame"
+description: "What visualisation of Rabi oscillation looks like and how to perform rotating frame transformation"
+publishDate: "22 August 2023"
+tags: ["math", "quantum computing", "plot"]
+---
+
+import { Image } from "@astrojs/image/components";
+import BlogAnchor from "@/components/blog/Anchor";
+
+<div style="align-self: center;">
+	<img
+		src="/assets/rabi_2blochs.gif"
+		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
+		style="margin-bottom:-10px; border-radius: 17px;"
+		class="shadow-wo"
+		height="600"
+		width="900"
+		loading="lazy"
+		decoding="async"
+	></img>
+	<span style="font-style: italic; font-weight: 400">
+		Rabi oscillation in the presence of a transverse magnetic field after a rotating frame
+		transformation for both "on resonance" and "off resonance" cases.
+	</span>
+</div>
+
+## Interaction of a qubit with an oscillating magnetic field
+
+### Hamiltonian for a general magnetic field
+
+Consider a qubit whose magnetic moment is interacting with an external magnetic field. We write the Hamiltonian of such system as such:
+
+$$
+\begin{equation}
+H=-\vec{\mu}\cdot\vec{B}=-\mu\vec{\sigma}\cdot\vec{B},
+\end{equation}
+$$
+
+where $\mu$ is the magnitude of the qubit's magnetic moment, and $\vec{\sigma}$ the vector of Pauli matrices.
+
+### Static magnetic field with weakly oscillating transverse component
+
+Now consider a static magnetic field along the $z$-axis with magnitude $B_0$ and a weakly oscillating magnetic field along the $xy$ plane with magnitude $B_1$. The Hamiltonian then becomes:
+
+$$
+\begin{equation}
+H=-\mu\vec{\sigma}\cdot
+\begin{pmatrix}
+B_1\cos{(\omega_\text{r}t)}\\
+B_1\sin{(\omega_\text{r}t)}\\
+B_0
+\end{pmatrix}
+=\frac{\hbar\Omega}{2}(\cos{(\omega_\text{r}t)}\sigma_X+\sin{(\omega_\text{r}t)}\sigma_Y)+\frac{\hbar\omega_0}{2}\sigma_Z,
+\label{eqn:hamiltonian-not-rotating-frame}
+\end{equation}
+$$
+
+where I have used $\omega_0=-2\mu B_0/\hbar$ and $\Omega=-2\mu B_1/\hbar$. Note that $\Omega$ is the Rabi frequency. Unfortunately, eqn $\ref{eqn:hamiltonian-not-rotating-frame}$ is time-dependent, which made it difficult to solve for the Schrödinger equation $|\psi(t)\rangle=e^{-\frac{i}{\hbar}\int_{0}^{t}H(\tau)d\tau}|\psi(0)\rangle$. In fact, there is no closed form solution available. To remedy this, we are going to re-write our Hamiltonian using the rotating frame transformation.
+
+## Going into the rotating frame
+
+### Rewriting the Hamiltonian for convenience
+
+Before going into the rotating frame, we can rewrite eqn $\ref{eqn:hamiltonian-not-rotating-frame}$ by noting that $\cos{(\omega_\text{r}t)}\equiv (e^{-i\omega_\text{r}t}+e^{i\omega_\text{r}t})/2$ and $\sin{(\omega_\text{r}t)}\equiv i(e^{-i\omega_\text{r}t}-e^{i\omega_\text{r}t})/2$:
+
+$$
+\begin{equation}
+H=\frac{\hbar\Omega}{2}(e^{-i\omega_\text{r}t}\sigma_++e^{i\omega_\text{r}t}\sigma_-)+\frac{\hbar\omega_0}{2}\sigma_Z,
+\end{equation}
+$$
+
+where we have also introduced $\sigma_\pm=(\sigma_X\pm i\sigma_Y)/2$ for convenience. As we move on from this, you will see that the rewritten Hamiltonian is much easier to work with when going into the rotating frame.
+
+### Hamiltonian in the rotating frame
+
+To obtain the Hamiltonian in the rotating frame about the $z$-axis at frequency $\omega_\text{r}$, we introduce the following evolution operator $U=e^{-i\frac{\omega_\text{r}t}{2}\sigma_Z}$ and the formula $H_\text{RF}=U^\dagger HU+i\hbar\frac{\partial U^\dagger}{\partial t}U$. After working this formula out, you should get:
+
+$$
+\begin{equation}
+H_\text{RF}=\frac{\hbar\Delta}{2}\sigma_Z+\frac{\hbar\Omega}{2}(\cos(\varphi)\sigma_X+\sin(\varphi)\sigma_Y),
+\label{eqn:hamiltonian-rotating-frame}
+\end{equation}
+$$
+
+which is time-independent! It is now possible to determine via a closed form solution what our initial input state $|\psi_\text{RF}(0)\rangle$ becomes after time evolution due to our new Hamiltonian:
+
+$$
+\begin{equation}
+|\psi_\text{RF}(t)\rangle=e^{-\frac{i}{\hbar}H_\text{RF}t}|\psi_\text{RF}(0)\rangle.
+\end{equation}
+$$
+
+### Time evolution due to the Hamiltonian
+
+On resonance, i.e., $\Delta=0$, our initial state $|\psi(0)\rangle=|1\rangle$ oscillates between $|0\rangle$ and $|1\rangle$:
+
+<div style="align-self: center;">
+	<img
+		src="/assets/rabi_delta0.gif"
+		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
+		style="margin-bottom:-10px; border-radius: 17px;"
+		class="shadow-wo"
+		height="500"
+		width="800"
+		loading="lazy"
+		decoding="async"
+	></img>
+</div>
+
+This makes sense because when $\Delta=0$, the $\sigma_Z$ term goes to zero in eqn $\ref{eqn:hamiltonian-rotating-frame}$ resulting in a rotation about some axis along the $xy$-plane. Since $\varphi=0$, only the $\sigma_X$ term survives, hence the axis of rotation is along the $x$-axis.
+
+When off resonance, i.e., $\Delta\neq0$, our state no longer oscillates in such a way that $P_{\ket{0}}=1$ anymore due to the non-zero $\sigma_Z$ term:
+
+<div style="align-self: center;">
+	<img
+		src="/assets/rabi_delta√5÷2.gif"
+		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
+		style="margin-bottom:-10px; border-radius: 17px;"
+		class="shadow-wo"
+		height="500"
+		width="800"
+		loading="lazy"
+		decoding="async"
+	></img>
+</div>
+
+If you apply a $\tfrac{\pi}{2}$-pulse, then $\varphi=\tfrac{\pi}{2}$, which results in rotation about the $y$-axis instead:
+
+<div style="align-self: center;">
+	<img
+		src="/assets/rabi_2blochs_π÷2.gif"
+		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
+		style="margin-bottom:-10px; border-radius: 17px;"
+		class="shadow-wo"
+		height="500"
+		width="800"
+		loading="lazy"
+		decoding="async"
+	></img>
+</div>
+
+In quantum computing, Rabi oscillations are crucial since they provide the basic means of manipulating the state of qubits to perform any meaningful computation.
+
+## Appendix
+
+### Derivation of the Hamiltonian in a rotating frame
+
+$$
+\begin{align}
+i\hbar\frac{\partial}{\partial t}|\psi_\text{RF}(t)\rangle&=i\hbar\frac{\partial U^\dagger(t)|\psi_\text{RF}(t)\rangle}{\partial t}\nonumber\\
+&=U^\dagger\Big(i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle\Big)+\Big(i\hbar\frac{\partial}{\partial t}U^\dagger(t)\Big)|\psi(t)\rangle\nonumber\\
+&=\Big(U^\dagger HU+i\hbar\frac{\partial U^\dagger}{\partial t}U\Big)|\psi_\text{RF}(t)\rangle\nonumber\\
+&=H_\text{RF}|\psi_\text{RF}(t)\rangle.
+\end{align}
+$$
+
+Therefore, $H_\text{RF}=U^\dagger HU+i\hbar\frac{\partial U^\dagger}{\partial t}U$, where your rotating frame is dictated by your choice of $U$.

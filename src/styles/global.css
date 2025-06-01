@@ -1,5 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
 @import "./starwind.css";
-/* @import "tailwindcss"; */
+
+/* Reference for Tailwind CSS v4: https://stackoverflow.com/a/79444043 */
+@theme {
+    --font-mono: "Cascadia Code", "monospace";
+    --selection-textcolor: #f8f8f2;
+    --selection-bg: #b4637a;
+    --theme-bg: #faf4ed;
+    /* --font-inter: "Source Sans 3", "sans-serif"; */
+}
 
 @layer base {
     :root {
@@ -8,16 +18,27 @@
         --theme-logo-top-face: #fbb039;
     }
 
+    ::selection {
+        color: var(--selection-textcolor);
+        background: var(--selection-bg);
+    }
+
     html {
         @apply m-0 h-full w-full scroll-smooth p-0;
+        font-family: var(--font-mono);
+        background-color: var(--theme-bg);
     }
 
     html body {
         @apply mx-0 flex h-full flex-col px-0 pt-0 antialiased;
     }
 
+    code {
+        font-famikly: var(--font-mono);
+    }
+
     header {
-        @apply fixed flex-row justify-between w-full mb-16 flex items-center px-4 py-4 lg:pl-[16.0rem] lg:pr-[16.0rem] duration-150 outline-1;
+        @apply fixed flex-row justify-between w-full mb-16 flex items-center px-4 py-4 lg:pl-[16.0rem] lg:pr-[16.0rem] duration-150 outline-1 backdrop-blur-sm bg-[var(--theme-bg)]/50;
     }
 
     main {
@@ -25,5 +46,11 @@
     }
     footer {
         @apply mt-auto flex-row flex w-full items-end px-4 pb-4 pt-20 text-start align-top text-gray-500 lg:pl-[16.0rem] lg:pr-[16.0rem] divide-x;
+    }
+    a.coloured-link {
+        @apply italic text-[var(--theme-logo-front-face)] hover:font-bold;
+    }
+    a.hover-coloured-link {
+        @apply italic hover:text-[var(--theme-logo-front-face)];
     }
 }
