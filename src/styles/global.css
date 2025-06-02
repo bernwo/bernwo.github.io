@@ -54,14 +54,37 @@
 
 .cardtitle,
 h1.title {
-    @apply text-2xl font-bold text-accent-2 fill-accent-2 font-serif;
+    @apply text-2xl font-bold text-accent-2 fill-accent-2 font-serif stroke-accent-2 stroke-1;
+}
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+    0%,
+    67% {
+        stroke-width: 1;
+    }
+    100% {
+        stroke-width: 0;
+    }
+}
+@keyframes filling {
+    0%,
+    90% {
+        fill: var(--theme-accent-2);
+        fill-opacity: 0;
+    }
+    100% {
+        fill: var(--theme-accent-2);
+        fill-opacity: 1;
+    }
 }
 h1.hello-world {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
     animation:
-        dash 2s cubic-bezier(0.76, 0, 0.07, 1) 0.4s forwards,
-        filling 2s ease-in forwards;
+        dash 1.25s cubic-bezier(0.76, 0, 0.07, 1) 0.4s forwards,
+        filling 1.25s ease-in forwards;
 }
 
 aside.table-of-contents-blogpost > ul > li > a.section-scroll-active {
