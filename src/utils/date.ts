@@ -1,4 +1,6 @@
 import type { CollectionEntry } from "astro:content";
+import * as path from "node:path";
+import * as fs from "node:fs";
 
 // This configuration object defines the locale and options for formatting dates.
 const dateConfig = {
@@ -60,4 +62,21 @@ export function getUniqueTagsWithCount(posts: CollectionEntry<"blog">[] = []): {
     });
     return runningTags;
   }, {});
+}
+
+// Function to get package version from node_modules
+export function getPackageVersion(packageName: string) {
+  try {
+    const packagePath = path.resolve(
+      process.cwd(),
+      "node_modules",
+      packageName,
+      "package.json",
+    );
+    const packageJson = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+    return { name: packageName, version: packageJson.version };
+  } catch (error: any) {
+    console.warn(`Could not find version for ${packageName}:`, error.message);
+    return { name: packageName, version: null }; // Fallback to just the package name if version can't be found
+  }
 }

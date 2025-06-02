@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { sortMDByDate } from "../utils/date";
+import { sortMDByDate, getPackageVersion } from "../utils/date";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import SocialList from "@/components/SocialList.astro";
@@ -8,6 +8,8 @@ import LaTeXLogo from "@/components/logo/LaTeXLogo.astro";
 import BibTeXLogo from "@/components/logo/BibTeXLogo.astro";
 const title = "Home • Wo";
 
+const remarkMathInfo = getPackageVersion("remark-math");
+const remarkMathJaxInfo = getPackageVersion("rehype-mathjax");
 const MAX_POSTS = 11;
 const allPosts = await getCollection("blog");
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
@@ -79,19 +81,19 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
                 GitHub</a
             >. Throughout my website, I use
             <a
-                href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861"
+                href="https://github.com/remarkjs/remark-math/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="coloured-link inline-block"
             >
-                remark-math.js
+                {remarkMathInfo.name}.js {remarkMathInfo.version}
             </a> with <a
-                href="https://github.com/remarkjs/remark-math/tree/7e82f934e77d62b7366825633bc7f1d5d5e5a861/packages/rehype-mathjax"
+                href="https://github.com/remarkjs/remark-math/tree/main/packages/rehype-mathjax"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="coloured-link inline-block"
             >
-                rehype-mathjax/chtml.js
+                {remarkMathJaxInfo.name}/chtml.js {remarkMathJaxInfo.version}
             </a> for rendering <LaTeXLogo /> math expressions at <i
                 >compile time</i
             >, <a

@@ -1,8 +1,10 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
+import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math"; // pnpm install remark-math
 import rehypeMathJaxCHtml from "rehype-mathjax/chtml"; // pnpm install rehype-mathjax
+import rehypeCitation from "rehype-citation"; // pnpm install rehype-citation
 
 import mdx from "@astrojs/mdx";
 
@@ -18,7 +20,7 @@ export default defineConfig({
       theme: "monokai",
       wrap: true,
     },
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkGfm, remarkMath],
     rehypePlugins: [
       [
         rehypeMathJaxCHtml,
@@ -40,6 +42,15 @@ export default defineConfig({
             ],
             processEscapes: true,
           },
+        },
+      ],
+      [
+        rehypeCitation,
+        {
+          bibliography: "./src/assets/citation/bibfile.bib",
+          linkCitations: true,
+          csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/cambridge-university-press-note.csl",
+          suppressBibliography: true,
         },
       ],
     ],
