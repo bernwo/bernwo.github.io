@@ -18,7 +18,7 @@ observer.observe(targetHeader);
 
 // Script for dynamic highlighting of table of contents. Modified from https://stackoverflow.com/a/75346369/15587966.
 const anchors: NodeListOf<Element> = document.querySelectorAll(
-  "h2:not(.table-of-contents-blogpost),h3:not(.table-of-contents-blogpost),h4:not(.table-of-contents-blogpost),h5:not(.table-of-contents-blogpost),h6:not(.table-of-contents-blogpost)",
+  "h1:not(.table-of-contents-blogpost),h2:not(.table-of-contents-blogpost),h3:not(.table-of-contents-blogpost),h4:not(.table-of-contents-blogpost),h5:not(.table-of-contents-blogpost),h6:not(.table-of-contents-blogpost)",
 );
 const links: NodeListOf<Element> = document.querySelectorAll(
   "aside.table-of-contents-blogpost > ul > li > a",
