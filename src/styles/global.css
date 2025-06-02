@@ -68,7 +68,12 @@
 }
 
 div.echarts {
-    @apply shadow-lg w-full items-center justify-center flex bg-[var(--echarts-background-colour)] m-0 p-0 rounded-[6px] aspect-[1618/1000];
+    @apply shadow-md w-full items-center justify-center flex bg-[var(--echarts-background-colour)] m-0 p-0 rounded-[6px] aspect-[1618/1000];
+}
+
+div.spin-container {
+    aspect-ratio: auto;
+    @apply flex justify-center flex-row touch-auto bg-[var(--echarts-background-colour)] shadow-md rounded-[6px];
 }
 
 /* Reference: https://github.com/shikijs/shiki/issues/3#issuecomment-830564854 */
