@@ -10,10 +10,8 @@ const { frontmatter } = Astro.props;
 const { headings } = await render(frontmatter);
 ---
 
-<script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        import("../scripts/blog.ts");
-    });
+<script>
+    import "../scripts/blog.ts";
 </script>
 
 <BaseLayout
@@ -57,7 +55,7 @@ const { headings } = await render(frontmatter);
     </div>
     <button
         id="to-top-btn"
-        class="z-90 fixed bottom-8 right-4 flex h-10 w-10 translate-y-28 items-center justify-center rounded-full border-2 border-transparent bg-zinc-200 text-3xl opacity-0 transition-all duration-300 hover:border-zinc-400 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 dark:bg-zinc-700 sm:right-8 sm:h-12 sm:w-12 shadow-md"
+        class="z-90 fixed bottom-8 right-4 lg:right-64 flex h-12 w-12 translate-y-28 items-center justify-center rounded-full border-1 border-[var(--theme-text)] bg-[var(--theme-bg)]/50 backdrop-blur-sm transition-all duration-150 hover:border-2 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 shadow-md"
         aria-label="Back to Top"
         data-show="false"
         ><svg
@@ -67,7 +65,7 @@ const { headings } = await render(frontmatter);
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="2"
-            stroke="currentColor"
+            stroke="var(--theme-text)"
             class="h-6 w-6"
         >
             <path

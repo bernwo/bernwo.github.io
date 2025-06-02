@@ -133,6 +133,8 @@ window.addEventListener("DOMContentLoaded", () => {
         elem.parentNode.parentNode.parentNode.parentNode.className;
       if (
         elem.nodeName === "A" &&
+        elem.getAttribute("href") &&
+        elem.getAttribute("href").startsWith("#") &&
         !(
           anchorsToExclude
             .map((x) => elem.className.includes(x))
