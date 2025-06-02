@@ -39,11 +39,15 @@ const classWo = "w-auto h-14 outline-none"; // For the Wo logo
                 animationDuration={animationMilliseconds}
                 class="shadow-md bg-[var(--theme-bg)]/50 outline-1 border-none backdrop-blur-sm"
             >
-                <DropdownItem as="a" href="/">Home</DropdownItem>
-                <DropdownItem as="a" href="/publications"
+                <DropdownItem as="a" href="/" class="nav-anchor"
+                    >Home</DropdownItem
+                >
+                <DropdownItem as="a" href="/publications" class="nav-anchor"
                     >Publications</DropdownItem
                 >
-                <DropdownItem as="a" href="/posts">Blog</DropdownItem>
+                <DropdownItem as="a" href="/posts" class="nav-anchor"
+                    >Blog</DropdownItem
+                >
             </DropdownContent>
         </DropdownTrigger>
     </Dropdown>

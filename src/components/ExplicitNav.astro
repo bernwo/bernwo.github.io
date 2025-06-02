@@ -7,7 +7,7 @@ import { MENU_LINKS } from "@/constants";
         MENU_LINKS.map((link) => (
             <a
                 href={link.path}
-                class="hover:underline py-0 px-4"
+                class="hover:underline py-0 px-4 nav-anchor"
                 rel="prefetch"
                 aria-current={Astro.url.pathname === link.path ? "page" : false}
             >

@@ -2,9 +2,9 @@
 title: "New quantum repeater paper out on arxiv!"
 publishDate: "18 June 2023"
 description: "Announcement of a collaborative work on quantum repeaters with code concatenation going public on arXiv"
-tags: ["academics","quantum computing"]
+tags: ["paper"]
 ---
-
+import BlogAnchor from "@/components/blog/BlogAnchor.astro";
 import { Image } from 'astro:assets';
 import repeaterNetworkImg from "../assets/networkoverviewflagfinal.jpg";
 
@@ -22,7 +22,7 @@ import repeaterNetworkImg from "../assets/networkoverviewflagfinal.jpg";
 	</span>
 </div>
 
-As mentioned in <a href="/posts/why-is-1-erasure-error-not-the-same-as-a-single-qubit-error">Why is a quantum erasure error and a Pauli error not the same?</a> blog post, I had something big that had been in the works for quite some time with great collaborators, and it is now finally out on <a href="https://arxiv.org/abs/2306.07224">arxiv</a>[@Wo2023] I'm especially excited about this because this work combines two different quantum error correcting code to form a robust hybrid quantum repeater network architecture that bridges intercontinental distances for quantum communication.
+As mentioned in <BlogAnchor href="/posts/why-is-1-erasure-error-not-the-same-as-a-single-qubit-error">Why is a quantum erasure error and a Pauli error not the same?</BlogAnchor> blog post, I had something big that had been in the works for quite some time with great collaborators, and it is now finally out on <BlogAnchor href="https://arxiv.org/abs/2306.07224">arxiv</BlogAnchor>[@Wo2023] I'm especially excited about this because this work combines two different quantum error correcting code to form a robust hybrid quantum repeater network architecture that bridges intercontinental distances for quantum communication.
 
 This was also my first time submitting my LaTeX source files to arxiv by myself, and needless to say it was an _edifying_ experience. This is because my LaTeX source files are configured in such a way that the main text and supplemental material are completely separate, and that the format is configured for publishing to a reputable journal. Arxiv, on the other hand, requires specify configuration of the source files and that the sources for both the main text and supplemental material must be packaged into one.
 
