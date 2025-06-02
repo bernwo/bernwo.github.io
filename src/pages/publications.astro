@@ -13,10 +13,10 @@ const title = "Publications • Wo";
 <!-- https://asouqi.github.io/bibtex-converter/ was utilised to convert bibfile contents to plaintext -->
 <BaseLayout title={title}>
     <Card
-        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md"
+        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px]"
     >
         <CardHeader>
-            <CardTitle>Publications</CardTitle>
+            <CardTitle class="cardtitle">Publications</CardTitle>
             <CardDescription class="pb-8"
                 >Here are my scientific publications :)</CardDescription
             >
@@ -62,5 +62,4 @@ const title = "Publications • Wo";
             </ol>
         </CardContent>
     </Card>
-    <div></div>
 </BaseLayout>

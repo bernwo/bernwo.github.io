@@ -12,7 +12,7 @@ import {
     PaginationNext,
 } from "@/components/starwind/pagination";
 
-import { getUniqueTags, sortMDByDate } from "../../utils/date.ts";
+import { getUniqueTags, sortMDByDate } from "../../utils/utils.ts";
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const allPosts = await getCollection("blog");
     const allPostsByDate = sortMDByDate(allPosts);
@@ -78,7 +78,7 @@ const paginationProps = {
                         {uniqueTags.map((tag) => (
                             <Badge
                                 class="badgetag"
-                                size="md"
+                                size="lg"
                                 href={`/tags/${tag}`}
                                 aria-label={`View all posts with the tag: ${tag}`}
                             >

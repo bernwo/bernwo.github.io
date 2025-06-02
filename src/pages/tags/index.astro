@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getUniqueTagsWithCount } from "../../utils/utils.ts";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+const allTags = getUniqueTagsWithCount(allPosts);
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from "@/components/starwind/card";
+const title = "All Tags";
+---
+
+<BaseLayout title={title}>
+    <Card
+        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px]"
+    >
+        <CardHeader>
+            <CardTitle class="cardtitle">Tags</CardTitle>
+        </CardHeader>
+        <CardContent class="flex flex-col gap-4">
+            <ul class="space-y-4">
+                {
+                    Object.entries(allTags).map(([tag, val]) => (
+                        <li class="flex items-center gap-x-2">
+                            <a
+                                class="coloured-link inline-block"
+                                href={`/tags/${tag}`}
+                                title={`View posts with the tag: ${tag}`}
+                                rel="prefetch"
+                            >
+                                &#35;{tag}
+                            </a>
+                            <span class="inline-block">
+                                - {val} Post{val > 1 && "s"}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </CardContent>
+    </Card>
+</BaseLayout>

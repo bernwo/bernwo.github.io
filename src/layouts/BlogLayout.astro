@@ -27,7 +27,7 @@ const { headings } = await render(frontmatter);
                     </h2>
                     <ul class="mt-4 text-xs">
                         {headings.map(({ depth, slug, text }) => (
-                            <li class="line-clamp-2 hover:text-accent">
+                            <li class="line-clamp-2 hover:text-accent-primary">
                                 <a
                                     class={`block ${depth <= 2 ? "mt-3" : "mt-2 pl-3 text-[0.6875rem]"}`}
                                     href={`#${slug}`}
@@ -47,7 +47,7 @@ const { headings } = await render(frontmatter);
         <article class="flex-grow break-words">
             <div id="blog-hero"><BlogHero content={frontmatter} /></div>
             <div
-                class="prose flex-none flex-col sm:flex max-w-5xl prose-base prose-cactus mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ml-4 prose-headings:before:text-accent prose-headings:before:content-['§'] prose-th:before:content-none"
+                class="prose flex-none flex-col sm:flex max-w-5xl prose-base prose-bern mt-12 prose-headings:font-semibold prose-headings:before:absolute prose-headings:before:-ml-4 prose-headings:before:text-accent-primary prose-headings:before:content-['§'] prose-th:before:content-none"
             >
                 <slot />
             </div>

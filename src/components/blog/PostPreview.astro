@@ -3,7 +3,7 @@ interface IElement {
     readonly as?: keyof HTMLElementTagNameMap;
 }
 import type { CollectionEntry } from "astro:content";
-import { getFormattedDate } from "../../utils/date.ts";
+import { getFormattedDate } from "../../utils/utils.ts";
 
 interface Props extends IElement {
     post: CollectionEntry<"blog">;
