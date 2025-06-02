@@ -30,6 +30,10 @@
     {
       "name": "badge",
       "version": "1.1.1"
+    },
+    {
+      "name": "card",
+      "version": "1.1.0"
     }
   ]
 }

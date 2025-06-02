@@ -5,8 +5,13 @@
 
 /* Reference for Tailwind CSS v4: https://stackoverflow.com/a/79444043 */
 
+@theme {
+    --font-mono: "Cascadia Code", "monospace";
+}
+
 @layer base {
     :root {
+        --echarts-background-colour: #272822;
         --selection-textcolor: #f8f8f2;
         --selection-bg: #b4637a;
         --theme-bg: #faf4ed;
@@ -60,4 +65,24 @@
 /* badgetag is used for StarwindUI badges acting as tags */
 .badgetag {
     @apply flex rounded-lg items-center justify-center p-1;
+}
+
+div.echarts {
+    @apply shadow-lg w-full items-center justify-center flex bg-[var(--echarts-background-colour)] m-0 p-0 rounded-[6px] aspect-[1618/1000];
+}
+
+/* Reference: https://github.com/shikijs/shiki/issues/3#issuecomment-830564854 */
+code {
+    counter-reset: step;
+    counter-increment: step 0;
+    font-size: medium;
+}
+code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 0.5rem;
+    margin-right: 1rem;
+    display: inline-block;
+    text-align: right;
+    color: rgba(115, 138, 148, 0.4);
 }

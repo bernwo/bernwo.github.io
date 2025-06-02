@@ -11,10 +11,15 @@ const { headings } = await render(frontmatter);
 ---
 
 <script is:inline>
-    import "../scripts/blog.ts";
+    document.addEventListener("DOMContentLoaded", () => {
+        import("../scripts/blog.ts");
+    });
 </script>
 
-<BaseLayout title={frontmatter.data.title}>
+<BaseLayout
+    title={frontmatter.data.title}
+    useECharts={frontmatter.data.useECharts}
+>
     <div class="gap-x-10 lg:flex lg:items-start">
         {
             !!headings.length && (

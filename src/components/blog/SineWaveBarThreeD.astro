@@ -1,0 +1,17 @@
+---
+const id = "sine-wave-bar3d-chart";
+---
+
+<script is:inline define:vars={{ id }}>
+    document.addEventListener("DOMContentLoaded", () => {
+        import("../src/scripts/echarts/plot.js")
+            .then((plot) => {
+                plot.createSineWaveBar3D(id, 25);
+            })
+            .catch(() =>
+                console.log(`Sine wave bar3d chart Error! "${error}"`),
+            );
+    });
+</script>
+
+<div class="echarts" id={id}></div>
