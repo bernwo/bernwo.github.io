@@ -23,33 +23,51 @@ const anchors: NodeListOf<Element> = document.querySelectorAll(
 const links: NodeListOf<Element> = document.querySelectorAll(
   "aside.table-of-contents-blogpost > ul > li > a",
 );
+
+// Create a map of anchor IDs to their corresponding links
+const anchorToLinkMap = new Map();
+links.forEach((link) => {
+  const href = link.getAttribute("href");
+  if (href && href.startsWith("#")) {
+    const id = href.substring(1);
+    anchorToLinkMap.set(id, link);
+  }
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
-    if (
-      typeof anchors != "undefined" &&
-      anchors != null &&
-      typeof links != "undefined" &&
-      links != null
-    ) {
-      let scrollTop = window.scrollY;
-      // highlight the last scrolled-to: set everything inactive first
-      links.forEach((link, _) => {
-        link.classList.remove("section-scroll-active");
-      });
+    if (anchors.length === 0 || links.length === 0) return;
 
-      // Check if scrolled to the very bottom of page
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-        // @ts-ignore: Object is possibly 'null'.
-        links[anchors.length - 1].classList.add("section-scroll-active");
-      } else {
-        // then iterate backwards, on the first match highlight it and break
-        for (let i = anchors.length - 1; i >= 0; i--) {
-          // @ts-ignore: Object is possibly 'null'.
-          if (scrollTop > anchors[i].offsetTop - 100) {
-            // @ts-ignore: Object is possibly 'null'.
-            links[i].classList.add("section-scroll-active");
-            break;
-          }
+    let scrollTop = window.scrollY;
+
+    // Remove active class from all links
+    links.forEach((link) => {
+      link.classList.remove("section-scroll-active");
+    });
+
+    // Check if scrolled to the very bottom of page
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+      // Find the last anchor and highlight its corresponding link
+      const lastAnchor = anchors[anchors.length - 1];
+      const lastAnchorId = lastAnchor.id;
+      const lastLink = anchorToLinkMap.get(lastAnchorId);
+      if (lastLink) {
+        lastLink.classList.add("section-scroll-active");
+      }
+      return;
+    }
+
+    // Find the current visible section by iterating backwards
+    for (let i = anchors.length - 1; i >= 0; i--) {
+      const anchor = anchors[i];
+      if (
+        scrollTop >
+        anchor.getBoundingClientRect().top + window.scrollY - 100
+      ) {
+        const link = anchorToLinkMap.get(anchor.id);
+        if (link) {
+          link.classList.add("section-scroll-active");
+          break;
         }
       }
     }
