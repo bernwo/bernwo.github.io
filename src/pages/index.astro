@@ -9,7 +9,9 @@ import BibTeXLogo from "@/components/logo/BibTeXLogo.astro";
 const title = "Home • Wo";
 
 const remarkMathInfo = getPackageVersion("remark-math");
-const remarkMathJaxInfo = getPackageVersion("rehype-mathjax");
+const rehypeMathJaxInfo = getPackageVersion("rehype-mathjax");
+const rehypeCitationInfo = getPackageVersion("rehype-citation");
+const remarkGfmInfo = getPackageVersion("remark-gfm");
 const MAX_POSTS = 11;
 const allPosts = await getCollection("blog");
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
@@ -93,7 +95,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
                 rel="noopener noreferrer"
                 class="coloured-link inline-block"
             >
-                {remarkMathJaxInfo.name}/chtml.js {remarkMathJaxInfo.version}
+                {rehypeMathJaxInfo.name}/chtml.js {rehypeMathJaxInfo.version}
             </a> for rendering <LaTeXLogo /> math expressions at <i
                 >compile time</i
             >, <a
@@ -104,13 +106,20 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
             >
                 ECharts.js
             </a> for interactive plots, and <a
-                href="https://www.npmjs.com/package/@supremum/remark-bibtex"
+                href="https://github.com/timlrx/rehype-citation"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="coloured-link inline-block"
             >
-                remark-bibtex.js
-            </a> to do <BibTeXLogo /> styled citation.
+                {rehypeCitationInfo.name}.js {rehypeCitationInfo.version}
+            </a> along with <a
+                href="https://github.com/remarkjs/remark-gfm"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="coloured-link inline-block"
+            >
+                {remarkGfmInfo.name}.js {remarkGfmInfo.version}
+            </a> for citations.
         </p>
     </section>
 </BaseLayout>
