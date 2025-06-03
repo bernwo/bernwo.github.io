@@ -5,6 +5,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import SocialList from "@/components/SocialList.astro";
 import LaTeXLogo from "@/components/logo/LaTeXLogo.astro";
+import ThingsIWorkOn from "@/components/homepage/ThingsIWorkOn.astro";
 const title = "Home • Wo";
 
 const remarkMathInfo = getPackageVersion("remark-math");
@@ -44,9 +45,15 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
             class="inline-block coloured-link"
         >
             Centre for Quantum Technologies
-        </a> at the National University of Singapore where I'm working together with
-        a team of talented people on achieving optic-microwave quantum entanglement.
+        </a> at the National University of Singapore in <a
+            href="https://qovelab.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block coloured-link">Qovelab</a
+        > where I'm working together with a team of talented people on achieving
+        optic-microwave quantum entanglement.
     </p>
+    <ThingsIWorkOn />
     <SocialList />
     <section aria-label="Blog post list" class="mt-16">
         <h2 class="title mb-4 text-xl">Posts</h2>
