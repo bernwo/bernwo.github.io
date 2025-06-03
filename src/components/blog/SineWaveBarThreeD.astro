@@ -1,17 +1,12 @@
 ---
-const id = "sine-wave-bar3d-chart";
+
 ---
 
-<script is:inline define:vars={{ id }}>
+<div class="echarts" id="sine-wave-bar3d-chart"></div>
+
+<script>
+    import { createSineWaveBar3D } from "../../scripts/echarts/plot.js";
     document.addEventListener("DOMContentLoaded", () => {
-        import("../src/scripts/echarts/plot.js")
-            .then((plot) => {
-                plot.createSineWaveBar3D(id, 25);
-            })
-            .catch(() =>
-                console.log(`Sine wave bar3d chart Error! "${error}"`),
-            );
+        createSineWaveBar3D("sine-wave-bar3d-chart", 25);
     });
 </script>
-
-<div class="echarts" id={id}></div>
