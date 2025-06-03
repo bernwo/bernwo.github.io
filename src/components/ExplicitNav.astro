@@ -4,16 +4,16 @@ import { Button } from "@/components/starwind/button";
 ---
 
 <nav class="divide-x flex-row hidden sm:flex md:flex lg:flex">
-    {
-        MENU_LINKS.map((link) => (
-            <Button
-                variant="ghost"
-                class="nav-anchor border-none outline-0 hover:outline-1 hover:bg-transparent bg-transparent py-0 px-2 mx-1 my-0 items-center gap-0 h-8 text-base font-semibold"
-                href={link.path}
-                aria-current={Astro.url.pathname === link.path ? "page" : false}
-            >
-                {link.title}
-            </Button>
-        ))
-    }
+  {
+    MENU_LINKS.map((link) => (
+      <Button
+        variant="ghost"
+        class="nav-anchor border-none outline-0 hover:outline-1 hover:bg-transparent bg-transparent py-0 px-2 mx-1 my-0 items-center gap-0 h-8 text-base font-semibold"
+        href={link.path}
+        aria-current={Astro.url.pathname === link.path ? "page" : false}
+      >
+        {link.title}
+      </Button>
+    ))
+  }
 </nav>

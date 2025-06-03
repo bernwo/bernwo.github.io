@@ -72,7 +72,7 @@ export function createCongruentModScatter(inputID, size) {
     let myChart = echarts.init(chartDom);
     const option = getScatterOption(size, "n", "y");
     const optionData = getScatterData(
-      generate_congruent_modulo_data(size, slider.value),
+      generate_congruent_modulo_data(size, slider.value)
     );
     myChart.setOption(option);
     myChart.setOption(optionData);
@@ -86,7 +86,7 @@ export function createCongruentModScatter(inputID, size) {
     slider.oninput = function () {
       display.innerHTML = this.value;
       myChart.setOption(
-        getScatterData(generate_congruent_modulo_data(size, this.value)),
+        getScatterData(generate_congruent_modulo_data(size, this.value))
       );
     };
   }

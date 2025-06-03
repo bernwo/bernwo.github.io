@@ -15,13 +15,13 @@ const dateConfig = {
 // This creates a new Intl.DateTimeFormat object for formatting dates based on the specified locale and options.
 const dateFormat = new Intl.DateTimeFormat(
   dateConfig.locale,
-  dateConfig.options as Intl.DateTimeFormatOptions,
+  dateConfig.options as Intl.DateTimeFormatOptions
 );
 
 // This function formats a date into a human-readable string based on the provided locale and options.
 export function getFormattedDate(
   date: string | number | Date,
-  options?: Intl.DateTimeFormatOptions,
+  options?: Intl.DateTimeFormatOptions
 ) {
   if (typeof options !== "undefined") {
     return new Date(date).toLocaleDateString(dateConfig.locale, {
@@ -38,7 +38,7 @@ export function sortMDByDate(posts: CollectionEntry<"blog">[] = []) {
   return posts.sort(
     (a, b) =>
       new Date(b.data.publishDate).valueOf() -
-      new Date(a.data.publishDate).valueOf(),
+      new Date(a.data.publishDate).valueOf()
   );
 }
 
@@ -71,7 +71,7 @@ export function getPackageVersion(packageName: string) {
       process.cwd(),
       "node_modules",
       packageName,
-      "package.json",
+      "package.json"
     );
     const packageJson = JSON.parse(fs.readFileSync(packagePath, "utf8"));
     return { name: packageName, version: packageJson.version };

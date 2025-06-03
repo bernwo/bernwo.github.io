@@ -1,13 +1,13 @@
 ---
 interface IElement {
-    readonly as?: keyof HTMLElementTagNameMap;
+  readonly as?: keyof HTMLElementTagNameMap;
 }
 import type { CollectionEntry } from "astro:content";
 import { getFormattedDate } from "../../utils/utils.ts";
 
 interface Props extends IElement {
-    post: CollectionEntry<"blog">;
-    withDesc?: boolean;
+  post: CollectionEntry<"blog">;
+  withDesc?: boolean;
 }
 
 const { post, as: Element = "div", withDesc = false } = Astro.props;
@@ -18,12 +18,12 @@ const postDate = getFormattedDate(date);
 
 <time datetime={datetime} class="min-w-[120px] text-gray-500">{postDate}</time>
 <Element>
-    <a href={`/posts/${post.id}`} class="coloured-link" rel="prefetch">
-        {post.data.title}
-    </a>
+  <a href={`/posts/${post.id}`} class="coloured-link" rel="prefetch">
+    {post.data.title}
+  </a>
 </Element>
 {
-    withDesc && (
-        <q class="line-clamp-3 mt-2 block italic">{post.data.description}</q>
-    )
+  withDesc && (
+    <q class="line-clamp-3 mt-2 block italic">{post.data.description}</q>
+  )
 }

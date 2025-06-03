@@ -9,7 +9,7 @@ export function SpinGeometry(
   cylinderRadius: number,
   cylinderHeight: number,
   coneRadius: number,
-  coneHeight: number,
+  coneHeight: number
 ): THREE.BufferGeometry {
   //   const { mergeGeometries } = await import(
   // "three/examples/jsm/utils/BufferGeometryUtils.js"
@@ -18,18 +18,18 @@ export function SpinGeometry(
   const sphereGeometry: THREE.SphereGeometry = new THREE.SphereGeometry(
     sphereRadius,
     32,
-    16,
+    16
   );
   const cylinderGeometry: THREE.CylinderGeometry = new THREE.CylinderGeometry(
     cylinderRadius,
     cylinderRadius,
     cylinderHeight,
-    radialSegments,
+    radialSegments
   );
   const coneGeometry: THREE.ConeGeometry = new THREE.ConeGeometry(
     coneRadius,
     coneHeight,
-    radialSegments,
+    radialSegments
   );
   // cylinderGeometry.translate(0, 100, 0);
   cylinderGeometry.rotateZ(-3.14 / 8);
