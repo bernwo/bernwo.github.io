@@ -1,23 +1,15 @@
 {
-	"extends": "astro/tsconfigs/strictest",
-	"compilerOptions": {
-		"ignoreDeprecations": "5.0",
-		"skipLibCheck": true,
-		"baseUrl": ".",
-		"paths": {
-			"@/assets.jpg/*": ["src/assets/*.jpg"],
-			"@/assets.png/*": ["src/assets/*.png"],
-			"@/scripts.ts/*": ["src/scripts/*.ts"],
-			"@/scripts.js/*": ["src/scripts/*.js"],
-			"@/echarts/*": ["src/components/echarts/*.astro"],
-			"@/three/*": ["src/components/three/*.astro"],
-			"@/components/*": ["src/components/*.astro"],
-			"@/layouts/*": ["src/layouts/*.astro"],
-			"@/utils": ["src/utils/index.ts"],
-			"@/stores/*": ["src/stores/*"],
-			"@/data/*": ["src/data/*"],
-			"@/site-config": ["src/site.config.ts"]
-		}
-	},
-	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["three"],
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true
+  }
 }

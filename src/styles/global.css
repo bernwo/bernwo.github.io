@@ -1,247 +1,144 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-@tailwind base;
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import "./starwind.css";
+@plugin '@tailwindcss/typography'; /* pnpm add -D @tailwindcss/typography */
+@config "../../tailwind.config.cjs"; /* Reference: https://github.com/tailwindlabs/tailwindcss-typography/blob/main/README.md */
+
+/* Reference for Tailwind CSS v4: https://stackoverflow.com/a/79444043 */
+
+@theme {
+    --font-sans: "Source Sans 3", sans-serif;
+    --echarts-background-colour: #272822;
+    --selection-textcolor: #f8f8f2;
+    --theme-selection-bg: #b4637a;
+    --theme-bg: #faf4ed;
+    --theme-link: #567c77;
+    --theme-href: #b4637a;
+    --theme-logo-front-face: #ef5455;
+    --theme-logo-left-face: #14406b;
+    --theme-logo-top-face: #fbb039;
+    --theme-quote: #b4637a;
+    --theme-text: #22272a;
+    --theme-accent: #b4637a;
+    --theme-accent-2: #286983;
+}
 
 @layer base {
-	/* Inspired by the "rose-pine-dawn" theme */
-	:root {
-		color-scheme: light;
-		--theme-header-bg: #faf4edaa;
-		--theme-bg: #faf4ed;
-		--theme-link: #567c77;
-		--theme-href: #b4637a;
-		--theme-text: #22272a;
-		--theme-accent: #b4637a;
-		--theme-accent-2: #286983;
-		--theme-quote: #b4637a;
-		--theme-menu-bg: rgb(250 250 250 / 0.85);
-		--theme-logo-front-face: #ef5455;
-		--theme-logo-left-face: #14406b;
-		--theme-logo-top-face: #fbb039;
-		--theme-slider-thumb: #b4637a;
-		--theme-selection-textcolor: #f8f8f2;
-		--theme-selection-bg: #b4637a;
-	}
-	/* Inspired by the "monokai" theme */
-	:root.dark {
-		color-scheme: dark;
-		--theme-header-bg: #2c3639aa;
-		--theme-bg: #2c3639;
-		--theme-link: #f92672;
-		--theme-href: #a6e22e;
-		--theme-text: #f8f8f2;
-		--theme-accent: #a6e22e;
-		--theme-accent-2: #fd971f;
-		--theme-quote: #ffe792;
-		--theme-menu-bg: #2e2e2e;
-		--theme-logo-front-face: #ef5455;
-		--theme-logo-left-face: #14406b;
-		--theme-logo-top-face: #fbb039;
-		--theme-slider-thumb: #f92672;
-		--theme-selection-textcolor: #22272a;
-		--theme-selection-bg: #f92672;
-	}
+    ::selection {
+        color: var(--selection-textcolor);
+        background: var(--theme-selection-bg);
+    }
 
-	html {
-		@apply m-0 h-full w-full scroll-smooth p-0;
-	}
+    html {
+        background-color: var(--theme-bg);
+        color: var(--theme-text);
+        @apply m-0 h-full w-full scroll-smooth p-0;
+    }
 
-	html body {
-		@apply mx-0 flex h-full flex-col bg-bgColor px-0 pt-0 font-sans text-base font-semibold text-textColor antialiased;
-	}
+    html body {
+        @apply mx-0 flex h-full flex-col px-0 pt-0 antialiased font-sans text-base font-semibold;
+    }
 
-	header {
-		/* @apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo; */
-		@apply fixed left-0 right-0 top-0 z-50 mb-14 flex items-center bg-[var(--theme-header-bg)] px-4 py-2 shadow-wo backdrop-blur-md duration-200 hover:bg-[var(--theme-bg)] hover:backdrop-blur-none sm:pl-[6.0rem];
-	}
+    header {
+        @apply z-50 fixed flex-row justify-between w-full mb-16 flex items-center px-4 py-4 lg:pl-[16.0rem] lg:pr-[16.0rem] duration-150 outline-1 backdrop-blur-sm bg-[var(--theme-bg)]/50;
+    }
 
-	main {
-		@apply mt-[130px] px-4 lg:pl-[15.0rem] lg:pr-[8.0rem];
-	}
+    main {
+        @apply mt-[130px] px-4 lg:pl-[16.0rem] lg:pr-[16.0rem];
+    }
 
-	footer {
-		/* @apply py-2 px-4 mb-14 flex items-center sm:pl-[6.0rem] shadow-wo; */
-		@apply mt-auto flex w-full flex-col items-center justify-center gap-y-2 px-4 pb-4 pt-20 text-center align-top text-gray-500 sm:flex-row sm:justify-between sm:text-xs lg:pl-[15.0rem] lg:pr-[8.0rem];
-	}
+    footer {
+        @apply z-50 mt-auto flex-row flex w-full items-end px-4 pb-4 pt-20 text-start align-top text-gray-500 lg:pl-[16.0rem] lg:pr-[16.0rem] divide-x;
+    }
 }
 
-::selection {
-	color: var(--theme-selection-textcolor);
-	background: var(--theme-selection-bg);
+.cardtitle,
+h1.title {
+    @apply text-2xl font-bold text-accent-2 fill-accent-2 font-serif stroke-accent-2 stroke-1;
 }
-
-.fixed-position {
-	overflow: hidden;
-}
-
-/* Adds line numbers to add the shiki code blocks */
-.astro-code code {
-	font-size: 15px;
-	font-weight: 600;
-	counter-reset: step;
-	counter-increment: step 0;
-}
-.astro-code code .line::before {
-	content: counter(step);
-	counter-increment: step;
-	width: 1rem;
-	margin-right: 1.5rem;
-	display: inline-block;
-	text-align: right;
-	color: rgba(210, 224, 230, 0.4);
-}
-
-h1.hello-world {
-	stroke-dasharray: 500;
-	stroke-dashoffset: 500;
-	animation: dash 2s cubic-bezier(0.76, 0, 0.07, 1) 0.4s forwards, filling 2s ease-in forwards;
-}
-
 @keyframes dash {
-	to {
-		stroke-dashoffset: 0;
-	}
+    to {
+        stroke-dashoffset: 0;
+    }
+    0%,
+    67% {
+        stroke-width: 1;
+    }
+    100% {
+        stroke-width: 0;
+    }
 }
-
 @keyframes filling {
-	0%,
-	90% {
-		fill: var(--theme-accent-2);
-		fill-opacity: 0;
-	}
-	100% {
-		fill: var(--theme-accent-2);
-		fill-opacity: 1;
-	}
+    0%,
+    90% {
+        fill: var(--theme-accent-2);
+        fill-opacity: 0;
+    }
+    100% {
+        fill: var(--theme-accent-2);
+        fill-opacity: 1;
+    }
 }
-
-pre.astro-code,
-div.echarts,
-div.math.math-display,
-div.slider-container {
-	align-self: center;
-	align-content: space-between; /* Especially for div.math.math-display */
-	max-width: 37rem;
-}
-
-@media (min-width: 640px) {
-	/* Do not have minimum width at screen width sizes smaller than 640px */
-	pre.astro-code,
-	div.echarts,
-	div.math.math-display,
-	div.slider-container {
-		width: 37rem;
-	}
+h1.hello-world {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation:
+        dash 1.25s cubic-bezier(0.76, 0, 0.07, 1) 0.4s forwards,
+        filling 1.25s ease-in forwards;
 }
 
 aside.table-of-contents-blogpost > ul > li > a.section-scroll-active {
-	color: var(--theme-selection-bg);
-	font-weight: 700;
+    color: var(--theme-selection-bg);
+    font-weight: 700;
 }
 
-.astro-code {
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+fixed-position {
+    overflow: hidden;
+}
+
+/* badgetag is used for StarwindUI badges acting as tags */
+.badgetag {
+    @apply flex rounded-md items-center justify-center p-1 bg-accent-primary;
 }
 
 div.echarts {
-	padding: 0%;
-	margin: 0%;
-	background-color: #272822;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 5px;
-	width: 100%;
-	aspect-ratio: 1618/1000;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
-}
-
-.publication {
-	padding: 9px 2.7%;
-	border-radius: 5px;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
-}
-
-.publication li {
-	margin: 27px 0;
-}
-
-.slider-container {
-	margin: 12px 0px;
-	display: flex;
-	justify-content: space-evenly;
-	gap: 20px;
-	width: 100%; /* Width of the outside container */
-}
-
-/* The slider itself */
-.slider {
-	margin: 30px 0px;
-	-webkit-appearance: none;
-	appearance: none;
-	height: 3px; /* Specified height */
-	background: var(--theme-text); /* Grey background */
-	opacity: 0.88; /* Set transparency (for mouse-over effects on hover) */
-	-webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-	transition: opacity 0.2s;
-	flex: 1 1 0;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-	opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 15px;
-	height: 15px;
-	border-radius: 100%;
-	border-width: 3px;
-	border-color: var(--theme-bg);
-	background: var(--theme-slider-thumb);
-	cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-	width: 15px;
-	height: 15px;
-	border-radius: 100%;
-	border-color: var(--theme-bg);
-	border-width: 3px;
-	background: var(--theme-slider-thumb);
-	cursor: pointer; /* Cursor on hover */
+    @apply shadow-md w-full items-center justify-center flex bg-[var(--echarts-background-colour)] m-0 p-0 rounded-[6px] aspect-[1618/1000];
 }
 
 div.spin-container {
-	width: 100%;
-	aspect-ratio: auto;
-	background: var(--theme-bg);
-	border-radius: 5px;
-	justify-content: center;
-	display: flex;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
-		0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
-}
-
-@media (min-width: 640px) {
-	div.spin-container {
-		display: block;
-		align-self: center;
-		max-width: 250px;
-		aspect-ratio: 1/1;
-	}
+    @apply flex justify-center flex-row touch-auto bg-[var(--echarts-background-colour)] shadow-md rounded-[6px] aspect-auto;
 }
 
 canvas#threejsspinexample {
-	max-width: 100%;
-	max-height: 100%;
+    @apply max-w-full max-h-full;
 }
 
-@tailwind components;
-@tailwind utilities;
+/* Reference: https://github.com/shikijs/shiki/issues/3#issuecomment-830564854 */
+code {
+    counter-reset: step;
+    counter-increment: step 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 0.5rem;
+    margin-right: 1rem;
+    display: inline-block;
+    text-align: right;
+    color: rgba(210, 224, 230, 0.4);
+}
+.astro-code {
+    @apply shadow-md;
+}
+
+a.coloured-link {
+    @apply italic font-semibold text-hrefcolor no-underline hover:underline;
+}
+a.hover-coloured-link {
+    @apply italic font-semibold hover:text-hrefcolor;
+}
+a[data-footnote-ref] {
+    @apply text-accent-primary no-underline hover:underline font-semibold;
+}
