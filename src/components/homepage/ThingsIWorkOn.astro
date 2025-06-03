@@ -1,10 +1,10 @@
 ---
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
 } from "@/components/starwind/card";
 import { Picture } from "astro:assets";
 import fabricationImg from "../../assets/things_i_work_on/fabrication.jpg";
@@ -15,89 +15,88 @@ import readoutImg from "../../assets/things_i_work_on/readout.png";
 
 <h1 class="title mb-2">Things I work on</h1>
 <div
-    class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 items-start justify-evenly w-full h-auto"
+  class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 items-start justify-evenly w-full h-auto"
 >
-    <Card
-        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px] col-span-2"
-    >
-        <CardHeader>
-            <CardTitle class="cardtitle">Optics and nanopositioners</CardTitle>
-            <CardDescription
-                >On-chip photonic chip characterisation and nanopositioners
-                control at cryogenic temperatures</CardDescription
-            >
-        </CardHeader>
-        <CardContent class="flex flex-col gap-4">
-            <Picture
-                class="w-full p-0 m-0 aspect-square object-center object-cover rounded-[6px] outline-1 shadow-md"
-                src={nanopositionerImg}
-                alt="Nanopositioner"
-                width={500}
-                formats={["avif", "webp"]}
-                loading={"lazy"}
-            />
-        </CardContent>
-    </Card>
-    <Card
-        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px]"
-    >
-        <CardHeader>
-            <CardTitle class="cardtitle">Fabrication</CardTitle>
-            <CardDescription
-                >Heteregeneous on-chip photonic integration</CardDescription
-            >
-        </CardHeader>
-        <CardContent class="flex flex-col gap-4">
-            <Picture
-                class="w-full p-0 m-0 aspect-square object-[-12rem] lg:object-[-10rem] object-none rounded-[6px] outline-1 shadow-md"
-                src={fabricationImg}
-                width={600}
-                formats={["avif", "webp"]}
-                loading={"lazy"}
-                alt="A photonic chip"
-            />
-        </CardContent>
-    </Card>
-    <Card
-        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px]"
-    >
-        <CardHeader>
-            <CardTitle class="cardtitle">Photonic design</CardTitle>
-            <CardDescription
-                >Ansys Lumerical simulation and GDSII design</CardDescription
-            >
-        </CardHeader>
-        <CardContent class="flex flex-col gap-4">
-            <Picture
-                class="w-full p-0 m-0 aspect-square object-center object-cover rounded-[6px] outline-1 shadow-md"
-                src={designImg}
-                formats={["avif", "webp"]}
-                loading={"lazy"}
-                alt="Simulation results"
-            />
-        </CardContent>
-    </Card>
-    <Card
-        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px] col-span-2"
-    >
-        <CardHeader>
-            <CardTitle class="cardtitle"
-                >Coding high performance control and readout</CardTitle
-            >
-            <CardDescription
-                >Multithreaded control and readout with optional custom Rust
-                backend</CardDescription
-            >
-        </CardHeader>
-        <CardContent class="flex flex-col gap-4">
-            <Picture
-                class="w-full p-0 m-0 aspect-[4.45/1] object-center object-cover rounded-[6px] outline-1 shadow-md"
-                src={readoutImg}
-                width={readoutImg.width}
-                formats={["avif", "webp"]}
-                loading={"lazy"}
-                alt="Readout results"
-            />
-        </CardContent>
-    </Card>
+  <Card
+    class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px] col-span-2"
+  >
+    <CardHeader>
+      <CardTitle class="cardtitle">Optics and nanopositioners</CardTitle>
+      <CardDescription>
+        On-chip photonic chip characterisation and nanopositioners control at
+        cryogenic temperatures
+      </CardDescription>
+    </CardHeader>
+    <CardContent class="flex flex-col gap-4">
+      <Picture
+        class="w-full p-0 m-0 aspect-square object-center object-cover rounded-[6px] outline-1 shadow-md"
+        src={nanopositionerImg}
+        alt="Nanopositioner"
+        width={500}
+        formats={["avif", "webp"]}
+        loading={"lazy"}
+      />
+    </CardContent>
+  </Card>
+  <Card
+    class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px]"
+  >
+    <CardHeader>
+      <CardTitle class="cardtitle">Fabrication</CardTitle>
+      <CardDescription>
+        Heteregeneous on-chip photonic integration
+      </CardDescription>
+    </CardHeader>
+    <CardContent class="flex flex-col gap-4">
+      <Picture
+        class="w-full p-0 m-0 aspect-square object-[-12rem] lg:object-[-10rem] object-none rounded-[6px] outline-1 shadow-md"
+        src={fabricationImg}
+        width={600}
+        formats={["avif", "webp"]}
+        loading={"lazy"}
+        alt="A photonic chip"
+      />
+    </CardContent>
+  </Card>
+  <Card
+    class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px]"
+  >
+    <CardHeader>
+      <CardTitle class="cardtitle">Photonic design</CardTitle>
+      <CardDescription>
+        Ansys Lumerical simulation and GDSII design
+      </CardDescription>
+    </CardHeader>
+    <CardContent class="flex flex-col gap-4">
+      <Picture
+        class="w-full p-0 m-0 aspect-square object-center object-cover rounded-[6px] outline-1 shadow-md"
+        src={designImg}
+        formats={["avif", "webp"]}
+        loading={"lazy"}
+        alt="Simulation results"
+      />
+    </CardContent>
+  </Card>
+  <Card
+    class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px] col-span-2"
+  >
+    <CardHeader>
+      <CardTitle class="cardtitle">
+        Coding high performance control and readout
+      </CardTitle>
+      <CardDescription>
+        Multithreaded control and readout with optional custom Rust backend
+      </CardDescription>
+    </CardHeader>
+    <CardContent class="flex flex-col gap-4">
+      <Picture
+        class="w-full p-0 m-0 aspect-[4.45/1] object-center object-cover rounded-[6px] outline-1 shadow-md"
+        src={readoutImg}
+        width={readoutImg.width}
+        formats={["avif", "webp"]}
+        loading={"lazy"}
+        alt="Readout results"
+      />
+    </CardContent>
+  </Card>
 </div>

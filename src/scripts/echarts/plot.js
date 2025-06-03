@@ -21,7 +21,7 @@ function generate_sine_wave_data(n, phase) {
     i % n,
     (Math.sin(
       phase +
-        (1 / 3) * Math.sqrt((~~(i / n) - n / 2) ** 2 + ((i % n) - n / 2) ** 2),
+        (1 / 3) * Math.sqrt((~~(i / n) - n / 2) ** 2 + ((i % n) - n / 2) ** 2)
     ) +
       1) /
       2,
@@ -132,7 +132,7 @@ export function createRandomisedBar3D(inputID, size) {
     const optionData = getBar3Ddata(
       size,
       generate_random_data(size),
-      "Random data",
+      "Random data"
     );
     myChart.setOption(option);
     myChart.setOption(optionData);
@@ -147,7 +147,7 @@ export function createSineWaveBar3D(inputID, size) {
     const optionData = getBar3Ddata(
       size,
       generate_sine_wave_data(size, 0),
-      "Sine Wave",
+      "Sine Wave"
     );
     myChart.setOption(option);
     myChart.setOption(optionData);

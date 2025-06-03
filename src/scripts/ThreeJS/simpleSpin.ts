@@ -13,7 +13,7 @@ let spinMesh: THREE.Mesh;
 export function initThreeJsSpin(
   canvasId: string,
   outlineColourString: string,
-  pointLightIntensity: number,
+  pointLightIntensity: number
 ): void {
   init(canvasId, outlineColourString, pointLightIntensity);
   animate();
@@ -22,7 +22,7 @@ export function initThreeJsSpin(
 function init(
   canvasId: string,
   outlineColourString: string,
-  pointLightIntensity: number,
+  pointLightIntensity: number
 ): void {
   // Get canvas element
   const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -36,7 +36,7 @@ function init(
     250 / 2,
     250 / -2,
     1,
-    2500,
+    2500
   );
   camera.position.set(0.0, 400, 700);
   camera.zoom = 0.8;
@@ -67,7 +67,7 @@ function init(
     sphereRadius / 5,
     sphereRadius * 3.6,
     sphereRadius / 1.8,
-    sphereRadius * 1.15,
+    sphereRadius * 1.15
   );
 
   //
@@ -89,7 +89,7 @@ function init(
     colorsLength,
     1,
     THREE.RGBAFormat,
-    THREE.UnsignedByteType,
+    THREE.UnsignedByteType
   );
   gradientMap.needsUpdate = true;
   gradientMap.colorSpace = THREE.SRGBColorSpace;
@@ -121,7 +121,7 @@ function init(
     0xffffff,
     pointLightIntensity,
     4000,
-    1,
+    1
   );
   particleLight.add(pointLight);
 
@@ -132,7 +132,7 @@ function init(
     defaultColor: [outlineColour.r, outlineColour.g, outlineColour.b] as [
       number,
       number,
-      number,
+      number
     ],
   });
 
