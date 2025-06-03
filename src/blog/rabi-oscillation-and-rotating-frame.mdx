@@ -5,19 +5,22 @@ publishDate: "22 August 2023"
 tags: ["math"]
 ---
 
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
+import rabi2Blochs from "../assets/rabi_2blochs.gif";
+import rabiDelta0 from "../assets/rabi_delta0.gif";
+import rabiDeltaSqrt5 from "../assets/rabi_delta√5÷2.gif";
+import rabi2BlochsPi2 from "../../src/assets/rabi_2blochs_π÷2.gif";
+
 
 <div style="align-self: center;">
-	<img
-		src="../../src/assets/rabi_2blochs.gif"
-		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
-		style="margin-bottom:-10px; border-radius: 17px;"
-		class="shadow-md"
-		height="600"
-		width="900"
-		loading="lazy"
-		decoding="async"
-	></img>
+  <Picture
+      src={rabi2Blochs}
+      alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
+      style="margin-bottom:-10px; border-radius: 17px;"
+      width={rabi2Blochs.width}
+      class="shadow-md"
+      formats={["webp"]}
+	/>
 	<span style="font-style: italic; font-weight: 400">
 		Rabi oscillation in the presence of a transverse magnetic field after a rotating frame
 		transformation for both "on resonance" and "off resonance" cases.
@@ -95,16 +98,14 @@ $$
 On resonance, i.e., $\Delta=0$, our initial state $|\psi(0)\rangle=|1\rangle$ oscillates between $|0\rangle$ and $|1\rangle$:
 
 <div style="align-self: center;">
-	<img
-		src="../../src/assets/rabi_delta0.gif"
+	<Picture
+		src={rabiDelta0}
 		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
 		style="margin-bottom:-10px; border-radius: 17px;"
+		width={rabiDelta0.width}
 		class="shadow-md"
-		height="500"
-		width="800"
-		loading="lazy"
-		decoding="async"
-	></img>
+		formats={["webp"]}
+	/>
 </div>
 
 This makes sense because when $\Delta=0$, the $\sigma_Z$ term goes to zero in eqn $\ref{eqn:hamiltonian-rotating-frame}$ resulting in a rotation about some axis along the $xy$-plane. Since $\varphi=0$, only the $\sigma_X$ term survives, hence the axis of rotation is along the $x$-axis.
@@ -112,31 +113,27 @@ This makes sense because when $\Delta=0$, the $\sigma_Z$ term goes to zero in eq
 When off resonance, i.e., $\Delta\neq0$, our state no longer oscillates in such a way that $P_{\ket{0}}=1$ anymore due to the non-zero $\sigma_Z$ term:
 
 <div style="align-self: center;">
-	<img
-		src="../../src/assets/rabi_delta√5÷2.gif"
+	<Picture
+		src={rabiDeltaSqrt5}
 		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
 		style="margin-bottom:-10px; border-radius: 17px;"
+		width={rabiDeltaSqrt5.width}
 		class="shadow-md"
-		height="500"
-		width="800"
-		loading="lazy"
-		decoding="async"
-	></img>
+		formats={["webp"]}
+	/>
 </div>
 
 If you apply a $\tfrac{\pi}{2}$-pulse, then $\varphi=\tfrac{\pi}{2}$, which results in rotation about the $y$-axis instead:
 
 <div style="align-self: center;">
-	<img
-		src="../../src/assets/rabi_2blochs_π÷2.gif"
+	<Picture
+		src={rabi2BlochsPi2}
 		alt="An animated gif depicting two bloch sphere, each harbouring a rotating bloch vector according to Rabi oscillation"
 		style="margin-bottom:-10px; border-radius: 17px;"
+		width={rabi2BlochsPi2.width}
 		class="shadow-md"
-		height="500"
-		width="800"
-		loading="lazy"
-		decoding="async"
-	></img>
+		formats={["webp"]}
+	/>
 </div>
 
 In quantum computing, Rabi oscillations are crucial since they provide the basic means of manipulating the state of qubits to perform any meaningful computation.

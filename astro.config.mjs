@@ -10,6 +10,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+  outDir: "./dist",
   site: "https://bernwo.github.io/",
   vite: {
     plugins: [tailwindcss()],
