@@ -1,36 +1,46 @@
 ---
-import PageLayout from "@/layouts/Base";
-import { getUniqueTagsWithCount } from "@/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getUniqueTagsWithCount } from "../../utils/utils.ts";
 import { getCollection } from "astro:content";
 
-const allPosts = await getCollection("post");
+const allPosts = await getCollection("blog");
 const allTags = getUniqueTagsWithCount(allPosts);
-
-const meta = {
-	title: "All Tags",
-	description: "All Tags from my blogs",
-};
+import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+} from "@/components/starwind/card";
+const title = "All Tags";
 ---
 
-<PageLayout meta={meta}>
-	<h1 class="title mb-6">Tags</h1>
-	<ul class="space-y-4">
-		{
-			Object.entries(allTags).map(([tag, val]) => (
-				<li class="flex items-center gap-x-2">
-					<a
-						class="cactus-link inline-block"
-						href={`/tags/${tag}`}
-						title={`View posts with the tag: ${tag}`}
-						rel="prefetch"
-					>
-						&#35;{tag}
-					</a>
-					<span class="inline-block">
-						- {val} Post{val > 1 && "s"}
-					</span>
-				</li>
-			))
-		}
-	</ul>
-</PageLayout>
+<BaseLayout title={title}>
+    <Card
+        class="bg-[var(--theme-bg)]/50 backdrop-blur-sm outline-1 border-none shadow-md rounded-[6px]"
+    >
+        <CardHeader>
+            <CardTitle class="cardtitle">Tags</CardTitle>
+        </CardHeader>
+        <CardContent class="flex flex-col gap-4">
+            <ul class="space-y-4">
+                {
+                    Object.entries(allTags).map(([tag, val]) => (
+                        <li class="flex items-center gap-x-2">
+                            <a
+                                class="coloured-link inline-block"
+                                href={`/tags/${tag}`}
+                                title={`View posts with the tag: ${tag}`}
+                                rel="prefetch"
+                            >
+                                &#35;{tag}
+                            </a>
+                            <span class="inline-block">
+                                - {val} Post{val > 1 && "s"}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </CardContent>
+    </Card>
+</BaseLayout>

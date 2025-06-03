@@ -1,0 +1,63 @@
+---
+import {
+    Dropdown,
+    DropdownTrigger,
+    DropdownContent,
+    DropdownItem,
+} from "@/components/starwind/dropdown";
+import { Button } from "@/components/starwind/button";
+import WoLogo from "@/components/logo/WoLogo.astro";
+import Hamburger from "@/components/logo/Hamburger.astro";
+import ExplicitNav from "@/components/ExplicitNav.astro";
+const animationMilliseconds = 150;
+const buttonStrokeColour = "white";
+const classWo = "w-auto h-14 outline-none"; // For the Wo logo
+---
+
+<header>
+    <div class="flex flex-row gap-4 items-center">
+        <span class="block">
+            <WoLogo classWo={classWo} />
+        </span>
+        <div>
+            <span class="pl-4 text-2xl font-bold">Wo</span>
+            <ExplicitNav />
+        </div>
+    </div>
+    <Dropdown openOnHover closeDelay={animationMilliseconds}>
+        <DropdownTrigger asChild>
+            <Button
+                variant="ghost"
+                class="border-none outline-none hover:bg-transparent bg-transparent"
+            >
+                <Hamburger strokeColour={buttonStrokeColour} strokeWidth="0" />
+            </Button>
+            <DropdownContent
+                side="bottom"
+                align="end"
+                sideOffset={8}
+                animationDuration={animationMilliseconds}
+                class="shadow-md bg-[var(--theme-bg)]/50 outline-1 border-none backdrop-blur-sm"
+            >
+                <DropdownItem
+                    as="a"
+                    href="."
+                    class="nav-anchor border-1 border-transparent focus:bg-transparent focus:border-black"
+                    >Home</DropdownItem
+                >
+                <DropdownItem
+                    as="a"
+                    href="/publications"
+                    class="nav-anchor border-1 border-transparent focus:bg-transparent focus:border-black"
+                    >Publications</DropdownItem
+                >
+                <DropdownItem
+                    as="a"
+                    href="/posts"
+                    class="nav-anchor border-1 border-transparent focus:bg-transparent focus:border-black"
+                    >Blog</DropdownItem
+                >
+            </DropdownContent>
+        </DropdownTrigger>
+    </Dropdown>
+</header>

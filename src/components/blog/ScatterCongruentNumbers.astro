@@ -1,0 +1,15 @@
+---
+const id = "congruent-numbers-scatter-chart";
+---
+
+<script is:inline define:vars={{ id }}>
+    document.addEventListener("DOMContentLoaded", () => {
+        import("../src/scripts/echarts/scatterPlot.js")
+            .then((scatterPlot) => {
+                scatterPlot.createCongruentModScatter(id, 2001);
+            })
+            .catch((error) => console.log(`scatterPlot Error! "${error}"`));
+    });
+</script>
+
+<div class="echarts" id={id}></div>
