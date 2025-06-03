@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Wo's logo" src="./public/icon.png" width="90" />
+  <img alt="Wo's logo" src="./public/icon.svg" width="90" />
 </div>
 <h1 align="center">
   Wo's personal website
