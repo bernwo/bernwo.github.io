@@ -1,15 +1,12 @@
 ---
-const id = "congruent-numbers-scatter-chart";
+
 ---
 
-<script is:inline define:vars={{ id }}>
+<div class="echarts" id="congruent-numbers-scatter-chart"></div>
+
+<script>
+    import { createCongruentModScatter } from "../../scripts/echarts/scatterPlot.js";
     document.addEventListener("DOMContentLoaded", () => {
-        import("../src/scripts/echarts/scatterPlot.js")
-            .then((scatterPlot) => {
-                scatterPlot.createCongruentModScatter(id, 2001);
-            })
-            .catch((error) => console.log(`scatterPlot Error! "${error}"`));
+        createCongruentModScatter("congruent-numbers-scatter-chart", 2001);
     });
 </script>
-
-<div class="echarts" id={id}></div>
